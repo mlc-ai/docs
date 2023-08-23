@@ -5,7 +5,7 @@
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= python -m sphinx
-SOURCEDIR     = ./docs
+SOURCEDIR     = docs
 BUILDDIR      = _build
 STAGINGDIR    = _staging
 
@@ -37,22 +37,22 @@ staging:
 	find $(STAGINGDIR) -type l -exec rm {} \;
 
 	# Reproduce the directory structure
-	find . \
+	find ${SOURCEDIR} \
 	      -path ./$(BUILDDIR) -prune -o -path ./$(STAGINGDIR) -prune -o \
 	      -name "*.rst"  \
 	      -printf "$(STAGINGDIR)/%h\n" \
               | sort | uniq | xargs mkdir -p
 
 	# Symlink all .rst files into the staging directory
-	find . \
+	find ${SOURCEDIR} \
 	      -path ./$(BUILDDIR) -prune -o -path ./$(STAGINGDIR) -prune -o \
 	      -name "*.rst"  \
-	      -exec ln -s $(SOURCEDIR)/{} $(STAGINGDIR)/{} \;
+	      -exec ln -s $(PWD)/{} $(STAGINGDIR)/{} \;
 
-	ln -s $(SOURCEDIR)/conf.py $(STAGINGDIR)/conf.py
-	ln -s $(SOURCEDIR)/_static $(STAGINGDIR)/_static
+	ln -s $(PWD)/$(SOURCEDIR)/conf.py $(STAGINGDIR)/${SOURCEDIR}/conf.py
+	ln -s $(PWD)/$(SOURCEDIR)/_static $(STAGINGDIR)/${SOURCEDIR}/_static
 
 html: staging
-	cd $(STAGINGDIR) && $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(PWD)/$(BUILDDIR)/html
+	$(SPHINXBUILD) -M html $(STAGINGDIR)/docs $(BUILDDIR)
 	@echo
-	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)."

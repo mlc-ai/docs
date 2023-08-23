@@ -1,7 +1,6 @@
 # pylint: disable=invalid-name, exec-used, redefined-builtin
 # -*- coding: utf-8 -*-
 import os
-import sys
 from pathlib import Path
 
 import sphinx_rtd_theme
@@ -9,10 +8,6 @@ import tlcpack_sphinx_addon
 import tvm
 
 # -- General configuration ------------------------------------------------
-
-sys.path.insert(0, os.path.abspath("../python"))
-# do not load mlc-llm.so in docs
-os.environ["SKIP_LOADING_MLCLLM_SO"] = "1"
 
 # General information about the project.
 
@@ -23,11 +18,8 @@ github_doc_root = "https://github.com/mlc-ai/docs/"
 
 # Version information.
 curr_path = Path(__file__).expanduser().absolute().parent
-if curr_path.name == "_staging":
-    # Can't use curr_path.parent, because sphinx_gallery requires a relative path.
-    tvm_path = Path(os.pardir, os.pardir)
-else:
-    tvm_path = Path(os.pardir)
+# Can't use curr_path.parent, because sphinx_gallery requires a relative path.
+home_path = Path(os.pardir, os.pardir) if "_staging" in str(curr_path) else Path(os.pardir)
 
 version = tvm.__version__
 release = version
@@ -124,7 +116,7 @@ html_static_path += [tlcpack_sphinx_addon.get_static_path()]
 
 # Sphinx-Gallery Settings
 examples_dirs = [
-    "../tutorials/contribute",
+    f"{home_path}/tutorials/contribute",
 ]
 
 gallery_dirs = [
@@ -140,5 +132,5 @@ sphinx_gallery_conf = {
     "show_signature": False,
     "download_all_examples": False,
     "promote_jupyter_magic": True,
-    "default_thumb_file": "_static/img/empty-thumb.png",
+    "default_thumb_file": "docs/_static/img/empty-thumb.png",
 }
