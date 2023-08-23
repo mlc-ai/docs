@@ -33,6 +33,7 @@ version = tvm.__version__
 release = version
 
 extensions = [
+    "sphinx_gallery.gen_gallery",
     "sphinx_tabs.tabs",
     "sphinx_toolbox.collapse",
     "sphinxcontrib.httpdomain",
@@ -85,7 +86,7 @@ html_theme_options = {
 header_links = [
     ("Github", "https://github.com/apache/tvm/tree/unity/"),
     ("MLC-LLM", "https://mlc.ai/mlc-llm/"),
-    ("MLC-Tutorial", "https://mlc.ai/")
+    ("MLC-Tutorial", "https://mlc.ai/"),
 ]
 
 header_dropdown = {
@@ -119,3 +120,25 @@ html_context = {
 # add additional overrides
 templates_path += [tlcpack_sphinx_addon.get_templates_path()]
 html_static_path += [tlcpack_sphinx_addon.get_static_path()]
+
+
+# Sphinx-Gallery Settings
+examples_dirs = [
+    "../tutorials/contribute",
+]
+
+gallery_dirs = [
+    "contribute",
+]
+
+sphinx_gallery_conf = {
+    "examples_dirs": examples_dirs,
+    "gallery_dirs": gallery_dirs,
+    "backreferences_dir": "gen_modules/backreferences",
+    "filename_pattern": r".*\.py",
+    "ignore_pattern": r"__init__\.py",
+    "show_signature": False,
+    "download_all_examples": False,
+    "promote_jupyter_magic": True,
+    "default_thumb_file": "_static/img/empty-thumb.png",
+}
