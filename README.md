@@ -23,8 +23,7 @@ make html
 Run the following command to start a simple HTTP server:
 
 ```bash
-cd _build/html
-python3 -m http.server
+python -m http.server -d _build/html 8000
 ```
 
-Then you can view the documentation in your browser at `http://localhost:8000` (the port can be customized by appending ` -p PORT_NUMBER` in the python command above).
+Then you can view the documentation in your browser at `http://localhost:8000` (the port can be customized by changing the port number).
