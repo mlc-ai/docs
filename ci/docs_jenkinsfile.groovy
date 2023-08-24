@@ -106,7 +106,7 @@ stage('Build') {
       ws(per_exec_ws('mlc-docs/build')) {
         init_git()
         sh (script: "${docker_run} ${ci_gpu} nvidia-smi", label: 'Check GPU info')
-        sh (script: "${docker_run} ${ci_gpu} 'pip install -r ./requirements.txt && make html'", label: 'Build docs')
+        sh (script: "${docker_run} ${ci_gpu} ./ci/build_docs.sh", label: 'Build docs')
       }
     }
   }
