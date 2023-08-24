@@ -302,23 +302,8 @@ fi
 ### End of argument parsing ###
 ###############################
 
-source "$(dirname $0)/dev_common.sh" || exit 2
-
 DOCKER_MOUNT=( )
 DOCKER_DEVICES=( )
-# If the user gave a shortcut defined in the Jenkinsfile, use it.
-EXPANDED_SHORTCUT=$(lookup_image_spec "${DOCKER_IMAGE_NAME}")
-if [ -n "${EXPANDED_SHORTCUT}" ]; then
-    if [ "${CI+x}" == "x" ]; then
-        DOCKER_IMAGE_NAME="${EXPANDED_SHORTCUT}"
-    else
-        python3 ci/scripts/jenkins/determine_docker_images.py "$DOCKER_IMAGE_NAME" 2> /dev/null
-        DOCKER_IMAGE_NAME=$(cat ".docker-image-names/$DOCKER_IMAGE_NAME")
-        if [[ "$DOCKER_IMAGE_NAME" == *"tlcpackstaging"* ]]; then
-            echo "WARNING: resolved docker image to fallback tag in tlcpackstaging" >&2
-        fi
-    fi
-fi
 
 # Set up working directories
 
@@ -344,6 +329,7 @@ DOCKER_FLAGS+=(--rm)
 # have pid 1 and SIGKILL is propagated to the process inside, allowing
 # jenkins to kill it if needed.  This is only necessary for docker
 # daemons running as root.
+DOCKER_IS_ROOTLESS=$(docker info 2> /dev/null | grep 'Context: \+rootless')
 if [ -z "${DOCKER_IS_ROOTLESS}" ]; then
     DOCKER_FLAGS+=(--pid=host)
 fi
