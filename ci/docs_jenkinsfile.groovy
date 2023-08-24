@@ -106,8 +106,8 @@ stage('Build') {
       ws(per_exec_ws('mlc-docs/build')) {
         init_git()
         sh (script: """
-          python -m pip install --upgrade pip
-          pip install -r ./requirements.txt
+          ${docker_run} ${ci_gpu} python -m pip install --upgrade pip
+          ${docker_run} ${ci_gpu} pip install -r ./requirements.txt
           """, label: 'Installing dependencies')
         sh (script: "${docker_run} ${ci_gpu} nvidia-smi", label: 'Check GPU info')
         sh (script: "${docker_run} ${ci_gpu} make html", label: 'Build docs')
