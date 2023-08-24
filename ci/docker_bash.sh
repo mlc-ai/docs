@@ -325,15 +325,6 @@ DOCKER_ENV+=( --env CI_BUILD_HOME="${REPO_MOUNT_POINT}"
 # Remove the container once it finishes running (--rm).
 DOCKER_FLAGS+=(--rm)
 
-# Share the PID namespace (--pid=host).  The process inside does not
-# have pid 1 and SIGKILL is propagated to the process inside, allowing
-# jenkins to kill it if needed.  This is only necessary for docker
-# daemons running as root.
-DOCKER_IS_ROOTLESS=$(docker info 2> /dev/null | grep 'Context: \+rootless')
-if [ -z "${DOCKER_IS_ROOTLESS}" ]; then
-    DOCKER_FLAGS+=(--pid=host)
-fi
-
 
 # Expose services running in container to the host.
 if $USE_NET_HOST; then
@@ -401,14 +392,11 @@ else
     DOCKER_BINARY=docker
 fi
 
-
-
 # Pass any restrictions of allowed CUDA devices from the host to the
 # docker container.
 if [[ -n ${CUDA_VISIBLE_DEVICES:-} ]]; then
     DOCKER_ENV+=( --env CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES}" )
 fi
-
 
 
 # Set TVM import path inside the docker image
@@ -450,16 +438,6 @@ if [ -f "${REPO_DIR}/.git" ]; then
     if [ "${git_dir}" != "${REPO_DIR}/.git" ]; then
         DOCKER_MOUNT+=( --volume "${git_dir}:${git_dir}" )
     fi
-fi
-
-# If the docker daemon is running as root, use the TVM-provided
-# "with_the_same_user" script to update the PID.  When using rootless
-# docker, this step is unnecessary.
-if [ -z "${DOCKER_IS_ROOTLESS}" ]; then
-    COMMAND=(
-        bash --login /docker/with_the_same_user
-        ${COMMAND[@]+"${COMMAND[@]}"}
-    )
 fi
 
 # Print arguments.
