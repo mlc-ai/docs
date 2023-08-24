@@ -21,12 +21,6 @@
 // Jenkins pipeline
 // See documents at https://jenkins.io/doc/book/pipeline/jenkinsfile/
 
-// ============================= IMPORTANT NOTE =============================
-// To keep things simple
-// This file is manually updated to maintain unity branch specific builds.
-// Please do not send this file to main
-
-
 import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 
 // NOTE: these lines are scanned by docker/dev_common.sh. Please update the regex as needed. -->
@@ -56,19 +50,68 @@ properties([
   ])
 ])
 
-// tvm libraries
-tvm_runtime = 'build/libtvm_runtime.so, build/config.cmake'
-tvm_lib = 'build/libtvm.so, ' + tvm_runtime
-// LLVM upstream lib
-tvm_multilib = 'build/libtvm.so, ' +
-               'build/libvta_fsim.so, ' +
-               tvm_runtime
-
-tvm_multilib_tsim = 'build/libvta_tsim.so, ' +
-               tvm_multilib
-
 // command to start a docker container
-docker_run = 'docker/bash.sh'
+docker_run = 'ci/docker_bash.sh'
 // timeout in minutes
-max_time = 240
+max_time = 30
 
+def per_exec_ws(folder) {
+  return "workspace/exec_${env.EXECUTOR_NUMBER}/" + folder
+}
+
+// initialize source codes
+def init_git() {
+  checkout scm
+  // Add more info about job node
+  sh (
+   script: "echo NODE_NAME=${env.NODE_NAME}",
+   label: 'Show executor node info',
+  )
+  retry(5) {
+    timeout(time: 2, unit: 'MINUTES') {
+      sh (script: 'git submodule update --init --recursive -f', label: 'Update git submodules')
+    }
+  }
+}
+
+stage('Prepare') {
+  node('CPU-SMALL') {
+    // When something is provided in ci_*_param, use it, otherwise default with ci_*
+    ci_lint = params.ci_lint_param ?: ci_lint
+    ci_cpu = params.ci_cpu_param ?: ci_cpu
+    ci_gpu = params.ci_gpu_param ?: ci_gpu
+    ci_wasm = params.ci_wasm_param ?: ci_wasm
+    ci_i386 = params.ci_i386_param ?: ci_i386
+    ci_qemu = params.ci_qemu_param ?: ci_qemu
+    ci_arm = params.ci_arm_param ?: ci_arm
+    ci_hexagon = params.ci_hexagon_param ?: ci_hexagon
+
+    sh (script: """
+      echo "Docker images being used in this build:"
+      echo " ci_lint = ${ci_lint}"
+      echo " ci_cpu  = ${ci_cpu}"
+      echo " ci_gpu  = ${ci_gpu}"
+      echo " ci_wasm = ${ci_wasm}"
+      echo " ci_i386 = ${ci_i386}"
+      echo " ci_qemu = ${ci_qemu}"
+      echo " ci_arm  = ${ci_arm}"
+      echo " ci_hexagon  = ${ci_hexagon}"
+    """, label: 'Docker image names')
+  }
+}
+
+stage('Build') {
+  timeout(time: max_time, unit: 'MINUTES') {
+    node('GPU') {
+      ws(per_exec_ws('mlc-docs/build')) {
+        init_git()
+        sh (script: """
+          python -m pip install --upgrade pip
+          pip install -r ./requirements.txt
+          """, label: 'Installing dependencies')
+        sh (script: "${docker_run} ${ci_gpu} nvidia-smi", label: 'Check GPU info')
+        sh (script: "${docker_run} ${ci_gpu} make html", label: 'Build docs')
+      }
+    }
+  }
+}
