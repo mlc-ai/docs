@@ -64,7 +64,7 @@ def init_git() {
   checkout scm
   // Add more info about job node
   sh (
-   script: 'echo NODE_NAME=${env.NODE_NAME}',
+   script: 'echo NODE_NAME=$env.NODE_NAME',
    label: 'Show executor node info',
   )
   retry(5) {
