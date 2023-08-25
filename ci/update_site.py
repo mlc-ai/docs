@@ -59,8 +59,8 @@ def main():
     if not args.dry_run:
         try:
             run_cmd(["git", "commit", "-am", f" Update at {datetime.now()}"])
-        except RuntimeError:
-            pass
+        except RuntimeError as e:
+            print(e)
         print(run_cmd(["git", "push", "origin", "gh-pages"]))
         print("Finish updating and push to origin/gh-pages ...")
 
