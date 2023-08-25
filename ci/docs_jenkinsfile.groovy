@@ -121,7 +121,7 @@ stage('Build') {
         sh (script: "${docker_run} ${ci_gpu} ./ci/build_docs.sh", label: 'Build docs')
         // if (env.BRANCH_NAME == 'main') {
           deploy()
-        }
+        // }
       }
     }
   }
