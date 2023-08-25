@@ -64,7 +64,7 @@ def init_git() {
   checkout scm
   // Add more info about job node
   sh (
-   script: 'echo NODE_NAME=$env.NODE_NAME',
+   script: "echo NODE_NAME=${env.NODE_NAME}",
    label: 'Show executor node info',
   )
   retry(5) {
@@ -117,11 +117,11 @@ stage('Build') {
     node('GPU') {
       ws(per_exec_ws('mlc-docs/build')) {
         init_git()
-        sh (script: '${docker_run} ${ci_gpu} nvidia-smi', label: 'Check GPU info')
-        sh (script: '${docker_run} ${ci_gpu} ./ci/build_docs.sh', label: 'Build docs')
+        sh (script: "${docker_run} ${ci_gpu} nvidia-smi", label: 'Check GPU info')
+        sh (script: "${docker_run} ${ci_gpu} ./ci/build_docs.sh", label: 'Build docs')
         // if (env.BRANCH_NAME == 'main') {
           deploy()
-        // }
+        }
       }
     }
   }
