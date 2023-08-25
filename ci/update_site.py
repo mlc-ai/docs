@@ -41,7 +41,9 @@ def main():
         return py_str(out)
 
     run_cmd(["git", "config", "user.name", "mlc-bot"])
-    run_cmd(["git", "config", "user.email", "106439794+mlc-bot@users.noreply.github.com"])
+    run_cmd(
+        ["git", "config", "user.email", "106439794+mlc-bot@users.noreply.github.com"]
+    )
     run_cmd(["git", "fetch"])
     run_cmd(["git", "checkout", "-B", "gh-pages", "origin/gh-pages"])
     files = run_cmd(["git", "ls-files"])
@@ -56,14 +58,13 @@ def main():
 
     os.system(f"cp -rf {args.source_path}/* {args.site_path}")
     run_cmd(["git", "add", "--all"])
-    print(run_cmd(["git", "status"]))
 
     if not args.dry_run:
         try:
             run_cmd(["git", "commit", "-am", f" Update at {datetime.now()}"])
-        except RuntimeError as e:
-            print(e)
-        print(run_cmd(["git", "push", "origin", "gh-pages"]))
+        except RuntimeError:
+            pass
+        run_cmd(["git", "push", "origin", "gh-pages"])
         print("Finish updating and push to origin/gh-pages ...")
 
 
