@@ -80,7 +80,7 @@ def deploy() {
     credentialsId: 'MLC_ACCESS_TOKEN',
     variable: 'GITHUB_TOKEN',
   )]) {
-    sh ("git clone https://${GITHUB_TOKEN}@github.com/mlc-ai/docs && cd docs-gh-pages")
+    sh ("git clone https://$GITHUB_TOKEN@github.com/mlc-ai/docs-gh-pages && cd docs-gh-pages")
     sh ("git config user.name mlc-bot")
     sh ("git config user.email 106439794+mlc-bot@users.noreply.github.com")
     sh ("cd ..")
