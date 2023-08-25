@@ -35,7 +35,7 @@ def main():
         )
         (out, _) = proc.communicate()
         if proc.returncode != 0:
-            msg = "cmd error: %s" % cmd
+            msg = f"cmd error: {cmd}"
             msg += py_str(out)
             raise RuntimeError(msg)
         return py_str(out)
@@ -50,15 +50,15 @@ def main():
         if fname and fname not in skip_set:
             if not args.dry_run:
                 run_cmd(["rm", "-rf", fname])
-            print("Remove %s" % fname)
+            print(f"Remove {fname}")
 
-    os.system("cp -rf %s/* %s" % (args.source_path, args.site_path))
+    os.system(f"cp -rf {args.source_path}/* {args.site_path}")
     run_cmd(["git", "add", "--all"])
-    run_cmd(["git", "status"])
+    print(run_cmd(["git", "status"]))
 
     if not args.dry_run:
         try:
-            run_cmd(["git", "commit", "-am", " Update at %s" % datetime.now()])
+            run_cmd(["git", "commit", "-am", f" Update at {datetime.now()}"])
         except RuntimeError:
             pass
         run_cmd(["git", "push", "origin", "gh-pages"])
