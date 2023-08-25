@@ -7,7 +7,7 @@ The documentation was built upon [Sphinx](https://www.sphinx-doc.org/en/master/)
 Run the following command in this directory to install dependencies first:
 
 ```bash
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Build the Documentation
