@@ -40,6 +40,8 @@ def main():
             raise RuntimeError(msg)
         return py_str(out)
 
+    run_cmd(["git", "config", "user.name", "mlc-bot"])
+    run_cmd(["git", "config", "user.email", "106439794+mlc-bot@users.noreply.github.com"])
     run_cmd(["git", "fetch"])
     run_cmd(["git", "checkout", "-B", "gh-pages", "origin/gh-pages"])
     files = run_cmd(["git", "ls-files"])
