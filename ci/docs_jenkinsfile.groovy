@@ -74,6 +74,20 @@ def init_git() {
   }
 }
 
+
+def deploy() {
+  withCredentials([string(
+    credentialsId: 'MLC_ACCESS_TOKEN',
+    variable: 'GITHUB_TOKEN',
+  )]) {
+    sh ("git clone https://${GITHUB_TOKEN}@github.com/mlc-ai/docs && cd docs")
+    sh ("git config user.name mlc-bot")
+    sh ("git config user.email 106439794+mlc-bot@users.noreply.github.com")
+    sh ("cd ..")
+    sh ("python ci/update_site.py --site-path docs --source-path _build/html --dry-run")
+  }
+}
+
 stage('Prepare') {
   node('CPU-SMALL') {
     // When something is provided in ci_*_param, use it, otherwise default with ci_*
@@ -107,6 +121,10 @@ stage('Build') {
         init_git()
         sh (script: "${docker_run} ${ci_gpu} nvidia-smi", label: 'Check GPU info')
         sh (script: "${docker_run} ${ci_gpu} ./ci/build_docs.sh", label: 'Build docs')
+        if (env.BRANCH_NAME == 'main' || env.BRANCH_NAME == 'test_jenkins') {
+          // 'test_jenkins' is a temporary branch for testing Jenkinsfile
+          deploy()
+        }
       }
     }
   }
