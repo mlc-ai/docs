@@ -121,7 +121,7 @@ stage('Build') {
         init_git()
         sh (script: "${docker_run} ${ci_gpu} nvidia-smi", label: 'Check GPU info')
         sh (script: "${docker_run} ${ci_gpu} ./ci/build_docs.sh", label: 'Build docs')
-        if (env.BRANCH_NAME == 'main') {
+        if (env.BRANCH_NAME == 'main' || env.BRANCH_NAME == 'PR-4') {
           deploy()
         }
       }

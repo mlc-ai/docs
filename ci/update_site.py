@@ -61,7 +61,7 @@ def main():
             run_cmd(["git", "commit", "-am", f" Update at {datetime.now()}"])
         except RuntimeError:
             pass
-        run_cmd(["git", "push", "origin", "gh-pages"])
+        print(run_cmd(["git", "push", "origin", "gh-pages"]))
         print("Finish updating and push to origin/gh-pages ...")
 
 
