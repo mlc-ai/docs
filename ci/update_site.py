@@ -12,11 +12,11 @@ def py_str(cstr):
 
 # list of files to skip
 skip_list = set(
-    [
-        ".gitignore",
-        ".nojekyll",
-        "CNAME",
-    ]
+    ".gitignore",
+    ".nojekyll",
+    "CNAME",
+    "README.md",
+    "LICENSE",
 )
 
 
@@ -52,10 +52,11 @@ def main():
                 run_cmd(["rm", "-rf", fname])
             print("Remove %s" % fname)
 
-    if not args.dry_run:
-        os.system("cp -rf %s/* %s" % (args.source_path, args.site_path))
-        run_cmd(["git", "add", "--all"])
+    os.system("cp -rf %s/* %s" % (args.source_path, args.site_path))
+    run_cmd(["git", "add", "--all"])
+    run_cmd(["git", "status"])
 
+    if not args.dry_run:
         try:
             run_cmd(["git", "commit", "-am", " Update at %s" % datetime.now()])
         except RuntimeError:
