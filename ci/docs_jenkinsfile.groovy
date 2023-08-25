@@ -84,7 +84,7 @@ def deploy() {
     sh ("git remote add origin https://$GITHUB_TOKEN@github.com/mlc-ai/docs")
     sh ("git config user.name mlc-bot")
     sh ("git config user.email 106439794+mlc-bot@users.noreply.github.com")
-    sh ("python ci/update_site.py --site-path docs-gh-pages --source-path _build/html --dry-run")
+    sh ("python ci/update_site.py --site-path docs-gh-pages --source-path _build/html")
   }
 }
 
@@ -121,9 +121,10 @@ stage('Build') {
         init_git()
         sh (script: "${docker_run} ${ci_gpu} nvidia-smi", label: 'Check GPU info')
         sh (script: "${docker_run} ${ci_gpu} ./ci/build_docs.sh", label: 'Build docs')
-        // if (env.BRANCH_NAME == 'main') {
+        sh ("echo ${env.BRANCH_NAME}")
+        if (env.BRANCH_NAME == 'main') {
           deploy()
-        // }
+        }
       }
     }
   }
