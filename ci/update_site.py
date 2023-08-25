@@ -11,13 +11,13 @@ def py_str(cstr):
 
 
 # list of files to skip
-skip_list = set(
+skip_list = {
     ".gitignore",
     ".nojekyll",
     "CNAME",
     "README.md",
     "LICENSE",
-)
+}
 
 
 def main():
