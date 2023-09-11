@@ -19,10 +19,10 @@ This folder demos how to write a new tutorial in python for Sphinx-Gallery
 
 .. only:: html
 
-  .. image:: /contribute/images/thumb/sphx_glr_docs_thumb.png
+  .. image:: /tutorials/contribute/images/thumb/sphx_glr_docs_thumb.png
     :alt:
 
-  :ref:`sphx_glr_contribute_docs.py`
+  :ref:`sphx_glr_tutorials_contribute_docs.py`
 
 .. raw:: html
 
@@ -38,5 +38,5 @@ This folder demos how to write a new tutorial in python for Sphinx-Gallery
 .. toctree::
    :hidden:
 
-   /contribute/docs
+   /tutorials/contribute/docs
 
