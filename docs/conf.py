@@ -117,10 +117,12 @@ html_static_path += [tlcpack_sphinx_addon.get_static_path()]
 # Sphinx-Gallery Settings
 examples_dirs = [
     f"{home_path}/tutorials/contribute",
+    f"{home_path}/tutorials/get_started",
 ]
 
 gallery_dirs = [
-    "contribute",
+    "tutorials/contribute",
+    "tutorials/get_started",
 ]
 
 sphinx_gallery_conf = {
