@@ -184,9 +184,8 @@ vm = relax.VirtualMachine(exec, dev)
 import numpy as np
 
 data = np.random.rand(1, 784).astype("float32")
-vm.set_input("main", data)
-vm.invoke_stateful("main")
-tvm_out = vm.get_outputs("main").numpy()
+tvm_data = tvm.nd.array(data, device=dev)
+tvm_out = vm["main"](tvm_data).numpy()
 
 ################################################################################
 # We can also compare the output with the PyTorch model to verify the correctness.
@@ -200,5 +199,5 @@ np.testing.assert_allclose(tvm_out, torch_out, rtol=1e-5, atol=1e-5)
 # Relax VM supports timing evaluation. We can use the following code to get the
 # timing result.
 
-timing_res = vm.time_evaluator("invoke_stateful", dev)("main")
+timing_res = vm.time_evaluator("main", dev)(tvm_data)
 print(timing_res)
