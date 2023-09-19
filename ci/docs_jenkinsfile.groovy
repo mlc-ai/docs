@@ -82,7 +82,7 @@ def deploy() {
   )]) {
     sh ('git remote remove origin')
     sh ('git remote add origin https://$GITHUB_TOKEN@github.com/mlc-ai/docs')
-    sh ('python ci/update_site.py --site-path docs-gh-pages --source-path _build/html')
+    sh ('python ci/update_site.py --site-path . --source-path _build/html')
   }
 }
 
