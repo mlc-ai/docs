@@ -1,0 +1,1 @@
+/workspace/docs/reference/publications.rst
