@@ -4,24 +4,27 @@
 TVM Unity is developed under Apache TVM's Github Repo in a separate `unity` branch. The documentation will be host here until it is merged into the main branch.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Get Started
-   :hidden:
 
-   get_started/install.rst
-   tutorials/get_started/quick_start.rst
+   get_started/install
+   tutorials/get_started/quick_start
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :caption: Deep Dive
+
+   deep_dive/tensor_ir/index
+
+.. toctree::
+   :maxdepth: 2
    :caption: Contribution
-   :hidden:
 
-   contribute/index.rst
+   tutorials/contribute/index
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: References
-   :hidden:
 
-   reference/publications.rst
+   reference/publications
 
