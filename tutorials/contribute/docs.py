@@ -20,8 +20,6 @@
 
 Contribution Runnable Documentation
 ===================================
-**Authors**:
-`Siyuan Feng <https://github.com/hzfengsy>`_
 
 This is an example file to show how to write runnable documentation, which is
 important to demo python code or write tutorials.

@@ -20,8 +20,6 @@
 
 Quick Start
 ===========
-**Authors**:
-`Siyuan Feng <https://github.com/hzfengsy>`_
 
 This tutorial is for people who are new to Apache TVM Unity. Taking an simple example
 to show how to use Apache TVM Unity to compile a simple neural network.
