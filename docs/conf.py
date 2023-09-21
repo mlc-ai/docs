@@ -39,6 +39,9 @@ language = "en"
 
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+# This line is used for bypass the issue of sidebar toc
+exclude_patterns.append("**/tutorials/index.rst")
+
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"
 
@@ -100,9 +103,10 @@ html_context = {
     "header_dropdown": header_dropdown,
     "display_github": True,
     "github_user": "mlc-ai",
-    "github_repo": "mlc-llm",
+    "github_repo": "docs",
     "github_version": "main/docs/",
     "theme_vcs_pageview_mode": "edit",
+    # "edit_link_hook_fn": fixup_tutorials,
     # "header_logo": "/path/to/logo",
     # "header_logo_link": "",
     # "version_selecter": "",
@@ -116,13 +120,15 @@ html_static_path += [tlcpack_sphinx_addon.get_static_path()]
 
 # Sphinx-Gallery Settings
 examples_dirs = [
-    f"{home_path}/tutorials/contribute",
-    f"{home_path}/tutorials/get_started",
+    f"{home_path}/tutorials/contribute/",
+    f"{home_path}/tutorials/get_started/",
+    f"{home_path}/tutorials/deep_dive/tensor_ir/",
 ]
 
 gallery_dirs = [
-    "tutorials/contribute",
-    "tutorials/get_started",
+    "tutorials/contribute/",
+    "tutorials/get_started/",
+    "deep_dive/tensor_ir/tutorials/",
 ]
 
 sphinx_gallery_conf = {
@@ -134,5 +140,4 @@ sphinx_gallery_conf = {
     "show_signature": False,
     "download_all_examples": False,
     "promote_jupyter_magic": True,
-    "default_thumb_file": "docs/_static/img/empty-thumb.png",
 }
