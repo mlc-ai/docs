@@ -74,18 +74,6 @@ def init_git() {
   }
 }
 
-
-def deploy() {
-  withCredentials([string(
-    credentialsId: 'MLC_ACCESS_TOKEN',
-    variable: 'GITHUB_TOKEN',
-  )]) {
-    sh ('git remote remove origin')
-    sh ('git remote add origin https://$GITHUB_TOKEN@github.com/mlc-ai/docs')
-    sh ('python ci/update_site.py --site-path . --source-path _build/html')
-  }
-}
-
 stage('Prepare') {
   node('CPU-SMALL') {
     // When something is provided in ci_*_param, use it, otherwise default with ci_*
@@ -120,7 +108,16 @@ stage('Build') {
         sh (script: "${docker_run} ${ci_gpu} nvidia-smi", label: 'Check GPU info')
         sh (script: "${docker_run} ${ci_gpu} ./ci/build_docs.sh", label: 'Build docs')
         if (env.BRANCH_NAME == 'main') {
-          deploy()
+            withCredentials([string(
+              credentialsId: 'MLC_ACCESS_TOKEN',
+              variable: 'GITHUB_TOKEN',
+            )]) {
+              sh (script: """
+                git remote remove origin
+                git remote add origin https://$GITHUB_TOKEN@github.com/mlc-ai/docs
+                ${docker_run} ${ci_gpu} python ci/update_site.py --site-path . --source-path _build/html
+              """, label: 'Depoly'
+            }
         }
       }
     }
