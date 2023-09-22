@@ -12,7 +12,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Computation times &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>Tensor Program Abstraction &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
   
 
   
@@ -51,7 +51,9 @@
     
     <script type="text/javascript" src="../../_static/js/tlcpack_theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Understand TensorIR Abstraction" href="learning.html" />
+    <link rel="prev" title="TensorIR" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -189,15 +191,25 @@
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Installing Apache TVM Unity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/get_started/quick_start.html">Quick Start</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deep Dive</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../deep_dive/tensor_ir/index.html">TensorIR</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">TensorIR</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tensor Program Abstraction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-elements-of-tensor-programs">Key Elements of Tensor Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-structure-in-tensorir">Extra Structure in TensorIR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html">Understand TensorIR Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/creation.html">TensorIR Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/transformation.html">Transformation</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributor Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/contribute/index.html">Contributor Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul>
@@ -258,7 +270,9 @@
     
       <li><a href="../../index.html">Docs</a> <span class="br-arrow">></span></li>
         
-      <li>Computation times</li>
+          <li><a href="index.html">TensorIR</a> <span class="br-arrow">></span></li>
+        
+      <li>Tensor Program Abstraction</li>
     
     
       
@@ -269,7 +283,7 @@
         
             
             
-              <a href="https://github.com/mlc-ai/docs/edit/main/docs/tutorials/get_started/sg_execution_times.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/mlc-ai/docs/edit/main/docs/deep_dive/tensor_ir/abstraction.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -283,17 +297,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="computation-times">
-<span id="sphx-glr-tutorials-get-started-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">¶</a></h1>
-<p><strong>00:02.444</strong> total execution time for <strong>tutorials_get_started</strong> files:</p>
-<table class="docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="quick_start.html#sphx-glr-tutorials-get-started-quick-start-py"><span class="std std-ref">Quick Start</span></a> (<code class="docutils literal notranslate"><span class="pre">quick_start.py</span></code>)</p></td>
-<td><p>00:02.444</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-</tbody>
-</table>
+  <section id="tensor-program-abstraction">
+<span id="tir-abstraction"></span><h1>Tensor Program Abstraction<a class="headerlink" href="#tensor-program-abstraction" title="Permalink to this heading">¶</a></h1>
+<p>Before we dive into the details of TensorIR, let’s first introduce what is a primitive tensor
+function. Primitive tensor functions are functions that correspond to a single “unit” of
+computational operation. For example, a convolution operation can be a primitive tensor function,
+and a fused convolution + relu operation can also be a primitive tensor function.
+Usually, a typical abstraction for primitive tensor function implementation contains the following
+elements: multi-dimensional buffers, loop nests that drive the tensor computations, and finally,
+the compute statements themselves.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tvm.script</span> <span class="kn">import</span> <span class="n">tir</span> <span class="k">as</span> <span class="n">T</span>
+
+<span class="nd">@T</span><span class="o">.</span><span class="n">prim_func</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span>
+    <span class="n">A</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Buffer</span><span class="p">((</span><span class="mi">128</span><span class="p">,),</span> <span class="s2">&quot;float32&quot;</span><span class="p">),</span>
+    <span class="n">B</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Buffer</span><span class="p">((</span><span class="mi">128</span><span class="p">,),</span> <span class="s2">&quot;float32&quot;</span><span class="p">),</span>
+    <span class="n">C</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Buffer</span><span class="p">((</span><span class="mi">128</span><span class="p">,),</span> <span class="s2">&quot;float32&quot;</span><span class="p">),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">128</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">T</span><span class="o">.</span><span class="n">block</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">):</span>
+            <span class="n">vi</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">C</span><span class="p">[</span><span class="n">vi</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">vi</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="n">vi</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="key-elements-of-tensor-programs">
+<h2>Key Elements of Tensor Programs<a class="headerlink" href="#key-elements-of-tensor-programs" title="Permalink to this heading">¶</a></h2>
+<p>The demonstrated primitive tensor function calculates the element-wise sum of two vectors.
+The function:</p>
+<ul class="simple">
+<li><p>Accepts three <strong>multi-dimensional buffers</strong> as parameters, and generates one <strong>multi-dimensional
+buffer</strong> as output.</p></li>
+<li><p>Incorporates a solitary <strong>loop nest</strong> <code class="docutils literal notranslate"><span class="pre">i</span></code> that facilitates the computation.</p></li>
+<li><p>Features a singular <strong>compute statement</strong> that calculates the element-wise sum of the two
+vectors.</p></li>
+</ul>
+</section>
+<section id="extra-structure-in-tensorir">
+<h2>Extra Structure in TensorIR<a class="headerlink" href="#extra-structure-in-tensorir" title="Permalink to this heading">¶</a></h2>
+<p>Crucially, we are unable to execute arbitrary transformations on the program, as certain
+computations rely on the loop’s sequence. Fortunately, the majority of primitive tensor
+functions we focus on possess favorable properties, such as independence among loop iterations.
+For instance, the aforementioned program includes block and iteration annotations:</p>
+<ul class="simple">
+<li><p>The <strong>block annotation</strong> <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">T.block(&quot;C&quot;)</span></code> signifies that the block is the fundamental
+computation unit designated for scheduling. A block may encompass a single computation
+statement, multiple computation statements with loops, or opaque intrinsics such as Tensor
+Core instructions.</p></li>
+<li><p>The <strong>iteration annotation</strong> <code class="docutils literal notranslate"><span class="pre">T.axis.spatial</span></code>, indicating that variable <code class="docutils literal notranslate"><span class="pre">vi</span></code> is mapped
+to <code class="docutils literal notranslate"><span class="pre">i</span></code>, and all iterations are independent.</p></li>
+</ul>
+<p>While this information isn’t crucial for <em>executing</em> the specific program, it proves useful when
+transforming the program. Consequently, we can confidently parallelize or reorder loops associated
+with <code class="docutils literal notranslate"><span class="pre">vi</span></code>, provided we traverse all the index elements from 0 to 128.</p>
+</section>
 </section>
 
 
@@ -303,6 +359,15 @@
           
 
 <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="learning.html" class="btn btn-neutral float-right" title="Understand TensorIR Abstraction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="TensorIR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
 
 <div id="button" class="backtop"><img src="../../_static/img/right.svg" alt="backtop"/> </div>
 <section class="footerSec">

@@ -1,1 +1,0 @@
-/workspace/docs/index.rst

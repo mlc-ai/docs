@@ -12,7 +12,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Computation times &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>TensorIR &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
   
 
   
@@ -51,7 +51,9 @@
     
     <script type="text/javascript" src="../../_static/js/tlcpack_theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tensor Program Abstraction" href="abstraction.html" />
+    <link rel="prev" title="Quick Start" href="../../tutorials/get_started/quick_start.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -189,15 +191,21 @@
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Installing Apache TVM Unity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/get_started/quick_start.html">Quick Start</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deep Dive</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../deep_dive/tensor_ir/index.html">TensorIR</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TensorIR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="abstraction.html">Tensor Program Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html">Understand TensorIR Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/creation.html">TensorIR Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/transformation.html">Transformation</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributor Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/contribute/index.html">Contributor Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul>
@@ -258,7 +266,7 @@
     
       <li><a href="../../index.html">Docs</a> <span class="br-arrow">></span></li>
         
-      <li>Computation times</li>
+      <li>TensorIR</li>
     
     
       
@@ -269,7 +277,7 @@
         
             
             
-              <a href="https://github.com/mlc-ai/docs/edit/main/docs/tutorials/get_started/sg_execution_times.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/mlc-ai/docs/edit/main/docs/deep_dive/tensor_ir/index.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -283,17 +291,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="computation-times">
-<span id="sphx-glr-tutorials-get-started-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">¶</a></h1>
-<p><strong>00:02.444</strong> total execution time for <strong>tutorials_get_started</strong> files:</p>
-<table class="docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="quick_start.html#sphx-glr-tutorials-get-started-quick-start-py"><span class="std std-ref">Quick Start</span></a> (<code class="docutils literal notranslate"><span class="pre">quick_start.py</span></code>)</p></td>
-<td><p>00:02.444</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-</tbody>
-</table>
+  <section id="tensorir">
+<span id="tensor-ir"></span><h1>TensorIR<a class="headerlink" href="#tensorir" title="Permalink to this heading">¶</a></h1>
+<p>TensorIR is one of the core abstraction in Apache TVM Unity stack, which is used to
+represent and optimize the primitive tensor functions.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstraction.html">Tensor Program Abstraction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="abstraction.html#key-elements-of-tensor-programs">Key Elements of Tensor Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstraction.html#extra-structure-in-tensorir">Extra Structure in TensorIR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="learning.html">Understand TensorIR Abstraction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="learning.html#function-parameters-and-buffers">Function Parameters and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html#loop-iterations">Loop Iterations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html#computational-block">Computational Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html#block-axis-properties">Block Axis Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html#why-extra-information-in-block">Why Extra Information in Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html#sugars-for-block-axes-binding">Sugars for Block Axes Binding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/creation.html">TensorIR Creation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/creation.html#create-tensorir-using-tvmscript">Create TensorIR using TVMScript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/creation.html#create-tensorir-using-tensor-expression">Create TensorIR using Tensor Expression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/transformation.html">Transformation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/transformation.html#initialization-schedule">Initialization Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/transformation.html#loop-tiling">Loop Tiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/transformation.html#leverage-localities">Leverage Localities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/transformation.html#rewrite-reduction">Rewrite Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/transformation.html#trace-the-transformation">Trace the Transformation</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
 
@@ -303,6 +335,15 @@
           
 
 <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="abstraction.html" class="btn btn-neutral float-right" title="Tensor Program Abstraction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../tutorials/get_started/quick_start.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
 
 <div id="button" class="backtop"><img src="../../_static/img/right.svg" alt="backtop"/> </div>
 <section class="footerSec">

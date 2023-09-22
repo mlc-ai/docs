@@ -1,1 +1,0 @@
-/workspace/docs/get_started/install.rst
