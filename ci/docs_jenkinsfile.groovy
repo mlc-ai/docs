@@ -116,7 +116,7 @@ stage('Build') {
                 git remote remove origin
                 git remote add origin https://$GITHUB_TOKEN@github.com/mlc-ai/docs
                 ${docker_run} ${ci_gpu} python ci/update_site.py --site-path . --source-path _build/html
-              """, label: 'Depoly'
+              """, label: 'Depoly')
             }
         }
       }
