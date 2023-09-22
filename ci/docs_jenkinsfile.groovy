@@ -112,11 +112,8 @@ stage('Build') {
               credentialsId: 'MLC_ACCESS_TOKEN',
               variable: 'GITHUB_TOKEN',
             )]) {
-              sh (script: """
-                git remote remove origin
-                git remote add origin https://$GITHUB_TOKEN@github.com/mlc-ai/docs
-                ${docker_run} ${ci_gpu} python ci/update_site.py --site-path . --source-path _build/html
-              """, label: 'Depoly')
+              sh (script: 'if [ ! -d docs-site ]; then git clone https://$GITHUB_TOKEN@github.com/mlc-ai/docs docs-site; fi')
+              sh (script: 'python ci/update_site.py --site-path docs-site --source-path _build/html', label: 'Depoly')
             }
         }
       }
