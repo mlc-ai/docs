@@ -5,6 +5,7 @@ from functools import partial
 from hashlib import md5
 from importlib import import_module
 from pathlib import Path
+import re
 from unittest.mock import patch
 
 import sphinx_rtd_theme
@@ -24,6 +25,7 @@ github_doc_root = "https://github.com/mlc-ai/docs/"
 curr_path = Path(__file__).expanduser().absolute().parent
 # Can't use curr_path.parent, because sphinx_gallery requires a relative path.
 home_path = Path(os.pardir, os.pardir) if "_staging" in str(curr_path) else Path(os.pardir)
+home_path = os.path.join(home_path, "docs")
 
 version = tvm.__version__
 release = version
@@ -45,6 +47,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # This line is used for bypass the issue of sidebar toc
 exclude_patterns.append("**/tutorials/index.rst")
+exclude_patterns.append("**/tutorials/README.rst")
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"
@@ -202,6 +205,16 @@ def jupyter_notebook(script_blocks, gallery_conf, target_dir, real_func):
 
 # -- Options for HTML output ----------------------------------------------
 
+def fixup_tutorials(original_url: str) -> str:
+    if "tutorials" in original_url:
+        # The `index.rst` is omitted from the URL in the sidebar
+        assert not original_url.endswith("index.rst")
+        return re.sub(r"tutorials/(.*)\.rst", "tutorials/\\1.py", original_url)
+    else:
+        # do nothing for normal non-tutorial .rst files
+        return original_url
+
+
 # The theme is set by the make target
 
 html_theme = "sphinx_rtd_theme"
@@ -257,7 +270,7 @@ html_context = {
     "github_repo": "docs",
     "github_version": "main/docs/",
     "theme_vcs_pageview_mode": "edit",
-    # "edit_link_hook_fn": fixup_tutorials,
+    "edit_link_hook_fn": fixup_tutorials,
     # "header_logo": "/path/to/logo",
     # "header_logo_link": "",
     # "version_selecter": "",
@@ -271,14 +284,12 @@ html_static_path += [tlcpack_sphinx_addon.get_static_path()]
 
 # Sphinx-Gallery Settings
 examples_dirs = [
-    f"{home_path}/tutorials/contribute/",
-    f"{home_path}/tutorials/get_started/",
-    f"{home_path}/tutorials/deep_dive/tensor_ir/",
+    f"{home_path}/get_started/tutorials",
+    f"{home_path}/deep_dive/tensor_ir/tutorials/",
 ]
 
 gallery_dirs = [
-    "tutorials/contribute/",
-    "tutorials/get_started/",
+    "get_started/tutorials/",
     "deep_dive/tensor_ir/tutorials/",
 ]
 

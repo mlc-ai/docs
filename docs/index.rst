@@ -8,7 +8,7 @@ TVM Unity is developed under Apache TVM's Github Repo in a separate `unity` bran
    :caption: Get Started
 
    get_started/install
-   tutorials/get_started/quick_start
+   get_started/tutorials/quick_start
 
 
 .. The Deep Dive content is comprehensive
@@ -19,12 +19,6 @@ TVM Unity is developed under Apache TVM's Github Repo in a separate `unity` bran
    :caption: Deep Dive
 
    deep_dive/tensor_ir/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Contribution
-
-   tutorials/contribute/index
 
 .. toctree::
    :maxdepth: 1
