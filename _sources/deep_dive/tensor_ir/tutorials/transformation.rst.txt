@@ -119,7 +119,7 @@ original implementation.
 
     Execution time summary:
      mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)  
-       2.1388       2.1388       2.1388       2.1388       0.0000                  
+       2.1389       2.1389       2.1389       2.1389       0.0000                  
 
 
 
@@ -291,7 +291,7 @@ action involves reordering these two loops.
 
     Execution time summary:
      mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)  
-       0.6664       0.6664       0.6664       0.6664       0.0000                  
+       0.6671       0.6671       0.6671       0.6671       0.0000                  
 
 
 
@@ -419,7 +419,7 @@ from the reduction update via the **decompose_reduction** primitive.
 
     Execution time summary:
      mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)  
-       0.2600       0.2600       0.2600       0.2600       0.0000                  
+       0.2647       0.2647       0.2647       0.2647       0.0000                  
 
 
 
@@ -533,7 +533,7 @@ Alternatively, we can output the IRModule in conjunction with the historical tra
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.393 seconds)
+   **Total running time of the script:** (0 minutes 0.380 seconds)
 
 
 .. _sphx_glr_download_deep_dive_tensor_ir_tutorials_transformation.py:
