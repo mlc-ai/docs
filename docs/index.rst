@@ -24,5 +24,6 @@ TVM Unity is developed under Apache TVM's Github Repo in a separate `unity` bran
    :maxdepth: 1
    :caption: References
 
+   reference/api/index
    reference/publications
 

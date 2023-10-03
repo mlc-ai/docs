@@ -53,6 +53,6 @@ staging:
 	ln -s $(PWD)/$(SOURCEDIR)/_static $(STAGINGDIR)/${SOURCEDIR}/_static
 
 html: staging
-	$(SPHINXBUILD) -M html $(STAGINGDIR)/docs $(BUILDDIR)
+	$(SPHINXBUILD) -M html $(STAGINGDIR)/docs $(BUILDDIR) $(SPHINXOPTS)
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)."
