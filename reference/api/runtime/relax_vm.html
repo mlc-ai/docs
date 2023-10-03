@@ -1,0 +1,641 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>tvm.runtime.relax_vm &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/tlcpack_theme.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/tvm-logo-square.png"/>
+  
+
+  
+  
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <script type="text/javascript" src="../../../_static/js/tlcpack_theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="tvm.runtime.disco" href="disco.html" />
+    <link rel="prev" title="tvm.runtime.ndarray" href="ndarray.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    
+<header class="header">
+    <div class="innercontainer">
+      <div class="headerInner d-flex justify-content-between align-items-center">
+          <div class="headerLogo">
+          </div>
+
+          <div id="headMenu" class="headerNav">
+            <button type="button" id="closeHeadMenu" class="navCloseBtn"><img src="../../../_static/img/close-icon.svg" alt="Close"></button>
+             <ul class="nav">
+                <li class="nav-item">
+                   <a class="nav-link" href=https://github.com/apache/tvm/tree/unity/>Github</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href=https://mlc.ai/mlc-llm/>MLC-LLM</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href=https://mlc.ai/>MLC-Tutorial</a>
+                </li>
+             </ul>
+               <div class="responsivetlcdropdown">
+                 <button type="button" class="btn-link">
+                   ASF
+                 </button>
+                 <ul>
+                     <li>
+                       <a href=https://apache.org/>Apache Homepage</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/licenses/>License</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/foundation/sponsorship.html>Sponsorship</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/security/>Security</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/foundation/thanks.html>Thanks</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/events/current-event>Events</a>
+                     </li>
+                 </ul>
+               </div>
+          </div>
+            <div class="responsiveMenuIcon">
+              <button type="button" id="menuBtn" class="btn-menu"><img src="../../../_static/img/menu-icon.svg" alt="Menu Icon"></button>
+            </div>
+
+            <div class="tlcDropdown">
+              <div class="dropdown">
+                <button type="button" class="btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  ASF
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <ul>
+                     <li>
+                       <a href=https://apache.org/>Apache Homepage</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/licenses/>License</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/foundation/sponsorship.html>Sponsorship</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/security/>Security</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/foundation/thanks.html>Thanks</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/events/current-event>Events</a>
+                     </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+       </div>
+    </div>
+ </header>
+ 
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side fixed">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+                <div class="version">
+                  0.14.dev0
+                </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Installing Apache TVM Unity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/quick_start.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Deep Dive</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deep_dive/tensor_ir/index.html">TensorIR</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../error.html">tvm.error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ir.html">tvm.ir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument.html">tvm.instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transform.html">tvm.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../target.html">tvm.target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html">tvm.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">tvm.runtime.ndarray</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tvm.runtime.relax_vm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.relax_vm.VMInstrumentReturnKind"><code class="docutils literal notranslate"><span class="pre">VMInstrumentReturnKind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine"><code class="docutils literal notranslate"><span class="pre">VirtualMachine</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine.get_outputs"><code class="docutils literal notranslate"><span class="pre">VirtualMachine.get_outputs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine.invoke_closure"><code class="docutils literal notranslate"><span class="pre">VirtualMachine.invoke_closure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine.invoke_stateful"><code class="docutils literal notranslate"><span class="pre">VirtualMachine.invoke_stateful()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine.profile"><code class="docutils literal notranslate"><span class="pre">VirtualMachine.profile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine.save_function"><code class="docutils literal notranslate"><span class="pre">VirtualMachine.save_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine.set_input"><code class="docutils literal notranslate"><span class="pre">VirtualMachine.set_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine.set_instrument"><code class="docutils literal notranslate"><span class="pre">VirtualMachine.set_instrument()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.relax_vm.VirtualMachine.time_evaluator"><code class="docutils literal notranslate"><span class="pre">VirtualMachine.time_evaluator()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="disco.html">tvm.runtime.disco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">tvm.runtime.profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../te.html">tvm.te</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topi.html">tvm.topi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/tir.html">tvm.tir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/analysis.html">tvm.tir.analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/schedule.html">tvm.tir.schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/stmt_functor.html">tvm.tir.stmt_functor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/transform.html">tvm.tir.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meta_schedule.html">tvm.meta_schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dlight.html">tvm.dlight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/relax.html">tvm.relax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/analysis.html">tvm.relax.analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/block_builder.html">tvm.relax.block_builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/frontend.html">tvm.relax.frontend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/op.html">tvm.relax.op</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/transform.html">tvm.relax.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rpc.html">tvm.rpc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      
+      <nav class="wy-nav-top" aria-label="top navigation" data-toggle="wy-nav-top">
+        
+            <div class="togglemenu">
+
+            </div>
+            <div class="nav-content">
+              <!-- Apache TVM Unity -->
+              Table of Contents
+            </div>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> <span class="br-arrow">></span></li>
+        
+          <li><a href="../index.html">API Reference</a> <span class="br-arrow">></span></li>
+        
+      <li>tvm.runtime.relax_vm</li>
+    
+    
+      
+      
+        
+      
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/mlc-ai/docs/edit/main/docs/reference/api/runtime/relax_vm.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-tvm.runtime.relax_vm">
+<span id="tvm-runtime-relax-vm"></span><h1>tvm.runtime.relax_vm<a class="headerlink" href="#module-tvm.runtime.relax_vm" title="Permalink to this heading">¶</a></h1>
+<p>The Relax virtual machine.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VMInstrumentReturnKind">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.relax_vm.</span></span><span class="sig-name descname"><span class="pre">VMInstrumentReturnKind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.relax_vm.VMInstrumentReturnKind" title="Permalink to this definition">¶</a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.relax_vm.</span></span><span class="sig-name descname"><span class="pre">VirtualMachine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rt_mod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Module" title="tvm.runtime.module.Module"><span class="pre">Module</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Executable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relax VM runtime.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.get_outputs">
+<span class="sig-name descname"><span class="pre">get_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.get_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value output by the function by the given name
+after a call of <cite>invoke_stateful</cite>.</p>
+<p>It is an error to call this function without first calling <cite>invoke_stateful</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func_name</strong> (<em>str</em>) – The name of the function whose output should be fetched.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ret</strong> – The result of the earlier call to the function via <cite>invoke_stateful</cite>.
+If the result is a tuple, it returns a list of the fields.
+The fields are potentially also tuples, so these can be arbitrily nested.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[tvm.Object, Tuple[<a class="reference internal" href="../tir/tir.html#tvm.tir.Any" title="tvm.tir.Any">Any</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.invoke_closure">
+<span class="sig-name descname"><span class="pre">invoke_closure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">closure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a></span></span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.invoke_closure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoke a closure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>closure</strong> (<a class="reference internal" href="../relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – The VMClosure Object.</p></li>
+<li><p><strong>args</strong> (<em>list</em><em>[</em><em>tvm.runtime.NDArray</em><em>] or </em><em>list</em><em>[</em><em>np.ndarray</em><em>]</em>) – The arguments to the closure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>result</strong> – The output.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object">Object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.invoke_stateful">
+<span class="sig-name descname"><span class="pre">invoke_stateful</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.invoke_stateful" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the named function from the VM module using the arguments set using <cite>set_input</cite>.
+It is an error to call <cite>invoke_stateful</cite> without using <cite>set_input</cite> first
+(even if it’s to set 0 inputs); conversely, if <cite>set_input</cite> has been called,
+it is an error to call the function without using <cite>invoke_stateful</cite>.</p>
+<p>The results of the call can be obtained by calling <cite>get_outputs</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func_name</strong> (<em>str</em>) – The name of the function to call.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.profile">
+<span class="sig-name descname"><span class="pre">profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Profile a function call.
+:param func_name: The name of the function.
+:type func_name: str
+:param args: The arguments to the function.
+:type args: List of NDArray or other objects supported by PackedFunc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>report</strong> – The formatted profiling result, showing per-op timing measurements.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="profiling.html#tvm.runtime.profiling.Report" title="tvm.runtime.profiling.Report">tvm.runtime.profiling.Report</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.save_function">
+<span class="sig-name descname"><span class="pre">save_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saved_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_return</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.save_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function. Takes a function from the module and saves
+a <cite>PackedFunc</cite> that, when called, will invoke the function with the given arguments.
+The <cite>PackedFunc</cite> can be accessed from the module using <cite>saved_name</cite>.
+This is included to facilitate timing trials:
+Invoking the returned <cite>PackedFunc</cite> will have less overhead from dictionary lookups
+than normally running through the VM.</p>
+<p>If the saved name is taken, it can be overridden, though it cannot override
+the name of a function defined in the Relax source.</p>
+<p>This is really creating a closure, but the function has a different name
+to avoid confusion with <cite>invoke_closure</cite> (they are not meant to be used together).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func_name</strong> (<em>str</em>) – The function that should be packaged up.</p></li>
+<li><p><strong>saved_name</strong> (<em>str</em>) – The name that the resulting closure should be saved under.</p></li>
+<li><p><strong>include_return</strong> (<em>bool</em>) – Whether the saved PackedFunc should return its output.
+If timing over RPC, it may not be desirable to send output
+between machines.</p></li>
+<li><p><strong>args</strong> (<em>List</em><em>[</em><a class="reference internal" href="../tir/tir.html#tvm.tir.Any" title="tvm.tir.Any"><em>Any</em></a><em>]</em>) – The arguments to package up with the function.</p></li>
+<li><p><strong>kwargs</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="../tir/tir.html#tvm.tir.Any" title="tvm.tir.Any"><em>Any</em></a><em>]</em>) – Any named arguments to package up with the function</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.set_input">
+<span class="sig-name descname"><span class="pre">set_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.set_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the inputs to a function.
+This interface works when using VM over RPC by internally converting NDArray in
+the arguments to DLTensor, which is supported in RPC where remote could only
+have a minimal C runtime.</p>
+<p>Note: If <cite>set_input</cite> is used, the function <em>must</em> be called using <cite>invoke_stateful</cite>
+and the results must be obtained using <cite>get_outputs</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func_name</strong> (<em>str</em>) – The name of the function.</p></li>
+<li><p><strong>args</strong> (<em>List</em><em>[</em><em>tvm.runtime.NDArray</em><em>] or </em><em>List</em><em>[</em><em>np.ndarray</em><em>]</em>) – The arguments to the function.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em> of </em><em>str to tvm.runtime.NDArray</em><em> or </em><em>np.ndarray</em>) – Named arguments to the function.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.set_instrument">
+<span class="sig-name descname"><span class="pre">set_instrument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtime.html#tvm.runtime.PackedFunc" title="tvm.runtime.packed_func.PackedFunc"><span class="pre">PackedFunc</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.set_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an instrumentation function.</p>
+<p>If instrument is present, the function will be called
+before/after each Call instruction. The function have
+the following signature:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">instrument</span><span class="p">(</span>
+    <span class="n">func</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">VMClosure</span><span class="p">,</span> <span class="n">PackedFunc</span><span class="p">],</span>
+    <span class="n">func_symbol</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">before_run</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">ret_value</span><span class="p">:</span> <span class="nb">any</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>The instrument takes the following parameters:
+- func: function object to be called.
+- func_symbol: the symbol name of the function.
+- before_run: whether it is before or after call.
+- ret_value: the return value of the call, only valid after run.
+- args: the arguments being passed to call.</p>
+<p>The instrument function can choose an integer,
+which corresponds to action direction for the
+following run. See VMInstrumentReturnKind for
+more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instrument</strong> (<a class="reference internal" href="runtime.html#tvm.runtime.PackedFunc" title="tvm.runtime.PackedFunc"><em>tvm.runtime.PackedFunc</em></a>) – A instrumentation function that get invoked every VM call instr.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#tvm.runtime.relax_vm.VMInstrumentReturnKind" title="tvm.runtime.relax_vm.VMInstrumentReturnKind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VMInstrumentReturnKind</span></code></a></dt><dd><p>the possible return values in VM.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.time_evaluator">
+<span class="sig-name descname"><span class="pre">time_evaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_repeat_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cooldown_interval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeats_to_cooldown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_preproc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">BenchmarkResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.time_evaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an evaluator that times a function in the module.
+This follows the same convention as time_evaluator in tvm.runtime.module.
+This can be used in combination with save_function() so that the
+timings avoid extra dictionary lookups.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func_name</strong> (<em>str</em>) – The name of the function in the module.</p></li>
+<li><p><strong>dev</strong> (<a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm.runtime.Device"><em>Device</em></a>) – The device we should run this function on.</p></li>
+<li><p><strong>number</strong> (<em>int</em>) – The number of times to run this function for taking average.
+We call these runs as one <cite>repeat</cite> of measurement.</p></li>
+<li><p><strong>repeat</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of times to repeat the measurement.
+In total, the function will be invoked (1 + number x repeat) times,
+where the first one is warm up and will be discarded.
+The returned result contains <cite>repeat</cite> costs,
+each of which is an average of <cite>number</cite> costs.</p></li>
+<li><p><strong>min_repeat_ms</strong> (<em>int</em><em>, </em><em>optional</em>) – The minimum duration of one <cite>repeat</cite> in milliseconds.
+By default, one <cite>repeat</cite> contains <cite>number</cite> runs. If this parameter is set,
+the parameters <cite>number</cite> will be dynamically adjusted to meet the
+minimum duration requirement of one <cite>repeat</cite>.
+i.e., When the run time of one <cite>repeat</cite> falls below this time, the <cite>number</cite> parameter
+will be automatically increased.</p></li>
+<li><p><strong>cooldown_interval_ms</strong> (<em>int</em><em>, </em><em>optional</em>) – The cooldown interval in milliseconds between the number of repeats defined by
+<cite>repeats_to_cooldown</cite>.</p></li>
+<li><p><strong>repeats_to_cooldown</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of repeats before the cooldown is activated.</p></li>
+<li><p><strong>f_preproc</strong> (<em>str</em><em>, </em><em>optional</em>) – The preprocess function name we want to execute before executing the time evaluator.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function will be invoked  (1 + number x repeat) times,
+with the first call discarded in case there is lazy initialization.</p>
+</div>
+<p class="rubric">Example</p>
+<p>Normal use with a VM function (may not work over RPC if the function returns a tuple):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">Target</span><span class="p">(</span><span class="s2">&quot;llvm&quot;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;llvm&quot;</span><span class="p">)</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">TestTimeEvaluator</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<span class="n">vm</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+<span class="n">timing_res</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">time_evaluator</span><span class="p">(</span><span class="s2">&quot;func_name&quot;</span><span class="p">,</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">())(</span><span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use with the stateful API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">Target</span><span class="p">(</span><span class="s2">&quot;llvm&quot;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;llvm&quot;</span><span class="p">)</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">TestTimeEvaluator</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<span class="n">vm</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+<span class="n">vm</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="s2">&quot;func_name&quot;</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argn</span><span class="p">)</span>
+<span class="n">timing_res</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">time_evaluator</span><span class="p">(</span><span class="s2">&quot;invoke_stateful&quot;</span><span class="p">,</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">())(</span><span class="s2">&quot;func_name&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With saved closures via <cite>save_function</cite> (this results in
+fewer dictionary lookups in the timed portion):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">Target</span><span class="p">(</span><span class="s2">&quot;llvm&quot;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;llvm&quot;</span><span class="p">)</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">TestTimeEvaluator</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<span class="n">vm</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+<span class="n">vm</span><span class="o">.</span><span class="n">save_function</span><span class="p">(</span><span class="s2">&quot;func_name&quot;</span><span class="p">,</span> <span class="s2">&quot;func_name_saved&quot;</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argn</span><span class="p">)</span>
+<span class="n">timing_res</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">time_evaluator</span><span class="p">(</span><span class="s2">&quot;func_name_saved&quot;</span><span class="p">,</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">())()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ftimer</strong> – The function that takes same argument as func and returns a BenchmarkResult.
+The ProfileResult reports <cite>repeat</cite> time costs in seconds.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          
+
+<footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="disco.html" class="btn btn-neutral float-right" title="tvm.runtime.disco" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ndarray.html" class="btn btn-neutral float-left" title="tvm.runtime.ndarray" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+
+<div id="button" class="backtop"><img src="../../../_static/img/right.svg" alt="backtop"/> </div>
+<section class="footerSec">
+    <div class="footerHeader">
+      <div class="d-flex align-md-items-center justify-content-between flex-column flex-md-row">
+        <div class="copywrite d-flex align-items-center">
+          <h5 id="copy-right-info">© 2023 Apache Software Foundation | All rights reserved</h5>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="footernote">Copyright © 2023 The Apache Software Foundation. Apache TVM, Apache, the Apache feather, and the Apache TVM project logo are either trademarks or registered trademarks of the Apache Software Foundation.</div>
+    </div>
+
+</section>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

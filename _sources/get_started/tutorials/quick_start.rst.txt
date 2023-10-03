@@ -573,7 +573,7 @@ timing result.
 
     Execution time summary:
      mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)  
-       0.0078       0.0078       0.0078       0.0078       0.0000                  
+       0.0075       0.0075       0.0075       0.0075       0.0000                  
 
 
 
@@ -581,7 +581,7 @@ timing result.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.500 seconds)
+   **Total running time of the script:** (0 minutes 3.641 seconds)
 
 
 .. _sphx_glr_download_get_started_tutorials_quick_start.py:

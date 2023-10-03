@@ -1,0 +1,679 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>tvm.runtime.disco &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/tlcpack_theme.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/tvm-logo-square.png"/>
+  
+
+  
+  
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <script type="text/javascript" src="../../../_static/js/tlcpack_theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="tvm.runtime.profiling" href="profiling.html" />
+    <link rel="prev" title="tvm.runtime.relax_vm" href="relax_vm.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    
+<header class="header">
+    <div class="innercontainer">
+      <div class="headerInner d-flex justify-content-between align-items-center">
+          <div class="headerLogo">
+          </div>
+
+          <div id="headMenu" class="headerNav">
+            <button type="button" id="closeHeadMenu" class="navCloseBtn"><img src="../../../_static/img/close-icon.svg" alt="Close"></button>
+             <ul class="nav">
+                <li class="nav-item">
+                   <a class="nav-link" href=https://github.com/apache/tvm/tree/unity/>Github</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href=https://mlc.ai/mlc-llm/>MLC-LLM</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href=https://mlc.ai/>MLC-Tutorial</a>
+                </li>
+             </ul>
+               <div class="responsivetlcdropdown">
+                 <button type="button" class="btn-link">
+                   ASF
+                 </button>
+                 <ul>
+                     <li>
+                       <a href=https://apache.org/>Apache Homepage</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/licenses/>License</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/foundation/sponsorship.html>Sponsorship</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/security/>Security</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/foundation/thanks.html>Thanks</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/events/current-event>Events</a>
+                     </li>
+                 </ul>
+               </div>
+          </div>
+            <div class="responsiveMenuIcon">
+              <button type="button" id="menuBtn" class="btn-menu"><img src="../../../_static/img/menu-icon.svg" alt="Menu Icon"></button>
+            </div>
+
+            <div class="tlcDropdown">
+              <div class="dropdown">
+                <button type="button" class="btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  ASF
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <ul>
+                     <li>
+                       <a href=https://apache.org/>Apache Homepage</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/licenses/>License</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/foundation/sponsorship.html>Sponsorship</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/security/>Security</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/foundation/thanks.html>Thanks</a>
+                     </li>
+                     <li>
+                       <a href=https://www.apache.org/events/current-event>Events</a>
+                     </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+       </div>
+    </div>
+ </header>
+ 
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side fixed">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+                <div class="version">
+                  0.14.dev0
+                </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Installing Apache TVM Unity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/quick_start.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Deep Dive</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deep_dive/tensor_ir/index.html">TensorIR</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../error.html">tvm.error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ir.html">tvm.ir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument.html">tvm.instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transform.html">tvm.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../target.html">tvm.target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html">tvm.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">tvm.runtime.ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="relax_vm.html">tvm.runtime.relax_vm</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tvm.runtime.disco</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.disco.DModule"><code class="docutils literal notranslate"><span class="pre">DModule</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.disco.DPackedFunc"><code class="docutils literal notranslate"><span class="pre">DPackedFunc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.disco.DRef"><code class="docutils literal notranslate"><span class="pre">DRef</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.DRef.debug_copy_from"><code class="docutils literal notranslate"><span class="pre">DRef.debug_copy_from()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.DRef.debug_get_from_remote"><code class="docutils literal notranslate"><span class="pre">DRef.debug_get_from_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.DRef.session"><code class="docutils literal notranslate"><span class="pre">DRef.session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.disco.ProcessSession"><code class="docutils literal notranslate"><span class="pre">ProcessSession</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.disco.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.allreduce"><code class="docutils literal notranslate"><span class="pre">Session.allreduce()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.broadcast_from_worker0"><code class="docutils literal notranslate"><span class="pre">Session.broadcast_from_worker0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.call_packed"><code class="docutils literal notranslate"><span class="pre">Session.call_packed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.copy_from_worker_0"><code class="docutils literal notranslate"><span class="pre">Session.copy_from_worker_0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.copy_to_worker_0"><code class="docutils literal notranslate"><span class="pre">Session.copy_to_worker_0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.empty"><code class="docutils literal notranslate"><span class="pre">Session.empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.gather_to_worker0"><code class="docutils literal notranslate"><span class="pre">Session.gather_to_worker0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.get_global_func"><code class="docutils literal notranslate"><span class="pre">Session.get_global_func()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.init_ccl"><code class="docutils literal notranslate"><span class="pre">Session.init_ccl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.load_vm_module"><code class="docutils literal notranslate"><span class="pre">Session.load_vm_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.scatter_from_worker0"><code class="docutils literal notranslate"><span class="pre">Session.scatter_from_worker0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.sync_worker_0"><code class="docutils literal notranslate"><span class="pre">Session.sync_worker_0()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.disco.ThreadedSession"><code class="docutils literal notranslate"><span class="pre">ThreadedSession</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">tvm.runtime.profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../te.html">tvm.te</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topi.html">tvm.topi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/tir.html">tvm.tir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/analysis.html">tvm.tir.analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/schedule.html">tvm.tir.schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/stmt_functor.html">tvm.tir.stmt_functor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tir/transform.html">tvm.tir.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meta_schedule.html">tvm.meta_schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dlight.html">tvm.dlight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/relax.html">tvm.relax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/analysis.html">tvm.relax.analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/block_builder.html">tvm.relax.block_builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/frontend.html">tvm.relax.frontend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/op.html">tvm.relax.op</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../relax/transform.html">tvm.relax.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rpc.html">tvm.rpc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      
+      <nav class="wy-nav-top" aria-label="top navigation" data-toggle="wy-nav-top">
+        
+            <div class="togglemenu">
+
+            </div>
+            <div class="nav-content">
+              <!-- Apache TVM Unity -->
+              Table of Contents
+            </div>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> <span class="br-arrow">></span></li>
+        
+          <li><a href="../index.html">API Reference</a> <span class="br-arrow">></span></li>
+        
+      <li>tvm.runtime.disco</li>
+    
+    
+      
+      
+        
+      
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/mlc-ai/docs/edit/main/docs/reference/api/runtime/disco.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-tvm.runtime.disco">
+<span id="tvm-runtime-disco"></span><h1>tvm.runtime.disco<a class="headerlink" href="#module-tvm.runtime.disco" title="Permalink to this heading">¶</a></h1>
+<p>TVM distributed runtime API.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.runtime.disco.DModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.disco.</span></span><span class="sig-name descname"><span class="pre">DModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.disco.DModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Module in a Disco session.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.runtime.disco.DPackedFunc">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.disco.</span></span><span class="sig-name descname"><span class="pre">DPackedFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.disco.DPackedFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>A PackedFunc in a Disco session.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.runtime.disco.DRef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.disco.</span></span><span class="sig-name descname"><span class="pre">DRef</span></span><a class="headerlink" href="#tvm.runtime.disco.DRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object that exists on all workers. The controller process assigns a unique “register id”
+to each object, and the worker process uses this id to refer to the object residing on itself.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.DRef.debug_copy_from">
+<span class="sig-name descname"><span class="pre">debug_copy_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worker_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><span class="pre">NDArray</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.disco.DRef.debug_copy_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy an NDArray value to remote for debugging purposes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>worker_id</strong> (<em>int</em>) – The id of the worker to be copied to.</p></li>
+<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>numpy.ndarray</em><em>, </em><a class="reference internal" href="../relax/transform.html#tvm.relax.transform.NDArray" title="tvm.relax.transform.NDArray"><em>NDArray</em></a><em>]</em>) – The value to be copied.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.DRef.debug_get_from_remote">
+<span class="sig-name descname"><span class="pre">debug_get_from_remote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worker_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#tvm.runtime.disco.DRef.debug_get_from_remote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of a DRef from a remote worker. It is only used for debugging purposes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>worker_id</strong> (<em>int</em>) – The id of the worker to be fetched from.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong> – The value of the register.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tvm.runtime.disco.DRef.session">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">session</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#tvm.runtime.disco.Session" title="tvm.runtime.disco.session.Session"><span class="pre">Session</span></a></em><a class="headerlink" href="#tvm.runtime.disco.DRef.session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the session that this DRef belongs to.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.runtime.disco.ProcessSession">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.disco.</span></span><span class="sig-name descname"><span class="pre">ProcessSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.disco.ProcessSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Disco session backed by pipe-based multi-processing.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.disco.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><a class="headerlink" href="#tvm.runtime.disco.Session" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Disco interactive session. It allows users to interact with the Disco command queue with
+various PackedFunc calling convention.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.allreduce">
+<span class="sig-name descname"><span class="pre">allreduce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'sum'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.allreduce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform an allreduce operation on an array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef"><em>DRef</em></a>) – The array to be reduced.</p></li>
+<li><p><strong>op</strong> (<em>str = &quot;sum&quot;</em>) – The reduce operation to be performed. Available options are:
+- “sum”
+- “prod”
+- “min”
+- “max”
+- “avg”</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.broadcast_from_worker0">
+<span class="sig-name descname"><span class="pre">broadcast_from_worker0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.broadcast_from_worker0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broadcast an array from worker-0 to all other workers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>array</strong> (<a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef"><em>DRef</em></a>) – The array to be broadcasted in-place</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.call_packed">
+<span class="sig-name descname"><span class="pre">call_packed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.call_packed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call a PackedFunc on workers providing variadic arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<a class="reference internal" href="runtime.html#tvm.runtime.PackedFunc" title="tvm.runtime.PackedFunc"><em>PackedFunc</em></a>) – The function to be called.</p></li>
+<li><p><strong>*args</strong> (<em>various types</em>) – In the variadic arguments, the supported types include:
+- integers and floating point numbers;
+- DLDataType;
+- DLDevice;
+- str (std::string in C++);
+- DRef.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>return_value</strong> – The return value of the function call.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>various types</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Examples of unsupported types:
+- NDArray, DLTensor,;
+- TVM Objects, including PackedFunc, Module and String.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.copy_from_worker_0">
+<span class="sig-name descname"><span class="pre">copy_from_worker_0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><span class="pre">NDArray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.copy_from_worker_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy an NDArray from worker-0 to the controller-side NDArray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host_array</strong> (<em>numpy.ndarray</em>) – The array to be copied to worker-0.</p></li>
+<li><p><strong>remote_array</strong> (<a class="reference internal" href="../relax/transform.html#tvm.relax.transform.NDArray" title="tvm.relax.transform.NDArray"><em>NDArray</em></a>) – The NDArray on worker-0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.copy_to_worker_0">
+<span class="sig-name descname"><span class="pre">copy_to_worker_0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><span class="pre">NDArray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.copy_to_worker_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the controller-side NDArray to worker-0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host_array</strong> (<em>numpy.ndarray</em>) – The array to be copied from worker-0.</p></li>
+<li><p><strong>remote_array</strong> (<a class="reference internal" href="../relax/transform.html#tvm.relax.transform.NDArray" title="tvm.relax.transform.NDArray"><em>NDArray</em></a>) – The NDArray on worker-0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.empty">
+<span class="sig-name descname"><span class="pre">empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an empty NDArray on all workers and attach them to a DRef.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>tuple</em><em> of </em><em>int</em>) – The shape of the NDArray.</p></li>
+<li><p><strong>dtype</strong> (<em>str</em>) – The data type of the NDArray.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm.runtime.Device"><em>Device</em></a><em>] </em><em>= None</em>) – The device of the NDArray.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>array</strong> – The created NDArray.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef">DRef</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.gather_to_worker0">
+<span class="sig-name descname"><span class="pre">gather_to_worker0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.gather_to_worker0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather an array from all other workers to worker-0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_array</strong> (<a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef"><em>DRef</em></a>) – The array to be gathered from.</p></li>
+<li><p><strong>to_array</strong> (<a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef"><em>DRef</em></a>) – The array to be gathered to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.get_global_func">
+<span class="sig-name descname"><span class="pre">get_global_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.get_global_func" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a global function on workers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name of the global function.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>func</strong> – The global packed function</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef">DRef</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.init_ccl">
+<span class="sig-name descname"><span class="pre">init_ccl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ccl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">device_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.disco.Session.init_ccl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the underlying communication collective library.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ccl</strong> (<em>str</em>) – The name of the communication collective library. Currently supported libraries are:
+- nccl
+- rccl
+- mpi</p></li>
+<li><p><strong>*device_ids</strong> (<em>int</em>) – The device IDs to be used by the underlying communication library.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.load_vm_module">
+<span class="sig-name descname"><span class="pre">load_vm_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.runtime.disco.DModule" title="tvm.runtime.disco.session.DModule"><span class="pre">DModule</span></a></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.load_vm_module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a VM module from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – The path to the VM module file.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm.runtime.Device"><em>Device</em></a><em>] </em><em>= None</em>) – The device to load the VM module to. Default to the default device of each worker.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>module</strong> – The loaded VM module.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tvm.runtime.disco.DModule" title="tvm.runtime.disco.DModule">DModule</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.scatter_from_worker0">
+<span class="sig-name descname"><span class="pre">scatter_from_worker0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.scatter_from_worker0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scatter an array from worker-0 to all other workers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_array</strong> (<a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef"><em>DRef</em></a>) – The array to be scattered from.</p></li>
+<li><p><strong>to_array</strong> (<a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef"><em>DRef</em></a>) – The array to be scattered to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.sync_worker_0">
+<span class="sig-name descname"><span class="pre">sync_worker_0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.sync_worker_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronize the controller with worker-0, and it will wait until the worker-0 finishes
+executing all the existing instructions.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.runtime.disco.ThreadedSession">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.disco.</span></span><span class="sig-name descname"><span class="pre">ThreadedSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.disco.ThreadedSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Disco session backed by multi-threading.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          
+
+<footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="profiling.html" class="btn btn-neutral float-right" title="tvm.runtime.profiling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="relax_vm.html" class="btn btn-neutral float-left" title="tvm.runtime.relax_vm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+
+<div id="button" class="backtop"><img src="../../../_static/img/right.svg" alt="backtop"/> </div>
+<section class="footerSec">
+    <div class="footerHeader">
+      <div class="d-flex align-md-items-center justify-content-between flex-column flex-md-row">
+        <div class="copywrite d-flex align-items-center">
+          <h5 id="copy-right-info">© 2023 Apache Software Foundation | All rights reserved</h5>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="footernote">Copyright © 2023 The Apache Software Foundation. Apache TVM, Apache, the Apache feather, and the Apache TVM project logo are either trademarks or registered trademarks of the Apache Software Foundation.</div>
+    </div>
+
+</section>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
