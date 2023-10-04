@@ -23,8 +23,7 @@ tvm.topi
 .. automodule:: tvm.topi
    :members:
    :imported-members:
-   :exclude-members: PrimExpr
-   :noindex: Cast
+   :exclude-members: PrimExpr, Cast
 
 tvm.topi.nn
 ~~~~~~~~~~~
