@@ -360,5 +360,15 @@ def process_docstring(app, what, name, obj, options, lines):
         distinguish_class_name(name, lines)
 
 
+def process_signature(app, what, name, obj, options, signature, return_annotation):
+    """Sphinx callback to process signature"""
+    if signature is not None:
+        signature = re.sub(r"\bRelayExpr\b", "Expr", signature)
+    if return_annotation is not None:
+        return_annotation = re.sub(r"\bRelayExpr\b", "Expr", return_annotation)
+    return signature, return_annotation
+
+
 def setup(app):
     app.connect("autodoc-process-docstring", process_docstring)
+    app.connect("autodoc-process-signature", process_signature)

@@ -27,7 +27,7 @@ tvm.relax.frontend.nn
    :members:
    :imported-members:
    :exclude-members: BlockBuilder
-   :noindex: Module
+   :noindex:
 
 tvm.relax.frontend.onnx
 ***********************
