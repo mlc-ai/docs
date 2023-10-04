@@ -219,6 +219,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.disco.ProcessSession"><code class="docutils literal notranslate"><span class="pre">ProcessSession</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.runtime.disco.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.allgather"><code class="docutils literal notranslate"><span class="pre">Session.allgather()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.allreduce"><code class="docutils literal notranslate"><span class="pre">Session.allreduce()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.broadcast_from_worker0"><code class="docutils literal notranslate"><span class="pre">Session.broadcast_from_worker0()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.runtime.disco.Session.call_packed"><code class="docutils literal notranslate"><span class="pre">Session.call_packed()</span></code></a></li>
@@ -369,7 +370,7 @@ to each object, and the worker process uses this id to refer to the object resid
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>worker_id</strong> (<em>int</em>) – The id of the worker to be copied to.</p></li>
-<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>numpy.ndarray</em><em>, </em><a class="reference internal" href="../relax/transform.html#tvm.relax.transform.NDArray" title="tvm.relax.transform.NDArray"><em>NDArray</em></a><em>]</em>) – The value to be copied.</p></li>
+<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>numpy.ndarray</em><em>, </em><a class="reference internal" href="ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><em>NDArray</em></a><em>]</em>) – The value to be copied.</p></li>
 </ul>
 </dd>
 </dl>
@@ -411,6 +412,20 @@ to each object, and the worker process uses this id to refer to the object resid
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.disco.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><a class="headerlink" href="#tvm.runtime.disco.Session" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Disco interactive session. It allows users to interact with the Disco command queue with
 various PackedFunc calling convention.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.runtime.disco.Session.allgather">
+<span class="sig-name descname"><span class="pre">allgather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.allgather" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform an allgather operation on an array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef"><em>DRef</em></a>) – The array to be gathered from.</p></li>
+<li><p><strong>dst</strong> (<a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.DRef"><em>DRef</em></a>) – The array to be gathered to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.runtime.disco.Session.allreduce">
 <span class="sig-name descname"><span class="pre">allreduce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'sum'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.runtime.disco.DRef" title="tvm.runtime.disco.session.DRef"><span class="pre">DRef</span></a></span></span><a class="headerlink" href="#tvm.runtime.disco.Session.allreduce" title="Permalink to this definition">¶</a></dt>
@@ -478,7 +493,7 @@ various PackedFunc calling convention.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>host_array</strong> (<em>numpy.ndarray</em>) – The array to be copied to worker-0.</p></li>
-<li><p><strong>remote_array</strong> (<a class="reference internal" href="../relax/transform.html#tvm.relax.transform.NDArray" title="tvm.relax.transform.NDArray"><em>NDArray</em></a>) – The NDArray on worker-0.</p></li>
+<li><p><strong>remote_array</strong> (<a class="reference internal" href="ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><em>NDArray</em></a>) – The NDArray on worker-0.</p></li>
 </ul>
 </dd>
 </dl>
@@ -492,7 +507,7 @@ various PackedFunc calling convention.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>host_array</strong> (<em>numpy.ndarray</em>) – The array to be copied from worker-0.</p></li>
-<li><p><strong>remote_array</strong> (<a class="reference internal" href="../relax/transform.html#tvm.relax.transform.NDArray" title="tvm.relax.transform.NDArray"><em>NDArray</em></a>) – The NDArray on worker-0.</p></li>
+<li><p><strong>remote_array</strong> (<a class="reference internal" href="ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><em>NDArray</em></a>) – The NDArray on worker-0.</p></li>
 </ul>
 </dd>
 </dl>

@@ -493,7 +493,7 @@ is not available on the local client.</p>
 <dd class="field-even"><p><strong>f</strong> – The result function.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="relax/analysis.html#tvm.relax.analysis.Function" title="tvm.relax.analysis.Function">Function</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="relax/relax.html#tvm.relax.Function" title="tvm.relax.Function">Function</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -623,7 +623,7 @@ TVM runtime which does not depend on the python.</p>
 <li><p><strong>is_proxy</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the address specified is a proxy.
 If this is true, the host and port actually corresponds to the
 address of the proxy server.</p></li>
-<li><p><strong>tracker_addr</strong> (<em>Tuple</em><em> (</em><em>str</em><em>, </em><em>int</em><em>) </em><em>, </em><em>optional</em>) – The address of RPC Tracker in tuple(host, ip) format.
+<li><p><strong>tracker_addr</strong> (<a class="reference internal" href="relax/relax.html#tvm.relax.Tuple" title="tvm.relax.Tuple"><em>Tuple</em></a><em> (</em><em>str</em><em>, </em><em>int</em><em>) </em><em>, </em><em>optional</em>) – The address of RPC Tracker in tuple(host, ip) format.
 If is not None, the server will register itself to the tracker.</p></li>
 <li><p><strong>key</strong> (<em>str</em><em>, </em><em>optional</em>) – The key used to identify the device type in tracker.</p></li>
 <li><p><strong>load_library</strong> (<em>str</em><em>, </em><em>optional</em>) – List of additional libraries to be loaded during execution.</p></li>

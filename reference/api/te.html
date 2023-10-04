@@ -257,7 +257,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#tvm.te.cos"><code class="docutils literal notranslate"><span class="pre">cos()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.te.cosh"><code class="docutils literal notranslate"><span class="pre">cosh()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.te.create_prim_func"><code class="docutils literal notranslate"><span class="pre">create_prim_func()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tvm.te.create_relax_prim_func"><code class="docutils literal notranslate"><span class="pre">create_relax_prim_func()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.te.create_schedule"><code class="docutils literal notranslate"><span class="pre">create_schedule()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.te.decl_tensor_intrin"><code class="docutils literal notranslate"><span class="pre">decl_tensor_intrin()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.te.div"><code class="docutils literal notranslate"><span class="pre">div()</span></code></a></li>
@@ -781,7 +780,7 @@ specified axis;</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>shape</strong> (<em>Tuple</em><em> of </em><em>Expr</em>) – The shape of the tensor</p></li>
+<li><p><strong>shape</strong> (<a class="reference internal" href="relax/relax.html#tvm.relax.Tuple" title="tvm.relax.Tuple"><em>Tuple</em></a><em> of </em><em>Expr</em>) – The shape of the tensor</p></li>
 <li><p><strong>fcompute</strong> (<em>lambda function</em><em> of </em><em>indices-&gt; value</em>) – Specifies the input source expression</p></li>
 <li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name hint of the tensor</p></li>
 <li><p><strong>tag</strong> (<em>str</em><em>, </em><em>optional</em>) – Additional tag information about the compute.</p></li>
@@ -856,70 +855,11 @@ will be called i1, i2, …</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.te.create_prim_func">
-<span class="sig-prename descclassname"><span class="pre">tvm.te.</span></span><span class="sig-name descname"><span class="pre">create_prim_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.te.Tensor" title="tvm.te.tensor.Tensor"><span class="pre">Tensor</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_dtype_override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></span><a class="headerlink" href="#tvm.te.create_prim_func" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a TensorIR PrimFunc from tensor expression
-:param ops: The source expression.
-:type ops: List[Tensor]</p>
-<p class="rubric">Example</p>
-<p>We define a matmul kernel using following code:
-.. code-block:: python</p>
-<blockquote>
-<div><p>import tvm
-from tvm import te
-from tvm.te import create_prim_func
-import tvm.script
-A = te.placeholder((128, 128), name=”A”)
-B = te.placeholder((128, 128), name=”B”)
-k = te.reduce_axis((0, 128), “k”)
-C = te.compute((128, 128), lambda x, y: te.sum(A[x, k] * B[y, k], axis=k), name=”C”)
-func = create_prim_func([A, B, C])
-print(func.script())</p>
-</div></blockquote>
-<p>If we want to use TensorIR schedule to do transformations on such kernel,
-we need to use <cite>create_prim_func([A, B, C])</cite> to create a schedulable PrimFunc.
-The generated function looks like:
-.. code-block:: python</p>
-<blockquote>
-<div><p>&#64;T.prim_func
-def tir_matmul(a: T.handle, b: T.handle, c: T.handle) -&gt; None:</p>
-<blockquote>
-<div><p>A = T.match_buffer(a, (128, 128))
-B = T.match_buffer(b, (128, 128))
-C = T.match_buffer(c, (128, 128))
-for i, j, k in T.grip(128, 128, 128):</p>
-<blockquote>
-<div><dl>
-<dt>with T.block():</dt><dd><p>vi, vj, vk = T.axis.remap(“SSR”, [i, j, k])
-with T.init():</p>
-<blockquote>
-<div><p>C[vi, vj] = 0.0</p>
-</div></blockquote>
-<p>C[vi, vj] += A[vi, vk] * B[vj, vk]</p>
-</dd>
-</dl>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>func</strong> – The created function.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.PrimFunc">tir.PrimFunc</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tvm.te.create_relax_prim_func">
-<span class="sig-prename descclassname"><span class="pre">tvm.te.</span></span><span class="sig-name descname"><span class="pre">create_relax_prim_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.te.Tensor" title="tvm.te.tensor.Tensor"><span class="pre">Tensor</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tir_var_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_dtype_override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></span><a class="headerlink" href="#tvm.te.create_relax_prim_func" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.te.</span></span><span class="sig-name descname"><span class="pre">create_prim_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.te.Tensor" title="tvm.te.tensor.Tensor"><span class="pre">Tensor</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_dtype_override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></span><a class="headerlink" href="#tvm.te.create_prim_func" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a TensorIR PrimFunc from tensor expression</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ops</strong> (<em>List</em><em>[</em><a class="reference internal" href="#tvm.te.Tensor" title="tvm.te.Tensor"><em>Tensor</em></a><em>]</em>) – The source expression.</p></li>
-<li><p><strong>tir_var_list</strong> (<em>List</em><em>[</em><a class="reference internal" href="relax/analysis.html#tvm.relax.analysis.Var" title="tvm.relax.analysis.Var"><em>Var</em></a><em>]</em>) – TIR variables to add as parameters to generated PrimFunc</p></li>
-</ul>
+<dd class="field-odd"><p><strong>ops</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>_tensor.Tensor</em><em>, </em><a class="reference internal" href="tir/tir.html#tvm.tir.Var" title="tvm.tir.Var"><em>tvm.tir.Var</em></a><em>]</em><em>]</em>) – The source expression.</p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -1150,7 +1090,7 @@ by default dtype will be same as inputs.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_tensors</strong> (<em>list</em><em> of </em><a class="reference internal" href="#tvm.te.Tensor" title="tvm.te.Tensor"><em>Tensor</em></a>) – Input tensors that map to the corresponding primfunc input params.</p></li>
-<li><p><strong>primfunc</strong> (<a class="reference internal" href="relax/analysis.html#tvm.relax.analysis.PrimFunc" title="tvm.relax.analysis.PrimFunc"><em>PrimFunc</em></a>) – The TIR PrimFunc</p></li>
+<li><p><strong>primfunc</strong> (<a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.PrimFunc"><em>PrimFunc</em></a>) – The TIR PrimFunc</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1666,7 +1606,7 @@ For differences between the two see:
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>shape</strong> (<em>Tuple</em><em> of </em><em>Expr</em>) – The shape of the tensor</p></li>
+<li><p><strong>shape</strong> (<a class="reference internal" href="relax/relax.html#tvm.relax.Tuple" title="tvm.relax.Tuple"><em>Tuple</em></a><em> of </em><em>Expr</em>) – The shape of the tensor</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em>, </em><em>optional</em>) – The data type of the tensor</p></li>
 <li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name hint of the tensor</p></li>
 </ul>
@@ -2171,7 +2111,7 @@ nearest integer i which is closer to zero than x is.</p>
 <dd class="field-even"><p><strong>var</strong> – The result symbolic variable.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="relax/analysis.html#tvm.relax.analysis.Var" title="tvm.relax.analysis.Var">Var</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="relax/relax.html#tvm.relax.Var" title="tvm.relax.Var">Var</a></p>
 </dd>
 </dl>
 </dd></dl>

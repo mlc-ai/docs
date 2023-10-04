@@ -490,7 +490,7 @@ Attrs is passed as the first argument to these functions.</p>
 <dd class="field-even"><p><strong>value</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple of int</p>
+<dd class="field-odd"><p><a class="reference internal" href="relax/relax.html#tvm.relax.Tuple" title="tvm.relax.Tuple">Tuple</a> of int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -566,7 +566,7 @@ Attrs is passed as the first argument to these functions.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>attr_key_or_dict</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>]</em>) – The attribute key to use or a dict containing multiple key value pairs.</p></li>
-<li><p><strong>attr_value</strong> (<a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – The new attribute value.</p></li>
+<li><p><strong>attr_value</strong> (<a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a>) – The new attribute value.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1011,7 +1011,7 @@ module.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>attr_key</strong> (<em>str</em>) – The attribute key.</p></li>
-<li><p><strong>attr_value</strong> (<a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – The new attribute value.</p></li>
+<li><p><strong>attr_value</strong> (<a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a>) – The new attribute value.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1449,14 +1449,14 @@ if the end argument is not None. Otherwise, it creates <cite>[0, begin)</cite>.<
 
 <dl class="py property">
 <dt class="sig sig-object py" id="tvm.ir.RelayExpr.struct_info">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">struct_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="relax/op.html#tvm.relax.op.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a></em><a class="headerlink" href="#tvm.ir.RelayExpr.struct_info" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">struct_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="relax/relax.html#tvm.relax.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a></em><a class="headerlink" href="#tvm.ir.RelayExpr.struct_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the struct info field</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>struct_info</strong> – The struct info if available.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tvm.relax.StructInfo</p>
+<dd class="field-even"><p><a class="reference internal" href="relax/relax.html#tvm.relax.StructInfo" title="tvm.relax.StructInfo">tvm.relax.StructInfo</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1733,8 +1733,8 @@ where the statically sized allocate nodes will pooled into.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lhs</strong> (<a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – The left operand.</p></li>
-<li><p><strong>rhs</strong> (<a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – The left operand.</p></li>
+<li><p><strong>lhs</strong> (<a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a>) – The left operand.</p></li>
+<li><p><strong>rhs</strong> (<a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a>) – The left operand.</p></li>
 <li><p><strong>map_free_vars</strong> (<em>bool</em>) – Whether or not shall we map free vars that does
 not bound to any definitions as equal to each other.</p></li>
 </ul>
@@ -1759,7 +1759,7 @@ not bound to any definitions as equal to each other.</p></li>
 <dd class="field-even"><p><strong>node</strong> – The loaded tvm node.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object">Object</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object">Object</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1847,7 +1847,7 @@ default value setup as supported by Attrs.</p>
 <dd><p>Save tvm object as json string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – A TVM object to be saved.</p>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a>) – A TVM object to be saved.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>json_str</strong> – Saved json string.</p>
@@ -1885,8 +1885,8 @@ arguments and let-bindings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lhs</strong> (<a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – The left operand.</p></li>
-<li><p><strong>rhs</strong> (<a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – The left operand.</p></li>
+<li><p><strong>lhs</strong> (<a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a>) – The left operand.</p></li>
+<li><p><strong>rhs</strong> (<a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a>) – The left operand.</p></li>
 <li><p><strong>map_free_vars</strong> (<em>bool</em>) – Whether free variables (i.e. variables without a definition site) should be mapped
 as equal to each other.</p></li>
 </ul>
@@ -1926,7 +1926,7 @@ that the two nodes are structurally equal to each other.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>node</strong> (<a class="reference internal" href="relax/op.html#tvm.relax.op.Object" title="tvm.relax.op.Object"><em>Object</em></a>) – The input to be hashed.</p></li>
+<li><p><strong>node</strong> (<a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a>) – The input to be hashed.</p></li>
 <li><p><strong>map_free_vars</strong> (<em>bool</em>) – If map_free_vars is set to true, we will hash free variables
 by the order of their occurrences. Otherwise, we will hash by
 their in-memory pointer address.</p></li>

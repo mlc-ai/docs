@@ -236,26 +236,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.CanonicalizeBindings"><code class="docutils literal notranslate"><span class="pre">CanonicalizeBindings()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.CombineParallelMatmul"><code class="docutils literal notranslate"><span class="pre">CombineParallelMatmul()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.ConvertLayout"><code class="docutils literal notranslate"><span class="pre">ConvertLayout()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.DFPattern"><code class="docutils literal notranslate"><span class="pre">DFPattern</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.dup"><code class="docutils literal notranslate"><span class="pre">DFPattern.dup()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.extract_matched_expr"><code class="docutils literal notranslate"><span class="pre">DFPattern.extract_matched_expr()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.fork_to"><code class="docutils literal notranslate"><span class="pre">DFPattern.fork_to()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.has_attr"><code class="docutils literal notranslate"><span class="pre">DFPattern.has_attr()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.has_dtype"><code class="docutils literal notranslate"><span class="pre">DFPattern.has_dtype()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.has_shape"><code class="docutils literal notranslate"><span class="pre">DFPattern.has_shape()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.has_type"><code class="docutils literal notranslate"><span class="pre">DFPattern.has_type()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.match"><code class="docutils literal notranslate"><span class="pre">DFPattern.match()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.only_used_by"><code class="docutils literal notranslate"><span class="pre">DFPattern.only_used_by()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.same_shape_as"><code class="docutils literal notranslate"><span class="pre">DFPattern.same_shape_as()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.DFPattern.used_by"><code class="docutils literal notranslate"><span class="pre">DFPattern.used_by()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.DataflowBlockPass"><code class="docutils literal notranslate"><span class="pre">DataflowBlockPass</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.DeadCodeElimination"><code class="docutils literal notranslate"><span class="pre">DeadCodeElimination()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.DecomposeOpsForInference"><code class="docutils literal notranslate"><span class="pre">DecomposeOpsForInference()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.DecomposeOpsForTraining"><code class="docutils literal notranslate"><span class="pre">DecomposeOpsForTraining()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.EliminateCommonSubexpr"><code class="docutils literal notranslate"><span class="pre">EliminateCommonSubexpr()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.Expr"><code class="docutils literal notranslate"><span class="pre">Expr</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.FewShotTuning"><code class="docutils literal notranslate"><span class="pre">FewShotTuning()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.FoldConstant"><code class="docutils literal notranslate"><span class="pre">FoldConstant()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.FoldDataflowBlockOutput"><code class="docutils literal notranslate"><span class="pre">FoldDataflowBlockOutput()</span></code></a></li>
@@ -265,46 +250,22 @@
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.FuseTIR"><code class="docutils literal notranslate"><span class="pre">FuseTIR()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.FusionPattern"><code class="docutils literal notranslate"><span class="pre">FusionPattern</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.Gradient"><code class="docutils literal notranslate"><span class="pre">Gradient()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.IndexMap"><code class="docutils literal notranslate"><span class="pre">IndexMap</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.IndexMap.from_func"><code class="docutils literal notranslate"><span class="pre">IndexMap.from_func()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.IndexMap.from_func_with_separators"><code class="docutils literal notranslate"><span class="pre">IndexMap.from_func_with_separators()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.IndexMap.inverse"><code class="docutils literal notranslate"><span class="pre">IndexMap.inverse()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.IndexMap.is_equivalent_to"><code class="docutils literal notranslate"><span class="pre">IndexMap.is_equivalent_to()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.IndexMap.map_indices"><code class="docutils literal notranslate"><span class="pre">IndexMap.map_indices()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.IndexMap.map_ndarray"><code class="docutils literal notranslate"><span class="pre">IndexMap.map_ndarray()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.IndexMap.map_shape"><code class="docutils literal notranslate"><span class="pre">IndexMap.map_shape()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.IndexMap.non_surjective_inverse"><code class="docutils literal notranslate"><span class="pre">IndexMap.non_surjective_inverse()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.KillAfterLastUse"><code class="docutils literal notranslate"><span class="pre">KillAfterLastUse()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.LambdaLift"><code class="docutils literal notranslate"><span class="pre">LambdaLift()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.LazyTransformParams"><code class="docutils literal notranslate"><span class="pre">LazyTransformParams</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.LegalizeOps"><code class="docutils literal notranslate"><span class="pre">LegalizeOps()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.LiftTransformParams"><code class="docutils literal notranslate"><span class="pre">LiftTransformParams()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.LowerAllocTensor"><code class="docutils literal notranslate"><span class="pre">LowerAllocTensor()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.MergeCompositeFunctions"><code class="docutils literal notranslate"><span class="pre">MergeCompositeFunctions()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.MetaScheduleApplyDatabase"><code class="docutils literal notranslate"><span class="pre">MetaScheduleApplyDatabase()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.MetaScheduleTuneIRMod"><code class="docutils literal notranslate"><span class="pre">MetaScheduleTuneIRMod()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.MetaScheduleTuneTIR"><code class="docutils literal notranslate"><span class="pre">MetaScheduleTuneTIR()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.NDArray"><code class="docutils literal notranslate"><span class="pre">NDArray</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.NDArray.asnumpy"><code class="docutils literal notranslate"><span class="pre">NDArray.asnumpy()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.NDArray.copyfrom"><code class="docutils literal notranslate"><span class="pre">NDArray.copyfrom()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.NDArray.copyto"><code class="docutils literal notranslate"><span class="pre">NDArray.copyto()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.NDArray.device"><code class="docutils literal notranslate"><span class="pre">NDArray.device</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.NDArray.dtype"><code class="docutils literal notranslate"><span class="pre">NDArray.dtype</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.NDArray.numpy"><code class="docutils literal notranslate"><span class="pre">NDArray.numpy()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.NDArray.same_as"><code class="docutils literal notranslate"><span class="pre">NDArray.same_as()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.Normalize"><code class="docutils literal notranslate"><span class="pre">Normalize()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.Object"><code class="docutils literal notranslate"><span class="pre">Object</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.OptimizeLayoutTransform"><code class="docutils literal notranslate"><span class="pre">OptimizeLayoutTransform</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.PatternCheckContext"><code class="docutils literal notranslate"><span class="pre">PatternCheckContext</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.PrimFunc"><code class="docutils literal notranslate"><span class="pre">PrimFunc</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.PrimFunc.specialize"><code class="docutils literal notranslate"><span class="pre">PrimFunc.specialize()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.PrimFunc.with_body"><code class="docutils literal notranslate"><span class="pre">PrimFunc.with_body()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.RealizeVDevice"><code class="docutils literal notranslate"><span class="pre">RealizeVDevice()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.RemovePurityChecking"><code class="docutils literal notranslate"><span class="pre">RemovePurityChecking()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.RemoveRedundantReshape"><code class="docutils literal notranslate"><span class="pre">RemoveRedundantReshape</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.RewriteCUDAGraph"><code class="docutils literal notranslate"><span class="pre">RewriteCUDAGraph()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.RewriteDataflowReshape"><code class="docutils literal notranslate"><span class="pre">RewriteDataflowReshape()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.RunCodegen"><code class="docutils literal notranslate"><span class="pre">RunCodegen()</span></code></a></li>
@@ -315,10 +276,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.UpdateVDevice"><code class="docutils literal notranslate"><span class="pre">UpdateVDevice()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.VMBuiltinLower"><code class="docutils literal notranslate"><span class="pre">VMBuiltinLower()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.VMShapeLower"><code class="docutils literal notranslate"><span class="pre">VMShapeLower()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.Var"><code class="docutils literal notranslate"><span class="pre">Var</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#tvm.relax.transform.Var.name_hint"><code class="docutils literal notranslate"><span class="pre">Var.name_hint</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.dataflowblock_pass"><code class="docutils literal notranslate"><span class="pre">dataflowblock_pass()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.transform.function_pass"><code class="docutils literal notranslate"><span class="pre">function_pass()</span></code></a></li>
 </ul>
@@ -443,8 +400,8 @@ tensors into expected layout by new PrimFunc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>op_impl_map</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#tvm.relax.transform.PrimFunc" title="tvm.relax.transform.PrimFunc"><em>PrimFunc</em></a><em>]</em>) – op_kind to PrimFunc map</p></li>
-<li><p><strong>op_buffer_transforms</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap"><em>IndexMap</em></a><em>, </em><em>Callable</em><em>]</em><em>]</em>) – op_kind to layout transformation map for each of the buffers</p></li>
+<li><p><strong>op_impl_map</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="../tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.PrimFunc"><em>PrimFunc</em></a><em>]</em>) – op_kind to PrimFunc map</p></li>
+<li><p><strong>op_buffer_transforms</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.IndexMap"><em>IndexMap</em></a><em>, </em><em>Callable</em><em>]</em><em>]</em>) – op_kind to layout transformation map for each of the buffers</p></li>
 <li><p><strong>op_buffer_axis_separators</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><em>IndexMap.AXIS_SEPARATOR</em><em>, </em><em>Callable</em><em>]</em><em>]</em><em>]</em>) – op_kind to axis_separator for each index_map</p></li>
 </ul>
 </dd>
@@ -487,22 +444,14 @@ tensors into expected layout by new PrimFunc.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.BindParams">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">BindParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#tvm.relax.transform.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../runtime/ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><span class="pre">NDArray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.BindParams" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">BindParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../runtime/ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><span class="pre">NDArray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.BindParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bind params of function of the module to constant tensors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>func_name</strong> (<em>str</em>) – The function name to be bound</p></li>
-<li><p><strong>params</strong> (<em>Dict</em><em>[</em>) – <dl>
-<dt>Union[str,relax.Var],</dt><dd><blockquote>
-<div><p>Union[tvm.runtime.NDArray, np.ndarray],</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>The map from parameter or parameter name name to constant
-tensors.</p>
-</p></li>
+<li><p><strong>params</strong> (<em>Dict</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>,</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>]</em><em>,</em><em>Union</em><em>[</em><em>tvm.runtime.NDArray</em><em>, </em><em>np.ndarray</em><em>]</em><em>]</em>) – The map from parameter or parameter name name to constant
+tensors.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -516,20 +465,21 @@ tensors.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.BindSymbolicVars">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">BindSymbolicVars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binding_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.BindSymbolicVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bind params of function of the module to constant tensors.
-:param binding_map: The map from symbolic varname to integer.
-:type binding_map: Mapping[Union[str, tvm.tir.Var], tvm.tir.PrimExpr]
-:param func_name: The function name to be bound.  If None (default), all</p>
-<blockquote>
-<div><p>functions within the module will be updated.</p>
-</div></blockquote>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">BindSymbolicVars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binding_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.BindSymbolicVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind params of function of the module to constant tensors.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ret</strong></p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>binding_map</strong> (<em>Mapping</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.Var"><em>tvm.tir.Var</em></a><em>]</em><em>, </em><em>tvm.tir.PrimExpr</em><em>]</em>) – The map from symbolic varname to integer.</p></li>
+<li><p><strong>func_name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The function name to be bound. If None (default), all
+functions within the module will be updated.</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass">tvm.ir.transform.Pass</a></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ret</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass">tvm.ir.transform.Pass</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -592,7 +542,7 @@ the fused ops are applied to the combined matmul output before slicing.</p>
 relu, gelu, gelu_tanh and silu activation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>check</strong> (<em>Callable</em><em>[</em><em>[</em><em>relax.Var</em><em>, </em><em>List</em><em>[</em><em>relax.Var</em><em>]</em><em>, </em><em>List</em><em>[</em><em>relax.Var</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>relax.Var</em><em>, </em><em>Expr</em><em>]</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – A function to filter out unwanted branches, with the signature
+<dd class="field-odd"><p><strong>check</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>, </em><em>List</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>]</em><em>, </em><em>List</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>]</em><em>, </em><em>Dict</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>, </em><em>Expr</em><em>]</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – A function to filter out unwanted branches, with the signature
 (input, [rhs], [bias], binding) -&gt; bool.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -607,231 +557,21 @@ relu, gelu, gelu_tanh and silu activation.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.ConvertLayout">
 <span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">ConvertLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desired_layouts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.ConvertLayout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Automatic layout conversion pass.
-:param desired_layouts: The desired layout of conv2d ops is a map from the name of the op to the desired layout</p>
-<blockquote>
-<div><p>of the desired feature map, weight and output. For example, if we want to convert the
+<dd><p>Automatic layout conversion pass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>desired_layouts</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – The desired layout of conv2d ops is a map from the name of the op to the desired layout
+of the desired feature map, weight and output. For example, if we want to convert the
 layout of conv2d from NCHW to NHWC, we can set the desired layout of conv2d to be
-{“relax.nn.conv2d”: [“NHWC”, “OHWI”]}.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ret</strong> – The registered pass for layout conversion.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.transform.Pass">tvm.transform.Pass</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">DFPattern</span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base class of all Patterns.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.dup">
-<span class="sig-name descname"><span class="pre">dup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.dpl.pattern.DFPattern"><span class="pre">DFPattern</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.dup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Duplicate the current pattern (new object under different address)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A duplicated pattern</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern">DFPattern</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.extract_matched_expr">
-<span class="sig-name descname"><span class="pre">extract_matched_expr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var2val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.relax.transform.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.RelayExpr" title="tvm.ir.expr.RelayExpr"><span class="pre">RelayExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.dpl.pattern.DFPattern"><span class="pre">DFPattern</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.RelayExpr" title="tvm.ir.expr.RelayExpr"><span class="pre">RelayExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.extract_matched_expr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Match a relax.Expr and return a map from matching patterns to matched expressions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>expr</strong> (<em>tvm.relax.Expr</em>) – The expression to match</p></li>
-<li><p><strong>var2val</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>tvm.relax.Var</em><em>, </em><em>tvm.relax.Expr</em><em>]</em><em>]</em>) – A mapping from relax.Var to relax.Expr for autojump.</p></li>
-</ul>
+<code class="docutils literal notranslate"><span class="pre">{&quot;relax.nn.conv2d&quot;:</span> <span class="pre">[&quot;NHWC&quot;,</span> <span class="pre">&quot;OHWI&quot;]}</span></code>.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – Map from matching patterns to matched expressions.
-Return None if the pattern does not match expr.</p>
+<dd class="field-even"><p><strong>ret</strong> – The registered pass for layout conversion.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Optional[Dict[<a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern">DFPattern</a>, Expr]]</p>
+<dd class="field-odd"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.transform.Pass">tvm.transform.Pass</a></p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Check the note of <cite>match</cite> for the meaning of var2val.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.fork_to">
-<span class="sig-name descname"><span class="pre">fork_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.fork_to" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fork the current pattern to multiple pattern branches</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.has_attr">
-<span class="sig-name descname"><span class="pre">has_attr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AttrPattern</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.has_attr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add an attribute constraint to this pattern</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>attrs</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#tvm.relax.transform.Object" title="tvm.relax.transform.Object"><em>Object</em></a><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – The resulting AttrPattern</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>AttrPattern</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.has_dtype">
-<span class="sig-name descname"><span class="pre">has_dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataTypePattern</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.has_dtype" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a type constraint to this pattern</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dtype</strong> (<em>str</em>) – The dtype to match</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – The resulting DataTypePattern</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>DataTypePattern</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.has_shape">
-<span class="sig-name descname"><span class="pre">has_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ShapePattern</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.has_shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a shape constraint to this pattern</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<em>List</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a><em>]</em>) – Expected shape list</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – The resulting ShapePattern</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ShapePattern</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>has_shape assumes that the matched relax.Expr only has one
-output tensor. Use is_tuple for those with multiple outputs.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.has_type">
-<span class="sig-name descname"><span class="pre">has_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ttype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="analysis.html#tvm.relax.analysis.Type" title="tvm.ir.type.Type"><span class="pre">Type</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">TypePattern</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.has_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a type constraint to this pattern</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ttype</strong> (<a class="reference internal" href="analysis.html#tvm.relax.analysis.Type" title="tvm.ir.type.Type"><em>tvm.ir.type.Type</em></a>) – The type to match</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – The resulting TypePattern</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>TypePattern</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.match">
-<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var2val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.relax.transform.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.RelayExpr" title="tvm.ir.expr.RelayExpr"><span class="pre">RelayExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Match a relax.Expr syntactically</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>expr</strong> (<em>tvm.relax.Expr</em>) – The expression to match</p></li>
-<li><p><strong>var2val</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>tvm.relax.Var</em><em>, </em><em>tvm.relax.Expr</em><em>]</em><em>]</em>) – A mapping from relax.Var to relax.Expr for autojump.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – Whether or not the expression matches the pattern</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Unlike Relay whose function is an expression, functions in Relax consist
-of blocks of bindings that are not syntactically connected. We use a
-mapping (i.e., var2val) to mitigate the gap. For example, when matching
-“relax.add(lv0, lv1)”, given var2val, we match lv0’s bound expression
-when the recursive pattern matching goes to check lv0. The var2val mapping
-can be computed through the tvm.relax.analysis.get_var2val function.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.only_used_by">
-<span class="sig-name descname"><span class="pre">only_used_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.dpl.pattern.DFPattern"><span class="pre">DFPattern</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">PatternSeq</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PatternSeq</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.only_used_by" title="Permalink to this definition">¶</a></dt>
-<dd><p>The current pattern being <strong>ONLY</strong> used by another pattern (sequence)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern"><em>DFPattern</em></a><em>, </em><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern"><em>DFPattern</em></a><em>]</em>) – The consumer pattern (sequence)</p></li>
-<li><p><strong>index</strong> (<em>int</em><em>, </em><em>optional</em>) – The argument index called by the consumer pattern, by default -1</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – A chained pattern sequence</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>PatternSeq</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.same_shape_as">
-<span class="sig-name descname"><span class="pre">same_shape_as</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.dpl.pattern.DFPattern"><span class="pre">DFPattern</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SameShapeConstraint</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.same_shape_as" title="Permalink to this definition">¶</a></dt>
-<dd><p>The current pattern with the same shape as another pattern (sequence)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>other</strong> (<em>List</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern"><em>DFPattern</em></a><em>]</em>) – The other pattern (sequence)</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – A chained pattern sequence</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>PatternSeq</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.DFPattern.used_by">
-<span class="sig-name descname"><span class="pre">used_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.dpl.pattern.DFPattern"><span class="pre">DFPattern</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">PatternSeq</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PatternSeq</span></span></span><a class="headerlink" href="#tvm.relax.transform.DFPattern.used_by" title="Permalink to this definition">¶</a></dt>
-<dd><p>The current pattern being used by another pattern (sequence)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern"><em>DFPattern</em></a><em>, </em><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern"><em>DFPattern</em></a><em>]</em>) – The consumer pattern (sequence)</p></li>
-<li><p><strong>index</strong> (<em>int</em><em>, </em><em>optional</em>) – The argument index called by the consumer pattern, by default -1</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – A chained pattern sequence</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>PatternSeq</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -843,29 +583,27 @@ can be computed through the tvm.relax.analysis.get_var2val function.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.DeadCodeElimination">
 <span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">DeadCodeElimination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry_functions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.DeadCodeElimination" title="Permalink to this definition">¶</a></dt>
-<dd><dl>
-<dt>Remove dead code in the IRModule.</dt><dd><p>Currently it removes:
-1. Unused local VarBindings in a DataflowBlock.
-2. Unused DataflowBlocks in a function.
-3. Unused Relax functions in the module.</p>
+<dd><p>Remove dead code in the IRModule.
+Currently it removes:</p>
 <blockquote>
-<div><p>We detect the call chain from the entry function, and remove all unused functions.</p>
+<div><ol class="arabic simple">
+<li><p>Unused local VarBindings in a DataflowBlock.</p></li>
+<li><p>Unused DataflowBlocks in a function.</p></li>
+<li><p>Unused Relax functions in the module.
+We detect the call chain from the entry function, and remove all unused functions.</p></li>
+</ol>
 </div></blockquote>
-</dd>
-</dl>
+<p class="rubric">Notes</p>
+<p>For function-wise DCE, use py:func:<cite>tvm.relax.analysis.remove_all_unused</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>entry_functions</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – The set of entry functions to start from.</p>
 </dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>For function-wise DCE, use py:func:<cite>tvm.relax.analysis.remove_all_unused</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ret</strong> – The registered pass.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ret</strong> – The registered pass.</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.transform.Pass">tvm.transform.Pass</a></p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.transform.Pass">tvm.transform.Pass</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -926,12 +664,6 @@ all functions.</p>
 <dd class="field-odd"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.transform.Pass">tvm.transform.Pass</a></p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="tvm.relax.transform.Expr">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">Expr</span></span><a class="headerlink" href="#tvm.relax.transform.Expr" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="../ir.html#tvm.ir.RelayExpr" title="tvm.ir.expr.RelayExpr"><code class="xref py py-class docutils literal notranslate"><span class="pre">RelayExpr</span></code></a></p>
 </dd></dl>
 
 <dl class="py function">
@@ -1028,10 +760,10 @@ into a new function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>patterns</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.FusionPattern" title="tvm.relax.transform.FusionPattern"><em>FusionPattern</em></a><em>, </em><em>Tuple</em><em>]</em><em>]</em>) – <p>A list of patterns to be matched. The order of the patterns determines the order of priority
+<li><p><strong>patterns</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.FusionPattern" title="tvm.relax.transform.FusionPattern"><em>FusionPattern</em></a><em>, </em><a class="reference internal" href="relax.html#tvm.relax.Tuple" title="tvm.relax.Tuple"><em>Tuple</em></a><em>]</em><em>]</em>) – <p>A list of patterns to be matched. The order of the patterns determines the order of priority
 in which they are matched. Higher-priority patterns should come earlier in the list.</p>
 <p>In addition to FusionPattern, a tuple can be passed as item of this list. The pattern
-will be constructed through FusionPattern(<a href="#id1"><span class="problematic" id="id2">*</span></a>item)</p>
+will be constructed through <code class="code docutils literal notranslate"><span class="pre">FusionPattern(*item)</span></code></p>
 </p></li>
 <li><p><strong>bind_constants</strong> (<em>bool</em>) – Whether or not to keep bound constants in the grouped function.</p></li>
 <li><p><strong>annotate_codegen</strong> (<em>bool</em>) – <p>If True, wrap each created composite function with another function, whose body consists
@@ -1068,16 +800,16 @@ an external backend without using the MergeCompositeFunctions pass.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tvm.relax.transform.FusionPattern">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">FusionPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.dpl.pattern.DFPattern"><span class="pre">DFPattern</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotation_patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.dpl.pattern.DFPattern"><span class="pre">DFPattern</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.RelayExpr" title="tvm.ir.expr.RelayExpr"><span class="pre">RelayExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.FusionPattern" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">FusionPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DFPattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotation_patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DFPattern</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.FusionPattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pattern used by <cite>FuseOpsByPattern</cite>. It’s mainly DFPattern but with other
 information to help during the fusion pass.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – The name of pattern. Usually it starts with the name of backend, like ‘cutlass.matmul’.</p></li>
-<li><p><strong>pattern</strong> (<a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern"><em>DFPattern</em></a>) – The dataflow pattern that will be used to match expressions that can be handled
+<li><p><strong>pattern</strong> (<em>DFPattern</em>) – The dataflow pattern that will be used to match expressions that can be handled
 by external backends.</p></li>
-<li><p><strong>annotation_patterns</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#tvm.relax.transform.DFPattern" title="tvm.relax.transform.DFPattern"><em>DFPattern</em></a><em>]</em>) – The map which is used to extract important expressions from the pattern match
+<li><p><strong>annotation_patterns</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>DFPattern</em><em>]</em>) – The map which is used to extract important expressions from the pattern match
 result. All DFPattern in this map should be part of the <cite>pattern</cite>.</p></li>
 <li><p><strong>check</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.PatternCheckContext" title="tvm.relax.transform.PatternCheckContext"><em>PatternCheckContext</em></a><em>]</em><em>, </em><em>bool</em><em>]</em>) – The function to check whether the match result is accepted.</p></li>
 </ul>
@@ -1087,7 +819,7 @@ result. All DFPattern in this map should be part of the <cite>pattern</cite>.</p
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.Gradient">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">Gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_grads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.relax.transform.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.relax.transform.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.Gradient" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">Gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_grads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.Gradient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reverse-mode automatic differentiation.</p>
 <p>This pass will differentiate one function in the IRModule. Now the input function must have only
 one dataflow block.</p>
@@ -1098,6 +830,17 @@ target</strong> with respect to the arguments specified by <cite>require_grads</
 function has more than one return values, the target will be specified as the target_index-th
 return value. The target must be a scalar (0-dim tensor).</p>
 <p>The new function will be like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@R</span><span class="o">.</span><span class="n">function</span>
+<span class="k">def</span> <span class="nf">main_adjoint</span><span class="p">(</span><span class="n">original_parameters</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">R</span><span class="o">.</span><span class="n">dataflow</span><span class="p">():</span>
+        <span class="c1"># the bindings of the original function</span>
+        <span class="o">...</span>
+        <span class="c1"># calculating the gradients</span>
+        <span class="o">...</span>
+        <span class="n">R</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">original_outputs</span><span class="p">,</span> <span class="n">grad_1</span><span class="p">,</span> <span class="n">grad_2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">original_return_value</span><span class="p">,</span> <span class="p">(</span><span class="n">grad_1</span><span class="p">,</span> <span class="n">grad_2</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>
+</pre></div>
+</div>
 <p>This AD pass also supports checkpointing as described in
 “Training deep nets with sublinear memory cost.” - Chen, Tianqi, et al. (2016).
 See tvm.relax.testing.nn.checkpoint for more details.</p>
@@ -1105,7 +848,7 @@ See tvm.relax.testing.nn.checkpoint for more details.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>func_name</strong> (<em>str</em>) – The name of the specific function.</p></li>
-<li><p><strong>require_grads</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>relax.Var</em><em>, </em><em>List</em><em>[</em><em>relax.Var</em><em>]</em><em>]</em><em>]</em>) – The relax variables whose adjoints is needed. Must be parameters of the given function and
+<li><p><strong>require_grads</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>, </em><em>List</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>]</em><em>]</em><em>]</em>) – The relax variables whose adjoints is needed. Must be parameters of the given function and
 should not be duplicate. If it is not specified, adjoints of all parameters would be
 computed.</p></li>
 <li><p><strong>target_index</strong> (<em>int</em>) – If the specified function has more than one return values, specify the index of the return
@@ -1175,214 +918,73 @@ value as the target. If it is not specified, the first return value will be the 
 </pre></div>
 </div>
 <p>The second example is returning multiple values and specifying the target with <cite>target_index</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@I</span><span class="o">.</span><span class="n">ir_module</span>
+<span class="k">class</span> <span class="nc">Module</span><span class="p">:</span>
+    <span class="nd">@R</span><span class="o">.</span><span class="n">function</span>
+    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span> <span class="n">y</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="o">.</span><span class="n">Tuple</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)):</span>
+        <span class="k">with</span> <span class="n">R</span><span class="o">.</span><span class="n">dataflow</span><span class="p">():</span>
+            <span class="n">lv1</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">lv2</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">R</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">lv1</span><span class="p">,</span> <span class="n">lv2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">lv1</span><span class="p">,</span> <span class="n">lv2</span><span class="p">)</span>
+
+<span class="n">After</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">,</span> <span class="n">target_index</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span><span class="n">Module</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The module after the Gradient pass will be:</p>
-</dd></dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@I</span><span class="o">.</span><span class="n">ir_module</span>
+<span class="k">class</span> <span class="nc">Module</span><span class="p">:</span>
+    <span class="nd">@R</span><span class="o">.</span><span class="n">function</span>
+    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span> <span class="n">y</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="o">.</span><span class="n">Tuple</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)):</span>
+        <span class="k">with</span> <span class="n">R</span><span class="o">.</span><span class="n">dataflow</span><span class="p">():</span>
+            <span class="n">lv1</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">lv2</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">R</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">lv1</span><span class="p">,</span> <span class="n">lv2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">lv1</span><span class="p">,</span> <span class="n">lv2</span><span class="p">)</span>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">IndexMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse_index_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.IndexMap" title="Permalink to this definition">¶</a></dt>
-<dd><p>A mapping from multi-dimensional indices to another set of multi-dimensional indices</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>initial_indices</strong> (<em>List</em><em>[</em><em>relax.Var</em><em>]</em>) – Variables representing the indices prior to remapping.</p></li>
-<li><p><strong>final_indices</strong> (<em>List</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a><em>]</em>) – Expressions defining the indices after remapping.</p></li>
-<li><p><strong>inverse_index_map</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>Optional</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap"><em>IndexMap</em></a><em>]</em><em>]</em>) – The optional pre-defined inverse index map.
-When this is defined, IndexMap::Inverse will return the pre-defined inverse index map.
-Otherwise, the inverse index map will be computed on the fly.
-It is the user’s responsibility to ensure the correctness of the pre-defined inverse
-index map.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap.from_func">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'int64'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.IndexMap.from_func" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an index map from a function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mapping_function</strong> (<em>Callable</em>) – The function to map from source indices to target indices.
-The function should accept <cite>tir.Var</cite> parameters and return
-a either a <cite>tir.PrimExpr</cite>, or a list of <cite>tir.PrimExpr</cite>.
-Returning a <cite>tir.PrimExpr</cite> is equivalent to returning a
-list of length 1 containing that <cite>tir.PrimExpr</cite>.</p></li>
-<li><p><strong>ndim</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – The dimensionality of the buffer to which this
-transformation should be applied.  If mapping_function uses
-variadic argument <cite>*args</cite>, <cite>ndim</cite> must be specified.  If
-mapping_function does not use variadic arguments, ndim is
-optional.</p></li>
-<li><p><strong>inverse_index_map</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>Optional</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap"><em>IndexMap</em></a><em>]</em><em>]</em>) – The optional pre-defined inverse index map.
-When this is defined, IndexMap::Inverse will return the pre-defined inverse index map.
-Otherwise, the inverse index map will be computed on the fly.
-It is the user’s responsibility to ensure the correctness of the pre-defined inverse
-index map.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>index_map</strong> – Returns an IndexMap representing the <cite>mapping_function</cite>.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap">IndexMap</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap.from_func_with_separators">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_func_with_separators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'int64'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.IndexMap.from_func_with_separators" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an index map from a function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mapping_function</strong> (<em>Callable</em>) – The function to map from source indices to target indices.
-The function should accept tir.Var parameters and return
-either a <cite>tir.PrimExpr</cite> or a list.  Each element of the
-returned list should be either a <cite>tir.PrimExpr</cite> or the
-object <cite>IndexMap.AXIS_SEPARATOR</cite>.  Returning a
-<cite>tir.PrimExpr</cite> is equivalent to returning a list of length
-1 containing that <cite>tir.PrimExpr</cite>.</p></li>
-<li><p><strong>ndim</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – The dimensionality of the buffer to which this
-transformation should be applied.  If mapping_function uses
-variadic argument <cite>*args</cite>, ndim must be specified.  If
-mapping_function does not use variadic arguments, ndim is
-optional.</p></li>
-<li><p><strong>inverse_index_map</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><em>Optional</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap"><em>IndexMap</em></a><em>]</em><em>]</em>) – The optional pre-defined inverse index map.
-When this is defined, IndexMap::Inverse will return the pre-defined inverse index map.
-Otherwise, the inverse index map will be computed on the fly.
-It is the user’s responsibility to ensure the correctness of the pre-defined inverse
-index map.</p></li>
-<li><p><strong>index_dtype</strong> (<em>str</em>) – The default index dtype to use for input iters in the mapping function.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ret</strong> – Returns a tuple whose first element is an IndexMap
-representing the <cite>mapping_function</cite>, and whose second index
-is a list of indices at which <cite>IndexMap.AXIS_SEPARATOR</cite>
-occurred.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[<a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap">IndexMap</a>, List[int]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap.inverse">
-<span class="sig-name descname"><span class="pre">inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../ir.html#tvm.ir.Range" title="tvm.ir.expr.Range"><span class="pre">Range</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.IndexMap.inverse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the inverse of the map</p>
-<p>Throws an error if the function is not bijective.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.Range" title="tvm.ir.Range"><em>Range</em></a><em>,</em><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a><em>]</em><em>]</em>) – The region over which the inverse should be determined.
-Used for validating that the mapping is bijective over
-this range.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>inverse</strong> – The inverse</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap">IndexMap</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap.is_equivalent_to">
-<span class="sig-name descname"><span class="pre">is_equivalent_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tvm.relax.transform.IndexMap.is_equivalent_to" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return if the index maps are equivalent.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>other_map</strong> (<a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap"><em>IndexMap</em></a>) – The IndexMap to which the comparison should be made.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>is_equivalent</strong> – True if the two mappings represent the same
-transformation, otherwise False</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap.map_indices">
-<span class="sig-name descname"><span class="pre">map_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.transform.IndexMap.map_indices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the index map to a set of indices</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>indices</strong> (<em>List</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a><em>]</em>) – The indices to be mapped</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – The mapped indices</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List[<a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr">PrimExpr</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap.map_ndarray">
-<span class="sig-name descname"><span class="pre">map_ndarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr_src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../runtime/ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><span class="pre">NDArray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../runtime/ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><span class="pre">NDArray</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.IndexMap.map_ndarray" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply thie index map to transform the layout of the input NDArray</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>arr_src</strong> (<em>runtime.NDArray</em>) – The NDArray to be transformed</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>arr_dst</strong> – The transformed NDArray</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>runtime.NDArray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap.map_shape">
-<span class="sig-name descname"><span class="pre">map_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.transform.IndexMap.map_shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the index map to a buffer shape</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<em>List</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a><em>]</em>) – The buffer shape to be mapped</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – The mapped shape</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List[<a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr">PrimExpr</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.IndexMap.non_surjective_inverse">
-<span class="sig-name descname"><span class="pre">non_surjective_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../ir.html#tvm.ir.Range" title="tvm.ir.expr.Range"><span class="pre">Range</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.transform.IndexMap.non_surjective_inverse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the inverse of the map</p>
-<p>Can be applied to transformations that introduce padding.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.Range" title="tvm.ir.Range"><em>Range</em></a><em>,</em><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a><em>]</em><em>]</em>) – The region over which the inverse should be determined.
-Used for determining the predicate.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>result</strong> – The inverse, and a predicate for which the inverse maps to
-a valid index in the input range.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[<a class="reference internal" href="#tvm.relax.transform.IndexMap" title="tvm.relax.transform.IndexMap">IndexMap</a>, <a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr">PrimExpr</a>]</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">index_map</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="o">.</span><span class="n">from_func</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span><span class="o">//</span><span class="mi">4</span><span class="p">,</span> <span class="n">i</span><span class="o">%</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">inverse_map</span><span class="p">,</span> <span class="n">predicate</span> <span class="o">=</span> <span class="n">index_map</span><span class="o">.</span><span class="n">non_surjective_inverse</span><span class="p">([</span><span class="mi">14</span><span class="p">])</span>
-<span class="k">assert</span> <span class="n">inverse_map</span><span class="o">.</span><span class="n">is_equivalent_to</span><span class="p">(</span><span class="n">IndexMap</span><span class="o">.</span><span class="n">from_func</span><span class="p">(</span><span class="k">lambda</span> <span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="n">k</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">predicate</span><span class="p">)</span> <span class="c1"># Prints &quot;(axis0==3) &amp;&amp; (axis2 &gt;= 2)&quot;</span>
+    <span class="nd">@R</span><span class="o">.</span><span class="n">function</span>
+    <span class="k">def</span> <span class="nf">main_adjoint</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span> <span class="n">y</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="o">.</span><span class="n">Tuple</span><span class="p">(</span>
+        <span class="n">R</span><span class="o">.</span><span class="n">Tuple</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)),</span>
+        <span class="n">R</span><span class="o">.</span><span class="n">Tuple</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)),</span>
+    <span class="p">):</span>
+        <span class="k">with</span> <span class="n">R</span><span class="o">.</span><span class="n">dataflow</span><span class="p">():</span>
+            <span class="c1"># original bindings</span>
+            <span class="n">lv1</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">lv2</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="c1"># bindings w.r.t. intermediate variables</span>
+            <span class="c1"># gradient of intermediate variables that is not related to the target will not</span>
+            <span class="c1"># be calculated</span>
+            <span class="n">lv2_adjoint</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">ones</span><span class="p">((),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+            <span class="c1"># bindings w.r.t. parameters</span>
+            <span class="n">x_adjoint</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+            <span class="n">y_adjoint</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">Tensor</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span>
+                <span class="n">lv2_adjoint</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">R</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">lv1</span><span class="p">,</span> <span class="n">lv2</span><span class="p">,</span> <span class="n">x_adjoint</span><span class="p">,</span> <span class="n">y_adjoint</span><span class="p">)</span>
+        <span class="c1"># return value: (orig_return_values, tuple(adjoints))</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">lv1</span><span class="p">,</span> <span class="n">lv2</span><span class="p">),</span> <span class="p">(</span><span class="n">x_adjoint</span><span class="p">,</span> <span class="n">y_adjoint</span><span class="p">))</span>
 </pre></div>
 </div>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="tvm.relax.transform.KillAfterLastUse">
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">KillAfterLastUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.KillAfterLastUse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drop all tensor/storage objects after last use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ret</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass">tvm.ir.transform.Pass</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1409,7 +1011,7 @@ a valid index in the input range.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.LegalizeOps">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">LegalizeOps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customize_legalize_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="block_builder.html#tvm.relax.block_builder.BlockBuilder" title="tvm.relax.block_builder.BlockBuilder"><span class="pre">BlockBuilder</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="op.html#tvm.relax.op.memory.Call" title="tvm.relax.expr.Call"><span class="pre">Call</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.RelayExpr" title="tvm.ir.expr.RelayExpr"><span class="pre">RelayExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_warning</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.LegalizeOps" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">LegalizeOps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customize_legalize_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="block_builder.html#tvm.relax.block_builder.BlockBuilder" title="tvm.relax.block_builder.BlockBuilder"><span class="pre">BlockBuilder</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="relax.html#tvm.relax.Call" title="tvm.relax.expr.Call"><span class="pre">Call</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_warning</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.LegalizeOps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Legalize high-level operator calls in Relax functions to call_tir
 with corresponding low-level TIR PrimFuncs.</p>
 <p>For each high-level operator, we register the way of legalizing it as a
@@ -1528,6 +1130,28 @@ parameters to the original function as input.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="tvm.relax.transform.LowerAllocTensor">
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">LowerAllocTensor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.LowerAllocTensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower remaining instances of R.builtin.alloc_tensor</p>
+<p>The static memory planner removes static instances of
+<cite>R.builtin.alloc_tensor</cite>, replacing with <cite>R.memory.alloc_storage</cite>
+and <cite>R.memory.alloc_tensor</cite>.  However, <cite>R.builtin.alloc_tensor</cite>
+still remains for any dynamic allocations.</p>
+<p>This transform replaces any remaining <cite>R.builtin.alloc_tensor</cite>
+instances with <cite>R.memory.alloc_storage</cite> and
+<cite>R.memory.alloc_tensor</cite>.  If no <cite>R.builtin.alloc_tensor</cite> are
+present, this pass has no effect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ret</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass">tvm.ir.transform.Pass</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.MergeCompositeFunctions">
 <span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">MergeCompositeFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.MergeCompositeFunctions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Group one or multiple composite functions created by FuseOpsByPattern into a new function.
@@ -1568,28 +1192,26 @@ showing up in the database. By default we don’t print warning.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.MetaScheduleTuneIRMod">
 <span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">MetaScheduleTuneIRMod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../runtime/ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><span class="pre">NDArray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_trials_global</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_trials_per_task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.MetaScheduleTuneIRMod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Tune Relax IRModule with MetaSchedule.
-:param params: model params
-:type params: Dict[str, NDArray]
-:param work_dir: work directory
-:type work_dir: str
-:param max_trials_gloabl: maximum number of total trials allowed for tuning
-:type max_trials_gloabl: int
-:param max_trials_per_task: maximum number of trials per task
-:type max_trials_per_task: int
-:param op_names:</p>
-<blockquote>
-<div><dl class="simple">
+<dd><p>Tune Relax IRModule with MetaSchedule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="../runtime/ndarray.html#tvm.runtime.ndarray.NDArray" title="tvm.runtime.ndarray.NDArray"><em>NDArray</em></a><em>]</em>) – model params</p></li>
+<li><p><strong>work_dir</strong> (<em>str</em>) – work directory</p></li>
+<li><p><strong>max_trials_gloabl</strong> (<em>int</em>) – maximum number of total trials allowed for tuning</p></li>
+<li><p><strong>max_trials_per_task</strong> (<em>int</em>) – maximum number of trials per task</p></li>
+<li><p><strong>op_names</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – <dl class="simple">
 <dt>A list of operator names to specify which op to tune. When it is None, all operators</dt><dd><p>are tuned.</p>
 </dd>
 </dl>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ret</strong></p>
+</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass">tvm.ir.transform.Pass</a></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ret</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass">tvm.ir.transform.Pass</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1612,104 +1234,12 @@ showing up in the database. By default we don’t print warning.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="tvm.relax.transform.NDArray">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">NDArray</span></span><a class="headerlink" href="#tvm.relax.transform.NDArray" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lightweight NDArray class of TVM runtime.</p>
-<p>Strictly this is only an Array Container (a buffer object)
-No arthimetic operations are defined.
-All operations are performed by TVM functions.</p>
-<p>The goal is not to re-build yet another array library.
-Instead, this is a minimal data structure to demonstrate
-how can we use TVM in existing project which might have their own array containers.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.NDArray.asnumpy">
-<span class="sig-name descname"><span class="pre">asnumpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.NDArray.asnumpy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert this array to numpy array. This API will be deprecated in TVM v0.8 release.
-Please use <cite>numpy</cite> instead.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.NDArray.copyfrom">
-<span class="sig-name descname"><span class="pre">copyfrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.NDArray.copyfrom" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform a synchronous copy from the array.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>source_array</strong> (<em>array_like</em>) – The data source we should like to copy from.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>arr</strong> – Reference to self.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#tvm.relax.transform.NDArray" title="tvm.relax.transform.NDArray">NDArray</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.NDArray.copyto">
-<span class="sig-name descname"><span class="pre">copyto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.NDArray.copyto" title="Permalink to this definition">¶</a></dt>
-<dd><p>Copy array to target</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>target</strong> (<a class="reference internal" href="#tvm.relax.transform.NDArray" title="tvm.relax.transform.NDArray"><em>NDArray</em></a>) – The target array to be copied, must have same shape as this array.</p></li>
-<li><p><strong>mem_scope</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The memory scope of the array.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="tvm.relax.transform.NDArray.device">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">device</span></span><a class="headerlink" href="#tvm.relax.transform.NDArray.device" title="Permalink to this definition">¶</a></dt>
-<dd><p>Device of this array</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="tvm.relax.transform.NDArray.dtype">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#tvm.relax.transform.NDArray.dtype" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of this array</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.NDArray.numpy">
-<span class="sig-name descname"><span class="pre">numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.NDArray.numpy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert this array to numpy array</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>np_arr</strong> – The corresponding numpy array.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.NDArray.same_as">
-<span class="sig-name descname"><span class="pre">same_as</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.NDArray.same_as" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check object identity equality</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>other</strong> (<em>object</em>) – The other object to compare to</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>same</strong> – Whether other is same as self.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.Normalize">
 <span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">Normalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.Normalize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforming Relax IR to normal form, i.e., the expressions are normalized(no nesting
-and hence the AST is in ANF), and all <a href="#id3"><span class="problematic" id="id4">checked_type_</span></a> and <a href="#id5"><span class="problematic" id="id6">shape_</span></a> of expressions are available.</p>
+and hence the AST is in ANF), and all <code class="docutils literal notranslate"><span class="pre">checked_type_</span></code> and <code class="docutils literal notranslate"><span class="pre">shape_</span></code> of expressions are
+available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ret</strong></p>
@@ -1718,12 +1248,6 @@ and hence the AST is in ANF), and all <a href="#id3"><span class="problematic" i
 <dd class="field-even"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass">tvm.ir.transform.Pass</a></p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="tvm.relax.transform.Object">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">Object</span></span><a class="headerlink" href="#tvm.relax.transform.Object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base class for all tvm’s runtime objects.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -1743,104 +1267,15 @@ introduced by AlterOpImpl pass.</p>
 <li><p><strong>matched_expr</strong> (<em>Expr</em>) – The expression that’s matched with the FusionPattern.pattern.</p></li>
 <li><p><strong>annotated_expr</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>Expr</em><em>]</em>) – A map which contains all expressions matched by the sub patterns in
 FusionPattern.annotation_patterns.</p></li>
-<li><p><strong>matched_bindings</strong> (<em>Mapping</em><em>[</em><em>relax.Var</em><em>, </em><em>Expr</em><em>]</em>) – Map from variable to its value. It contains variables from bindings that is
+<li><p><strong>matched_bindings</strong> (<em>Mapping</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>, </em><em>Expr</em><em>]</em>) – Map from variable to its value. It contains variables from bindings that is
 being fused by FuseOpsByPattern.</p></li>
-<li><p><strong>var_usages</strong> (<em>Mapping</em><em>[</em><em>relax.Var</em><em>, </em><em>Sequence</em><em>[</em><em>relax.Var</em><em>]</em><em>]</em>) – A map mapping variable definitions to a set of uses. It has all variables
+<li><p><strong>var_usages</strong> (<em>Mapping</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>, </em><em>Sequence</em><em>[</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>]</em><em>]</em>) – A map mapping variable definitions to a set of uses. It has all variables
 used in the function.</p></li>
-<li><p><strong>value_to_bound_var</strong> (<em>Mapping</em><em>[</em><em>Expr</em><em>, </em><em>relax.Var</em><em>]</em>) – Map from value to its bound variable. It doesn’t have variables after the
+<li><p><strong>value_to_bound_var</strong> (<em>Mapping</em><em>[</em><em>Expr</em><em>, </em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>]</em>) – Map from value to its bound variable. It doesn’t have variables after the
 matched expression.</p></li>
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="tvm.relax.transform.PrimFunc">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">PrimFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.PrimFunc" title="Permalink to this definition">¶</a></dt>
-<dd><p>A function declaration expression.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>params</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.Var"><em>tvm.tir.Var</em></a><em>, </em><a class="reference internal" href="../tir/tir.html#tvm.tir.Buffer" title="tvm.tir.Buffer"><em>tvm.tir.Buffer</em></a><em>]</em><em>]</em>) – List of input parameters to the function.</p></li>
-<li><p><strong>body</strong> (<a class="reference internal" href="../tir/tir.html#tvm.tir.Stmt" title="tvm.tir.Stmt"><em>tvm.tir.Stmt</em></a>) – The body of the function.</p></li>
-<li><p><strong>ret_type</strong> (<a class="reference internal" href="../ir.html#tvm.ir.Type" title="tvm.ir.Type"><em>tvm.ir.Type</em></a>) – The return type annotation of the function.</p></li>
-<li><p><strong>buffer_map</strong> (<a class="reference internal" href="../ir.html#tvm.ir.Map" title="tvm.ir.Map"><em>Map</em></a><em>[</em><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.Var"><em>tvm.tir.Var</em></a><em>, </em><a class="reference internal" href="../tir/tir.html#tvm.tir.Buffer" title="tvm.tir.Buffer"><em>tvm.tir.Buffer</em></a><em>]</em>) – The buffer binding map.</p></li>
-<li><p><strong>attrs</strong> (<em>Optional</em><em>[</em><em>tvm.Attrs</em><em>]</em>) – Attributes of the function, can be None</p></li>
-<li><p><strong>span</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.Span" title="tvm.ir.Span"><em>Span</em></a><em>]</em>) – The location of this itervar in the source code.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.PrimFunc.specialize">
-<span class="sig-name descname"><span class="pre">specialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="op.html#tvm.relax.op.image.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.Buffer" title="tvm.tir.buffer.Buffer"><span class="pre">Buffer</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.PrimFunc.specialize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specialize parameters of PrimFunc</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>param_map</strong> (<em>Mapping</em><em>[</em><em>relax.Var</em><em>, </em><em>Union</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a><em>, </em><a class="reference internal" href="analysis.html#tvm.relax.analysis.Buffer" title="tvm.relax.analysis.Buffer"><em>Buffer</em></a><em>]</em><em>]</em>) – The mapping from function params to the instance</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<p>We can define a Meta TIR function with symbolic shape:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@T</span><span class="o">.</span><span class="n">prim_func</span>
-<span class="k">def</span> <span class="nf">mem_copy</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">match_buffer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="s2">&quot;float32&quot;</span><span class="p">)</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">match_buffer</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="s2">&quot;float32&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">T</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">with</span> <span class="n">T</span><span class="o">.</span><span class="n">block</span><span class="p">():</span>
-            <span class="n">vi</span><span class="p">,</span> <span class="n">vj</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">remap</span><span class="p">(</span><span class="s2">&quot;SS&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-            <span class="n">B</span><span class="p">[</span><span class="n">vi</span><span class="p">,</span> <span class="n">vj</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">vi</span><span class="p">,</span> <span class="n">vj</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Then we can make it specialized with given shapes or buffers.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">mem_copy</span><span class="o">.</span><span class="n">params</span>
-<span class="n">func</span> <span class="o">=</span> <span class="n">mem_copy</span><span class="o">.</span><span class="n">specialize</span><span class="p">({</span><span class="n">a</span><span class="p">:</span> <span class="n">tir</span><span class="o">.</span><span class="n">decl_buffer</span><span class="p">((</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))})</span>
-<span class="c1"># or</span>
-<span class="n">func</span> <span class="o">=</span> <span class="n">mem_copy</span><span class="o">.</span><span class="n">specialize</span><span class="p">({</span><span class="n">n</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="mi">16</span><span class="p">})</span>
-</pre></div>
-</div>
-<p>The specialized function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@T</span><span class="o">.</span><span class="n">prim_func</span>
-<span class="k">def</span> <span class="nf">mem_copy_16_16</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">handle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">match_buffer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="s2">&quot;float32&quot;</span><span class="p">)</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">match_buffer</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="s2">&quot;float32&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">T</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">):</span>
-        <span class="k">with</span> <span class="n">T</span><span class="o">.</span><span class="n">block</span><span class="p">():</span>
-            <span class="n">vi</span><span class="p">,</span> <span class="n">vj</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">remap</span><span class="p">(</span><span class="s2">&quot;SS&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-            <span class="n">B</span><span class="p">[</span><span class="n">vi</span><span class="p">,</span> <span class="n">vj</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">vi</span><span class="p">,</span> <span class="n">vj</span><span class="p">]</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>func</strong> – The new function with parameter specialized</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#tvm.relax.transform.PrimFunc" title="tvm.relax.transform.PrimFunc">PrimFunc</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tvm.relax.transform.PrimFunc.with_body">
-<span class="sig-name descname"><span class="pre">with_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.PrimFunc.with_body" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new PrimFunc with the same set signatures but a new body.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>new_body</strong> (<a class="reference internal" href="../tir/tir.html#tvm.tir.Stmt" title="tvm.tir.Stmt"><em>Stmt</em></a>) – The new body.</p></li>
-<li><p><strong>span</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.Span" title="tvm.ir.Span"><em>Span</em></a><em>]</em>) – The location of this itervar in the source code.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>new_func</strong> – The created new function.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#tvm.relax.transform.PrimFunc" title="tvm.relax.transform.PrimFunc">PrimFunc</a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py function">
@@ -1876,6 +1311,12 @@ useful for low-level code generation.</p>
 <p class="admonition-title">Note</p>
 <p>Should be used after ToNonDataflow()</p>
 </div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tvm.relax.transform.RemoveRedundantReshape">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">RemoveRedundantReshape</span></span><a class="headerlink" href="#tvm.relax.transform.RemoveRedundantReshape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transformation pass to remove redundant reshape operator</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1932,7 +1373,7 @@ Here “reshape-like” includes reshape, expand_dims, flatten, etc.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.SplitCallTIRByPattern">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">SplitCallTIRByPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patterns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcodegen</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.SplitCallTIRByPattern" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">SplitCallTIRByPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcodegen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.SplitCallTIRByPattern" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Split a PrimFunc into 2 parts: the first part is a TIR PrimFunc which is</dt><dd><p>matched with some pattern, and the second part is the rest of the original
 PrimFunc. It will call fcodegen to generate the code for the matched pattern
@@ -1942,8 +1383,8 @@ to replace it with a ExternFunc call.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>patterns</strong> (<em>List</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.PrimFunc" title="tvm.relax.transform.PrimFunc"><em>PrimFunc</em></a><em>]</em>) – The list of patterns to match.</p></li>
-<li><p><strong>fcodegen</strong> (<em>Callable</em><em>[</em><em>[</em><em>List</em><em>[</em><em>MatchResult</em><em>]</em><em>]</em><em>, </em><em>List</em><em>[</em><a class="reference internal" href="#tvm.relax.transform.Object" title="tvm.relax.transform.Object"><em>Object</em></a><em>]</em><em>]</em>) – The function to generate the code for the matched patterns.</p></li>
+<li><p><strong>patterns</strong> (<em>List</em><em>[</em><a class="reference internal" href="../tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.PrimFunc"><em>PrimFunc</em></a><em>]</em>) – The list of patterns to match.</p></li>
+<li><p><strong>fcodegen</strong> (<em>Callable</em><em>[</em><em>[</em><em>List</em><em>[</em><em>MatchResult</em><em>]</em><em>]</em><em>, </em><em>List</em><em>[</em><a class="reference internal" href="../runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.Object"><em>Object</em></a><em>]</em><em>]</em>) – The function to generate the code for the matched patterns.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1967,11 +1408,9 @@ to Relax functions. The attribute value is a dict from strings to integers,
 denoting the name of TIR variables to the upper bound values of the TIR vars.
 Note: The annotated upper bound attribute only applies to TIR vars in the
 function signature for clarity.</p>
-<dl class="simple">
-<dt>For example, we can annotate a Relax function with</dt><dd><p><cite>R.func_attr({“tir_var_upper_bound”: {“n”: 1024}})</cite>.</p>
-</dd>
-</dl>
-<p>It means the maximum value of variable that names “n” in the function
+<p>For example, we can annotate a Relax function with
+<code class="code docutils literal notranslate"><span class="pre">R.func_attr({&quot;tir_var_upper_bound&quot;:</span> <span class="pre">{&quot;n&quot;:</span> <span class="pre">1024}})</span></code>.
+It means the maximum value of variable that names “n” in the function
 signature will have upper bound 1024. And we will use 1024 as its value
 during memory planning.</p>
 <dl class="field-list simple">
@@ -1988,19 +1427,20 @@ during memory planning.</p>
 <dt class="sig sig-object py" id="tvm.relax.transform.ToMixedPrecision">
 <span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">ToMixedPrecision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp16_input_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.ir.transform.Pass"><span class="pre">Pass</span></a></span></span><a class="headerlink" href="#tvm.relax.transform.ToMixedPrecision" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatic mixed precision pass. Currently the pass assumes the input module to be fp32
-only, and will automatically cast fp32 to fp16 for certain ops.
-:param out_dtype: The output data type of gemm/conv, which is the data type of the accumulator.
-:type out_dtype: str
-:param fp16_input_names: The names of function parameters whose dtype should become fp16. The  function signature</p>
-<blockquote>
-<div><p>would change accordingly.</p>
-</div></blockquote>
+only, and will automatically cast fp32 to fp16 for certain ops.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ret</strong> – The registered pass for mixed precision.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>out_dtype</strong> (<em>str</em>) – The output data type of gemm/conv, which is the data type of the accumulator.</p></li>
+<li><p><strong>fp16_input_names</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – The names of function parameters whose dtype should become fp16. The  function signature
+would change accordingly.</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.transform.Pass">tvm.transform.Pass</a></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ret</strong> – The registered pass for mixed precision.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../transform.html#tvm.transform.Pass" title="tvm.transform.Pass">tvm.transform.Pass</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2070,18 +1510,6 @@ only, and will automatically cast fp32 to fp16 for certain ops.
 </dl>
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="tvm.relax.transform.Var">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">Var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_hint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Id</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">struct_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="op.html#tvm.relax.op.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../ir.html#tvm.ir.Span" title="tvm.ir.base.Span"><span class="pre">Span</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.relax.transform.Var" title="Permalink to this definition">¶</a></dt>
-<dd><p>The variable class for all Relax bindings.</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="tvm.relax.transform.Var.name_hint">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name_hint</span></span><a class="headerlink" href="#tvm.relax.transform.Var.name_hint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get name hint of the current var.</p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.dataflowblock_pass">
 <span class="sig-prename descclassname"><span class="pre">tvm.relax.transform.</span></span><span class="sig-name descname"><span class="pre">dataflowblock_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pass_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#tvm.relax.transform.DataflowBlockPass" title="tvm.relax.transform.transform.DataflowBlockPass"><span class="pre">DataflowBlockPass</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.transform.dataflowblock_pass" title="Permalink to this definition">¶</a></dt>
@@ -2092,7 +1520,7 @@ given optimization function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pass_func</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>(</em><a class="reference internal" href="analysis.html#tvm.relax.analysis.DataflowBlock" title="tvm.relax.analysis.DataflowBlock"><em>DataflowBlock</em></a><em>, </em><a class="reference internal" href="../runtime/runtime.html#tvm.runtime.Module" title="tvm.runtime.Module"><em>Module</em></a><em>, </em><a class="reference internal" href="../transform.html#tvm.transform.PassContext" title="tvm.transform.PassContext"><em>PassContext</em></a><em>) </em><em>-&gt; DataflowBlock</em><em>]</em><em>]</em>) – The transformation function or class.</p></li>
+<li><p><strong>pass_func</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>(</em><a class="reference internal" href="relax.html#tvm.relax.DataflowBlock" title="tvm.relax.DataflowBlock"><em>DataflowBlock</em></a><em>, </em><a class="reference internal" href="../runtime/runtime.html#tvm.runtime.Module" title="tvm.runtime.Module"><em>Module</em></a><em>, </em><a class="reference internal" href="../transform.html#tvm.transform.PassContext" title="tvm.transform.PassContext"><em>PassContext</em></a><em>) </em><em>-&gt; DataflowBlock</em><em>]</em><em>]</em>) – The transformation function or class.</p></li>
 <li><p><strong>opt_level</strong> (<em>int</em>) – The optimization level of this dataflowblock pass.</p></li>
 <li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The name of the dataflowblock pass. The name could be empty. In this case, the
 name of the optimization function will be used as the pass name.</p></li>
@@ -2177,7 +1605,7 @@ given optimization function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pass_func</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>(</em><a class="reference internal" href="analysis.html#tvm.relax.analysis.Function" title="tvm.relax.analysis.Function"><em>Function</em></a><em>, </em><a class="reference internal" href="../runtime/runtime.html#tvm.runtime.Module" title="tvm.runtime.Module"><em>Module</em></a><em>, </em><a class="reference internal" href="../transform.html#tvm.transform.PassContext" title="tvm.transform.PassContext"><em>PassContext</em></a><em>) </em><em>-&gt; Function</em><em>]</em><em>]</em>) – The transformation function or class.</p></li>
+<li><p><strong>pass_func</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>(</em><a class="reference internal" href="relax.html#tvm.relax.Function" title="tvm.relax.Function"><em>Function</em></a><em>, </em><a class="reference internal" href="../runtime/runtime.html#tvm.runtime.Module" title="tvm.runtime.Module"><em>Module</em></a><em>, </em><a class="reference internal" href="../transform.html#tvm.transform.PassContext" title="tvm.transform.PassContext"><em>PassContext</em></a><em>) </em><em>-&gt; Function</em><em>]</em><em>]</em>) – The transformation function or class.</p></li>
 <li><p><strong>opt_level</strong> (<em>int</em>) – The optimization level of this function pass.</p></li>
 <li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The name of the function pass. The name could be empty. In this case, the
 name of the optimization function will be used as the pass name.</p></li>

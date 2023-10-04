@@ -502,17 +502,17 @@ be used to ascertain the shape and data type of a TensorIR.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">evaluate_dynamic_shape</span><span class="p">(</span><span class="n">dyn_shape_lib</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">128</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[[1.0089133  1.0676211  1.1163464  1.4312122 ]
- [1.1066377  1.1027626  1.5109268  1.5382401 ]
- [1.0011591  1.1169064  0.97465074 1.420451  ]
- [0.58543766 0.6187949  0.8213514  0.8639262 ]]
-[[29.982533 28.09605  28.224003 ... 29.824375 29.835365 31.045702]
- [30.535772 28.573008 27.534761 ... 30.724974 31.053572 32.15319 ]
- [30.902615 30.43098  30.620544 ... 30.414328 32.040413 35.50827 ]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[[0.80841756 0.41886178 0.49073604 0.512047  ]
+ [1.7498375  0.6723311  0.59663844 1.050754  ]
+ [0.8891816  0.22158821 0.46025005 0.8723778 ]
+ [1.064077   0.36839518 0.5267716  0.6087347 ]]
+[[30.162022 28.174814 28.914864 ... 30.57239  28.749641 28.190123]
+ [33.512154 33.18013  34.85633  ... 33.555126 32.853973 31.06606 ]
+ [33.28046  32.027206 33.095177 ... 32.76596  31.955927 31.117464]
  ...
- [30.90456  28.272364 28.591564 ... 28.919882 32.572327 31.591125]
- [31.813324 30.321638 29.261724 ... 30.744812 30.937199 33.447586]
- [36.15759  33.95418  33.812    ... 32.679295 33.934563 37.713467]]
+ [31.843388 29.433445 33.132694 ... 33.65738  30.613613 31.738417]
+ [30.891014 28.90624  29.469269 ... 32.193058 30.430616 31.913324]
+ [31.805836 29.294765 31.950375 ... 33.791096 31.920332 31.185328]]
 </pre></div>
 </div>
 </section>
@@ -635,7 +635,7 @@ class Module:
                 C[v_i, v_j] = T.max(Y[v_i, v_j], T.float32(0))
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.123 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.124 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-deep-dive-tensor-ir-tutorials-creation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/5fde583f102218c7d123f522a7aef688/creation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">creation.py</span></code></a></p>
