@@ -15,6 +15,8 @@
     specific language governing permissions and limitations
     under the License.
 
+.. _api-relax-transformation:
+
 tvm.relax.transform
 -------------------
 .. automodule:: tvm.relax.transform
