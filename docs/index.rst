@@ -9,6 +9,7 @@ TVM Unity is developed under Apache TVM's Github Repo in a separate `unity` bran
 
    get_started/install
    get_started/tutorials/quick_start
+   get_started/tutorials/ir_module
 
 
 .. The Deep Dive content is comprehensive
