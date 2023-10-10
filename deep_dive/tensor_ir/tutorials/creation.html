@@ -193,6 +193,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/ir_module.html">IRModule</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deep Dive</span></p>
 <ul class="current">
@@ -502,17 +503,17 @@ be used to ascertain the shape and data type of a TensorIR.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">evaluate_dynamic_shape</span><span class="p">(</span><span class="n">dyn_shape_lib</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">128</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[[0.80841756 0.41886178 0.49073604 0.512047  ]
- [1.7498375  0.6723311  0.59663844 1.050754  ]
- [0.8891816  0.22158821 0.46025005 0.8723778 ]
- [1.064077   0.36839518 0.5267716  0.6087347 ]]
-[[30.162022 28.174814 28.914864 ... 30.57239  28.749641 28.190123]
- [33.512154 33.18013  34.85633  ... 33.555126 32.853973 31.06606 ]
- [33.28046  32.027206 33.095177 ... 32.76596  31.955927 31.117464]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[[0.74369144 1.2857096  0.9312536  1.4938402 ]
+ [0.8457197  1.1344357  1.0167718  1.4015458 ]
+ [0.6215172  0.8697282  0.73780996 1.08859   ]
+ [0.8444467  1.4817338  1.0255342  1.6752933 ]]
+[[31.81367  29.322643 33.46643  ... 32.066936 31.843338 31.997297]
+ [34.21587  29.761692 33.985676 ... 33.975616 30.549124 32.943256]
+ [36.668354 35.634075 37.476894 ... 36.07737  33.93837  33.803913]
  ...
- [31.843388 29.433445 33.132694 ... 33.65738  30.613613 31.738417]
- [30.891014 28.90624  29.469269 ... 32.193058 30.430616 31.913324]
- [31.805836 29.294765 31.950375 ... 33.791096 31.920332 31.185328]]
+ [36.620438 31.921883 34.284283 ... 34.45535  31.221395 31.307842]
+ [29.393274 27.178171 29.224554 ... 29.862112 27.953592 29.040247]
+ [34.58329  31.312542 30.833471 ... 32.808777 32.16594  32.481743]]
 </pre></div>
 </div>
 </section>
@@ -635,7 +636,7 @@ class Module:
                 C[v_i, v_j] = T.max(Y[v_i, v_j], T.float32(0))
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.124 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.123 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-deep-dive-tensor-ir-tutorials-creation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/5fde583f102218c7d123f522a7aef688/creation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">creation.py</span></code></a></p>

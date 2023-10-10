@@ -192,6 +192,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/ir_module.html">IRModule</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deep Dive</span></p>
 <ul>
@@ -876,7 +877,7 @@ or a derive_func that provides a customized derivation rule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ret</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#tvm.relax.StructInfo" title="tvm.relax.StructInfo"><em>StructInfo</em></a><em>]</em>) – The struct info of the the function return value.</p></li>
+<li><p><strong>ret</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#tvm.relax.StructInfo" title="tvm.relax.StructInfo"><em>StructInfo</em></a><em>]</em>) – The struct info of the function return value.</p></li>
 <li><p><strong>derive_func</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.EnvFunc" title="tvm.ir.EnvFunc"><em>EnvFunc</em></a><em>]</em>) – The environment function used for derivation</p></li>
 <li><p><strong>purity</strong> (<em>bool</em>) – Whether the function is pure (false by default, as most opaque functions are not pure)</p></li>
 <li><p><strong>span</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.Span" title="tvm.ir.Span"><em>Span</em></a><em>]</em>) – Optional span information of the ast.</p></li>
@@ -2102,7 +2103,7 @@ and runtime structural information.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>Optional</em><em>[</em><em>Expr</em><em>]</em>) – The shape expression.</p></li>
 <li><p><strong>dtype</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The content data type.</p></li>
-<li><p><strong>vdevice</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../ir.html#tvm.ir.VDevice" title="tvm.ir.VDevice"><em>VDevice</em></a><em>]</em>) – The virtual device.</p></li>
+<li><p><strong>vdevice</strong> (<em>Optional</em><em>[</em><em>Vdevice</em><em>]</em>) – The virtual device.</p></li>
 <li><p><strong>ndim</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – The number of dimensions of the tensor.</p></li>
 </ul>
 </dd>

@@ -192,6 +192,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/ir_module.html">IRModule</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deep Dive</span></p>
 <ul>
@@ -370,7 +371,7 @@
            <div itemprop="articleBody">
             
   <section id="module-tvm.relax.transform">
-<span id="tvm-relax-transform"></span><h1>tvm.relax.transform<a class="headerlink" href="#module-tvm.relax.transform" title="Permalink to this heading">¶</a></h1>
+<span id="tvm-relax-transform"></span><span id="api-relax-transformation"></span><h1>tvm.relax.transform<a class="headerlink" href="#module-tvm.relax.transform" title="Permalink to this heading">¶</a></h1>
 <p>Relax transformations.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.transform.AllocateWorkspace">
@@ -450,8 +451,16 @@ tensors into expected layout by new PrimFunc.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>func_name</strong> (<em>str</em>) – The function name to be bound</p></li>
-<li><p><strong>params</strong> (<em>Dict</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>,</em><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var"><em>relax.Var</em></a><em>]</em><em>,</em><em>Union</em><em>[</em><em>tvm.runtime.NDArray</em><em>, </em><em>np.ndarray</em><em>]</em><em>]</em>) – The map from parameter or parameter name name to constant
-tensors.</p></li>
+<li><p><strong>params</strong> (<em>Dict</em><em>[</em>) – <dl>
+<dt>Union[str,relax.Var],</dt><dd><blockquote>
+<div><p>Union[tvm.runtime.NDArray, np.ndarray],</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>The map from parameter or parameter name to constant
+tensors.</p>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
