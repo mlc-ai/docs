@@ -39,14 +39,14 @@ staging:
 	# Reproduce the directory structure
 	find ${SOURCEDIR} \
 	      -path ./$(BUILDDIR) -prune -o -path ./$(STAGINGDIR) -prune -o \
-	      -name "*.rst"  \
+	      \( -name "*.rst" -o -name "*.md" \) \
 	      -printf "$(STAGINGDIR)/%h\n" \
               | sort | uniq | xargs mkdir -p
 
-	# Symlink all .rst files into the staging directory
+	# Symlink all .rst/.md files into the staging directory
 	find ${SOURCEDIR} \
 	      -path ./$(BUILDDIR) -prune -o -path ./$(STAGINGDIR) -prune -o \
-	      -name "*.rst"  \
+	      \( -name "*.rst" -o -name "*.md" \) \
 	      -exec ln -s $(PWD)/{} $(STAGINGDIR)/{} \;
 
 	ln -s $(PWD)/$(SOURCEDIR)/conf.py $(STAGINGDIR)/${SOURCEDIR}/conf.py

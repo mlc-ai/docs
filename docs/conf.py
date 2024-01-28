@@ -33,6 +33,7 @@ version = tvm.__version__
 release = version
 
 extensions = [
+    "myst_parser",
     "sphinx_gallery.gen_gallery",
     "sphinx_tabs.tabs",
     "sphinx_toolbox.collapse",
@@ -42,7 +43,10 @@ extensions = [
     "sphinx.ext.napoleon",
 ]
 
-source_suffix = [".rst"]
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 language = "en"
 
@@ -58,6 +62,24 @@ pygments_style = "sphinx"
 # A list of ignored prefixes for module index sorting.
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
+
+
+myst_enable_extensions = [
+    "amsmath",
+    "attrs_inline",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
+]
+
 
 # -- Options for customization --------------------------------------------
 
@@ -142,9 +164,10 @@ def save_rst_example(
     memory_used,
     gallery_conf,
     real_func,
+    language="Python",
 ):
     """Monkey-patch save_rst_example to include the "Open in Colab" button."""
-
+    assert language == "Python", f"Only Python examples are supported, but got {language}."
     # The url is the md5 hash of the notebook path.
     example_fname = os.path.relpath(example_file, gallery_conf["src_dir"])
     ref_fname = example_fname.replace(os.path.sep, "_")

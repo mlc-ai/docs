@@ -1,3 +1,20 @@
+..  Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+..    http://www.apache.org/licenses/LICENSE-2.0
+
+..  Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
 .. _install:
 
 Installing Apache TVM Unity
@@ -43,16 +60,11 @@ For Ubuntu/Debian users, the following APT Repository may help:
 Step 2. Get Source from Github
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 First, You can also choose to clone the source repo from Github. The code of Apache TVM Unity is hosted
-under the `Apache TVM <https://github.com/apache/tvm>`_ but with a different ``unity`` branch.
+under the `Apache TVM <https://github.com/apache/tvm>`_
 
 .. code:: bash
 
-    git clone https://github.com/apache/tvm -b unity tvm-unity --recursive
-
-
-.. note::
-    Need to use ``-b unity`` to checkout the ``unity`` branch. Or you can use ``git switch unity`` after
-    cloning the repository.
+    git clone https://github.com/apache/tvm tvm-unity --recursive
 
 .. note::
     It's important to use the ``--recursive`` flag when cloning the TVM Unity repository, which will
