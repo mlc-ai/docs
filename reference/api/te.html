@@ -2,22 +2,19 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tvm.te &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>tvm.te &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -30,8 +27,6 @@
 
   
   
-    <link rel="shortcut icon" href="../../_static/tvm-logo-square.png"/>
-  
 
   
   
@@ -40,9 +35,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
     
@@ -150,12 +142,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="sidetitle" alt="Documentation Home"> Apache TVM Unity
           
 
-          
-            
-            <img src="../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -163,7 +152,7 @@
             
             
                 <div class="version">
-                  0.14.dev0
+                  0.16.dev0
                 </div>
             
           
@@ -190,6 +179,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/tutorials/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/tutorials/ir_module.html">IRModule</a></li>
@@ -856,7 +846,7 @@ will be called i1, i2, …</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.te.create_prim_func">
-<span class="sig-prename descclassname"><span class="pre">tvm.te.</span></span><span class="sig-name descname"><span class="pre">create_prim_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.te.Tensor" title="tvm.te.tensor.Tensor"><span class="pre">Tensor</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_dtype_override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></span><a class="headerlink" href="#tvm.te.create_prim_func" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.te.</span></span><span class="sig-name descname"><span class="pre">create_prim_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.te.Tensor" title="tvm.te.tensor.Tensor"><span class="pre">Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_dtype_override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></span><a class="headerlink" href="#tvm.te.create_prim_func" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a TensorIR PrimFunc from tensor expression</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1478,7 +1468,7 @@ non-negativeness.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.te.max_value">
-<span class="sig-prename descclassname"><span class="pre">tvm.te.</span></span><span class="sig-name descname"><span class="pre">max_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ir.html#tvm.ir.Span" title="tvm.ir.base.Span"><span class="pre">Span</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#tvm.te.max_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.te.</span></span><span class="sig-name descname"><span class="pre">max_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ir.html#tvm.ir.Span" title="tvm.ir.base.Span"><span class="pre">Span</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#tvm.te.max_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>maximum value of dtype</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

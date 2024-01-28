@@ -2,22 +2,19 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tvm.dlight &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>tvm.dlight &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -30,8 +27,6 @@
 
   
   
-    <link rel="shortcut icon" href="../../_static/tvm-logo-square.png"/>
-  
 
   
   
@@ -40,9 +35,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
     
@@ -150,12 +142,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="sidetitle" alt="Documentation Home"> Apache TVM Unity
           
 
-          
-            
-            <img src="../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -163,7 +152,7 @@
             
             
                 <div class="version">
-                  0.14.dev0
+                  0.16.dev0
                 </div>
             
           
@@ -190,6 +179,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/tutorials/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/tutorials/ir_module.html">IRModule</a></li>
@@ -238,6 +228,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#tvm.dlight.ScheduleRule"><code class="docutils literal notranslate"><span class="pre">ScheduleRule</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.dlight.ScheduleRule.apply"><code class="docutils literal notranslate"><span class="pre">ScheduleRule.apply()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.dlight.ScheduleRule.from_callable"><code class="docutils literal notranslate"><span class="pre">ScheduleRule.from_callable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.dlight.ScheduleRule.is_target_available"><code class="docutils literal notranslate"><span class="pre">ScheduleRule.is_target_available()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.dlight.normalize_prim_func"><code class="docutils literal notranslate"><span class="pre">normalize_prim_func()</span></code></a></li>
@@ -355,7 +346,7 @@
 <dd><p>Information about a TIR block.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.dlight.BlockInfo.dom">
-<span class="sig-name descname"><span class="pre">dom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="ir.html#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.dlight.BlockInfo.dom" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ir.html#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.dlight.BlockInfo.dom" title="Permalink to this definition">¶</a></dt>
 <dd><p>The iteration domain of the block.</p>
 </dd></dl>
 
@@ -403,7 +394,7 @@
 <dd><p>Information about a loop/iter var.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="tvm.dlight.IterInfo.dom">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="ir.html#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#tvm.dlight.IterInfo.dom" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ir.html#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a></em><a class="headerlink" href="#tvm.dlight.IterInfo.dom" title="Permalink to this definition">¶</a></dt>
 <dd><p>The iteration domain of the loop.</p>
 </dd></dl>
 
@@ -421,7 +412,7 @@ contain tunable instructions. If the tunable flag is False, the ScheduleRule is 
 return a Schedule, and the Schedule is not allowed to contain tunable instructions.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.dlight.ScheduleRule.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="target.html#tvm.target.Target" title="tvm.target.target.Target"><span class="pre">Target</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tunable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.dlight.ScheduleRule.apply" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="target.html#tvm.target.Target" title="tvm.target.target.Target"><span class="pre">Target</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tunable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.dlight.ScheduleRule.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply the ScheduleRule to the given PrimFunc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -443,7 +434,7 @@ is not applicable to the given PrimFunc.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.dlight.ScheduleRule.from_callable">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_callable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="target.html#tvm.target.Target" title="tvm.target.target.Target"><span class="pre">Target</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#tvm.dlight.ScheduleRule" title="tvm.dlight.base.schedule_rule.ScheduleRule"><span class="pre">ScheduleRule</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.dlight.ScheduleRule.from_callable" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_callable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="target.html#tvm.target.Target" title="tvm.target.target.Target"><span class="pre">Target</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#tvm.dlight.ScheduleRule" title="tvm.dlight.base.schedule_rule.ScheduleRule"><span class="pre">ScheduleRule</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.dlight.ScheduleRule.from_callable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ScheduleRule from a callable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -464,11 +455,28 @@ is not applicable to the given PrimFunc.</p>
 </div>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.dlight.ScheduleRule.is_target_available">
+<span class="sig-name descname"><span class="pre">is_target_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="target.html#tvm.target.Target" title="tvm.target.target.Target"><span class="pre">Target</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tvm.dlight.ScheduleRule.is_target_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the rule is available for the given target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="target.html#tvm.target.Target" title="tvm.target.Target"><em>Target</em></a>) – The compilation target the schedule is supposed to be built for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>available</strong> – Whether the rule is available for the given target.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.dlight.normalize_prim_func">
-<span class="sig-prename descclassname"><span class="pre">tvm.dlight.</span></span><span class="sig-name descname"><span class="pre">normalize_prim_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.dlight.BlockInfo" title="tvm.dlight.base.analysis.BlockInfo"><span class="pre">BlockInfo</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.dlight.normalize_prim_func" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.dlight.</span></span><span class="sig-name descname"><span class="pre">normalize_prim_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tir/schedule.html#tvm.tir.schedule.Schedule" title="tvm.tir.schedule.schedule.Schedule"><span class="pre">Schedule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.dlight.BlockInfo" title="tvm.dlight.base.analysis.BlockInfo"><span class="pre">BlockInfo</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#tvm.dlight.normalize_prim_func" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalize the primfunc to normal form</p>
 </dd></dl>
 

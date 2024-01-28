@@ -2,8 +2,6 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
@@ -11,12 +9,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>Index &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -29,8 +26,6 @@
 
   
   
-    <link rel="shortcut icon" href="_static/tvm-logo-square.png"/>
-  
 
   
   
@@ -39,9 +34,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/tabs.js"></script>
@@ -148,12 +140,9 @@
           
 
           
-            <a href="index.html">
+            <a href="index.html" class="sidetitle" alt="Documentation Home"> Apache TVM Unity
           
 
-          
-            
-            <img src="_static/tvm-logo-small.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -161,7 +150,7 @@
             
             
                 <div class="version">
-                  0.14.dev0
+                  0.16.dev0
                 </div>
             
           
@@ -188,6 +177,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="get_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="get_started/tutorials/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="get_started/tutorials/ir_module.html">IRModule</a></li>
@@ -362,6 +352,8 @@
 </li>
         <li><a href="reference/api/topi.html#tvm.topi.add">(in module tvm.topi)</a>
 </li>
+        <li><a href="reference/api/topi.html#tvm.topi.nn.add">(in module tvm.topi.nn)</a>
+</li>
         <li><a href="reference/api/relax/relax.html#tvm.relax.DataflowBlockRewrite.add">(tvm.relax.DataflowBlockRewrite method)</a>
 </li>
       </ul></li>
@@ -376,6 +368,8 @@
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.Schedule.add_unit_loop">add_unit_loop() (tvm.tir.schedule.Schedule method)</a>
 </li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.address_of">address_of() (in module tvm.tir)</a>
+</li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.AdjustMatmulOrder">AdjustMatmulOrder() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.adv_index">adv_index() (in module tvm.topi)</a>
 </li>
@@ -501,7 +495,13 @@
         <li><a href="reference/api/topi.html#tvm.topi.argmin">(in module tvm.topi)</a>
 </li>
       </ul></li>
-      <li><a href="reference/api/topi.html#tvm.topi.argsort">argsort() (in module tvm.topi)</a>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.argsort">argsort() (in module tvm.relax.op)</a>
+
+      <ul>
+        <li><a href="reference/api/topi.html#tvm.topi.argsort">(in module tvm.topi)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.ArgsortAttrs">ArgsortAttrs (class in tvm.relax.op.op_attrs)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.argwhere">argwhere() (in module tvm.topi)</a>
 </li>
@@ -591,9 +591,13 @@
         <li><a href="reference/api/topi.html#tvm.topi.atanh">(in module tvm.topi)</a>
 </li>
       </ul></li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.AttachExternModules">AttachExternModules (class in tvm.relax.transform)</a>
+</li>
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.AttachGlobalSymbol">AttachGlobalSymbol() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.nn.attention">attention() (in module tvm.relax.op.nn)</a>
+</li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.nn.attention_var_len">attention_var_len() (in module tvm.relax.op.nn)</a>
 </li>
       <li><a href="reference/api/ir.html#tvm.ir.Attrs">Attrs (class in tvm.ir)</a>
 </li>
@@ -821,6 +825,8 @@
       </ul></li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.call_extern">call_extern() (in module tvm.tir)</a>
 </li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.call_inplace_packed">call_inplace_packed() (in module tvm.relax.op)</a>
+</li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.call_intrin">call_intrin() (in module tvm.tir)</a>
 </li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.call_llvm_intrin">call_llvm_intrin() (in module tvm.tir)</a>
@@ -855,7 +861,13 @@
         <li><a href="reference/api/tir/tir.html#tvm.tir.call_tir">(in module tvm.tir)</a>
 </li>
       </ul></li>
-      <li><a href="reference/api/relax/op.html#tvm.relax.op.call_tir_inplace">call_tir_inplace() (in module tvm.relax.op)</a>
+      <li><a href="reference/api/relax/relax.html#tvm.relax.call_tir_inplace">call_tir_inplace() (in module tvm.relax)</a>
+
+      <ul>
+        <li><a href="reference/api/relax/op.html#tvm.relax.op.call_tir_inplace">(in module tvm.relax.op)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.distributed.call_tir_local_view">call_tir_local_view() (in module tvm.relax.op.distributed)</a>
 </li>
       <li><a href="reference/api/relax/relax.html#tvm.relax.call_tir_with_grad">call_tir_with_grad() (in module tvm.relax)</a>
 
@@ -973,6 +985,8 @@
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.CompactBufferAllocation">CompactBufferAllocation() (in module tvm.tir.transform)</a>
 </li>
+      <li><a href="reference/api/relax/analysis.html#tvm.relax.analysis.computable_at_compile_time">computable_at_compile_time() (in module tvm.relax.analysis)</a>
+</li>
       <li><a href="reference/api/te.html#tvm.te.compute">compute() (in module tvm.te)</a>
 </li>
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.Schedule.compute_at">compute_at() (tvm.tir.schedule.Schedule method)</a>
@@ -1017,10 +1031,10 @@
 </li>
       <li><a href="reference/api/ir.html#tvm.ir.Constructor">Constructor (class in tvm.ir)</a>
 </li>
-      <li><a href="reference/api/relax/analysis.html#tvm.relax.analysis.contains_impure_call">contains_impure_call() (in module tvm.relax.analysis)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/api/relax/analysis.html#tvm.relax.analysis.contains_impure_call">contains_impure_call() (in module tvm.relax.analysis)</a>
+</li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.conv">conv() (in module tvm.topi.nn)</a>
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.nn.conv1d">conv1d() (in module tvm.relax.op.nn)</a>
@@ -1063,6 +1077,8 @@
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.nn.conv2d_transpose">conv2d_transpose() (in module tvm.relax.op.nn)</a>
 </li>
+      <li><a href="reference/api/topi.html#tvm.topi.nn.conv2d_transpose_alter_layout">conv2d_transpose_alter_layout() (in module tvm.topi.nn)</a>
+</li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.conv2d_transpose_legalize">conv2d_transpose_legalize() (in module tvm.topi.nn)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.conv2d_transpose_nchw">conv2d_transpose_nchw() (in module tvm.topi.nn)</a>
@@ -1084,6 +1100,8 @@
       <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.Conv2DAttrs">Conv2DAttrs (class in tvm.relax.op.op_attrs)</a>
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.Conv2DTransposeAttrs">Conv2DTransposeAttrs (class in tvm.relax.op.op_attrs)</a>
+</li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.nn.conv3d">conv3d() (in module tvm.relax.op.nn)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.conv3d_alter_layout">conv3d_alter_layout() (in module tvm.topi.nn)</a>
 </li>
@@ -1110,6 +1128,8 @@
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.ConvertLayout">ConvertLayout() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.ConvertSSA">ConvertSSA() (in module tvm.tir.transform)</a>
+</li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.ConvertToDataflow">ConvertToDataflow() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.CoProcSync">CoProcSync() (in module tvm.tir.transform)</a>
 </li>
@@ -1221,16 +1241,18 @@
         <li><a href="reference/api/rpc.html#tvm.rpc.RPCSession.cuda">(tvm.rpc.RPCSession method)</a>
 </li>
       </ul></li>
-      <li><a href="reference/api/topi.html#tvm.topi.cumprod">cumprod() (in module tvm.topi)</a>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.cumprod">cumprod() (in module tvm.relax.op)</a>
+
+      <ul>
+        <li><a href="reference/api/topi.html#tvm.topi.cumprod">(in module tvm.topi)</a>
 </li>
+      </ul></li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.cumsum">cumsum() (in module tvm.relax.op)</a>
 
       <ul>
         <li><a href="reference/api/topi.html#tvm.topi.cumsum">(in module tvm.topi)</a>
 </li>
       </ul></li>
-      <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.CumsumAttrs">CumsumAttrs (class in tvm.relax.op.op_attrs)</a>
-</li>
       <li><a href="reference/api/meta_schedule.html#tvm.meta_schedule.Database.current">current() (tvm.meta_schedule.Database static method)</a>
 
       <ul>
@@ -1266,6 +1288,8 @@
       <li><a href="reference/api/relax/relax.html#tvm.relax.DataflowBlockRewrite">DataflowBlockRewrite (class in tvm.relax)</a>
 </li>
       <li><a href="reference/api/relax/block_builder.html#tvm.relax.block_builder.DataflowScope">DataflowScope (class in tvm.relax.block_builder)</a>
+</li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.DataflowUseInplaceCalls">DataflowUseInplaceCalls() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/relax/relax.html#tvm.relax.DataflowVar">DataflowVar (class in tvm.relax)</a>
 </li>
@@ -1313,6 +1337,8 @@
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.DefaultGPUSchedule">DefaultGPUSchedule() (in module tvm.tir.transform)</a>
 </li>
+      <li><a href="reference/api/relax/analysis.html#tvm.relax.analysis.definable_tir_vars_in_struct_info">definable_tir_vars_in_struct_info() (in module tvm.relax.analysis)</a>
+</li>
       <li><a href="reference/api/relax/analysis.html#tvm.relax.analysis.defined_symbolic_vars">defined_symbolic_vars() (in module tvm.relax.analysis)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.deformable_conv2d_nchw">deformable_conv2d_nchw() (in module tvm.topi.nn)</a>
@@ -1349,10 +1375,10 @@
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.depthwise_conv2d_nhwc">depthwise_conv2d_nhwc() (in module tvm.topi.nn)</a>
 </li>
-      <li><a href="reference/api/relax/op.html#tvm.relax.op.dequantize">dequantize() (in module tvm.relax.op)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.dequantize">dequantize() (in module tvm.relax.op)</a>
+</li>
       <li><a href="reference/api/relax/analysis.html#tvm.relax.analysis.derive_call_ret_struct_info">derive_call_ret_struct_info() (in module tvm.relax.analysis)</a>
 </li>
       <li><a href="reference/api/meta_schedule.html#tvm.meta_schedule.derived_object">derived_object() (in module tvm.meta_schedule)</a>
@@ -1545,10 +1571,10 @@
 </li>
       <li><a href="reference/api/relax/analysis.html#tvm.relax.analysis.estimate_memory_usage">estimate_memory_usage() (in module tvm.relax.analysis)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/tir/analysis.html#tvm.tir.analysis.analysis.estimate_tir_flops">estimate_tir_flops() (in module tvm.tir.analysis.analysis)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/tir/tir.html#tvm.tir.Evaluate">Evaluate (class in tvm.tir)</a>
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.ewise_fma">ewise_fma() (in module tvm.relax.op)</a>
@@ -1584,6 +1610,10 @@
       <li><a href="reference/api/topi.html#tvm.topi.expand_like">expand_like() (in module tvm.topi)</a>
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.ExpandDimsAttrs">ExpandDimsAttrs (class in tvm.relax.op.op_attrs)</a>
+</li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.ExpandMatmulOfSum">ExpandMatmulOfSum() (in module tvm.relax.transform)</a>
+</li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.ExpandTupleArguments">ExpandTupleArguments() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/relax/relax.html#tvm.relax.Executable.export_library">export_library() (tvm.relax.Executable method)</a>
 
@@ -1649,6 +1679,8 @@
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.fast_tanh">fast_tanh() (in module tvm.topi)</a>
 </li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.FastMathTransform">FastMathTransform (class in tvm.relax.transform)</a>
+</li>
       <li><a href="reference/api/meta_schedule.html#tvm.meta_schedule.FeatureExtractor">FeatureExtractor (class in tvm.meta_schedule)</a>
 </li>
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.FewShotTuning">FewShotTuning() (in module tvm.relax.transform)</a>
@@ -1656,6 +1688,8 @@
       <li><a href="reference/api/topi.html#tvm.topi.nn.fifo_buffer">fifo_buffer() (in module tvm.topi.nn)</a>
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.Filter">Filter() (in module tvm.tir.transform)</a>
+</li>
+      <li><a href="reference/api/relax/block_builder.html#tvm.relax.block_builder.BlockBuilder.finalize">finalize() (tvm.relax.block_builder.BlockBuilder method)</a>
 </li>
       <li><a href="reference/api/tir/analysis.html#tvm.tir.analysis.analysis.find_anchor_block">find_anchor_block() (in module tvm.tir.analysis.analysis)</a>
 </li>
@@ -1726,8 +1760,6 @@
 </li>
       </ul></li>
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.FoldConstant">FoldConstant() (in module tvm.relax.transform)</a>
-</li>
-      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.FoldDataflowBlockOutput">FoldDataflowBlockOutput() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.For">For (class in tvm.tir)</a>
 </li>
@@ -1808,6 +1840,8 @@
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.function_pass">function_pass() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.FunctionPass">FunctionPass (class in tvm.relax.transform)</a>
+</li>
+      <li><a href="reference/api/ir.html#tvm.ir.IRModule.functions_items">functions_items() (tvm.ir.IRModule method)</a>
 </li>
       <li><a href="reference/api/relax/block_builder.html#tvm.relax.block_builder.FunctionScope">FunctionScope (class in tvm.relax.block_builder)</a>
 </li>
@@ -1953,10 +1987,10 @@
 </li>
       <li><a href="reference/api/ir.html#tvm.ir.Attrs.get_int">get_int() (tvm.ir.Attrs method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/ir.html#tvm.ir.Attrs.get_int_tuple">get_int_tuple() (tvm.ir.Attrs method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/topi.html#tvm.topi.image.get_inx">get_inx() (in module tvm.topi.image)</a>
 </li>
       <li><a href="reference/api/target.html#tvm.target.Target.get_kind_attr">get_kind_attr() (tvm.target.Target method)</a>
@@ -2065,11 +2099,15 @@
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.group_conv1d_nwc">group_conv1d_nwc() (in module tvm.topi.nn)</a>
 </li>
+      <li><a href="reference/api/topi.html#tvm.topi.nn.group_conv1d_transpose_ncw">group_conv1d_transpose_ncw() (in module tvm.topi.nn)</a>
+</li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.group_conv2d_nchw">group_conv2d_nchw() (in module tvm.topi.nn)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.group_conv2d_nhwc">group_conv2d_nhwc() (in module tvm.topi.nn)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.group_conv2d_transpose_nchw">group_conv2d_transpose_nchw() (in module tvm.topi.nn)</a>
+</li>
+      <li><a href="reference/api/topi.html#tvm.topi.nn.group_conv3d_transpose_ncdhw">group_conv3d_transpose_ncdhw() (in module tvm.topi.nn)</a>
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.nn.group_norm">group_norm() (in module tvm.relax.op.nn)</a>
 
@@ -2211,6 +2249,12 @@
 </li>
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.StmtSRef.inline_mark">inline_mark() (tvm.tir.schedule.StmtSRef static method)</a>
 </li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.InlinePrivateFunctions">InlinePrivateFunctions() (in module tvm.relax.transform)</a>
+
+      <ul>
+        <li><a href="reference/api/tir/transform.html#tvm.tir.transform.InlinePrivateFunctions">(in module tvm.tir.transform)</a>
+</li>
+      </ul></li>
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.Instruction.inputs">inputs (tvm.tir.schedule.Instruction attribute)</a>
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.InstallDebugSpans">InstallDebugSpans() (in module tvm.tir.transform)</a>
@@ -2284,6 +2328,8 @@
       <li><a href="reference/api/dlight.html#tvm.dlight.BlockInfo.is_reduction">is_reduction() (tvm.dlight.BlockInfo method)</a>
 </li>
       <li><a href="reference/api/runtime/runtime.html#tvm.runtime.Module.is_runnable">is_runnable (tvm.runtime.Module property)</a>
+</li>
+      <li><a href="reference/api/dlight.html#tvm.dlight.ScheduleRule.is_target_available">is_target_available() (tvm.dlight.ScheduleRule method)</a>
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.isfinite">isfinite() (in module tvm.relax.op)</a>
 
@@ -2477,10 +2523,10 @@
 </li>
       <li><a href="reference/api/runtime/runtime.html#tvm.runtime.load_param_dict_from_file">load_param_dict_from_file() (in module tvm.runtime)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/runtime/runtime.html#tvm.runtime.load_static_library">load_static_library() (in module tvm.runtime)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/runtime/disco.html#tvm.runtime.disco.Session.load_vm_module">load_vm_module() (tvm.runtime.disco.Session method)</a>
 </li>
       <li><a href="reference/api/rpc.html#tvm.rpc.LocalSession">LocalSession (class in tvm.rpc)</a>
@@ -2550,6 +2596,8 @@
 </li>
       </ul></li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.lookup_param">lookup_param() (in module tvm.tir)</a>
+</li>
+      <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.Schedule.loop_partition">loop_partition() (tvm.tir.schedule.Schedule method)</a>
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.LoopPartition">LoopPartition() (in module tvm.tir.transform)</a>
 </li>
@@ -2695,7 +2743,7 @@
 </li>
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.MergeCompositeFunctions">MergeCompositeFunctions() (in module tvm.relax.transform)</a>
 </li>
-      <li><a href="reference/api/tir/transform.html#tvm.tir.transform.MergeDynamicSharedMemoryAllocations">MergeDynamicSharedMemoryAllocations() (in module tvm.tir.transform)</a>
+      <li><a href="reference/api/tir/transform.html#tvm.tir.transform.MergeSharedMemoryAllocations">MergeSharedMemoryAllocations() (in module tvm.tir.transform)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.meshgrid">meshgrid() (in module tvm.topi)</a>
 </li>
@@ -2922,10 +2970,10 @@
       </ul></li>
       <li><a href="reference/api/meta_schedule.html#tvm.meta_schedule.TaskScheduler.next_task_id">next_task_id() (tvm.meta_schedule.TaskScheduler method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/tir/tir.html#tvm.tir.nextafter">nextafter() (in module tvm.tir)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.nn.nll_loss">nll_loss() (in module tvm.relax.op.nn)</a>
 
       <ul>
@@ -2945,6 +2993,8 @@
       <li><a href="reference/api/relax/block_builder.html#tvm.relax.block_builder.BlockBuilder.normalize">normalize() (tvm.relax.block_builder.BlockBuilder method)</a>
 </li>
       <li><a href="reference/api/dlight.html#tvm.dlight.normalize_prim_func">normalize_prim_func() (in module tvm.dlight)</a>
+</li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.NormalizeGlobalVar">NormalizeGlobalVar() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.Not">Not (class in tvm.tir)</a>
 </li>
@@ -3082,6 +3132,8 @@
 </li>
       <li><a href="reference/api/instrument.html#tvm.instrument.PassInstrument">PassInstrument (class in tvm.instrument)</a>
 </li>
+      <li><a href="reference/api/instrument.html#tvm.instrument.PassPrintingInstrument">PassPrintingInstrument (class in tvm.instrument)</a>
+</li>
       <li><a href="reference/api/instrument.html#tvm.instrument.PassTimingInstrument">PassTimingInstrument (class in tvm.instrument)</a>
 </li>
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.PatternCheckContext">PatternCheckContext (class in tvm.relax.transform)</a>
@@ -3099,6 +3151,8 @@
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.PlanAndUpdateBufferAllocationLocation">PlanAndUpdateBufferAllocationLocation() (in module tvm.tir.transform)</a>
 </li>
       <li><a href="reference/api/ir.html#tvm.ir.PointerType">PointerType (class in tvm.ir)</a>
+</li>
+      <li><a href="reference/api/tir/transform.html#tvm.tir.transform.PointerValueTypeRewrite">PointerValueTypeRewrite() (in module tvm.tir.transform)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.pool1d">pool1d() (in module tvm.topi.nn)</a>
 </li>
@@ -3140,10 +3194,10 @@
       </ul></li>
       <li><a href="reference/api/meta_schedule.html#tvm.meta_schedule.Postproc">Postproc (class in tvm.meta_schedule)</a>
 </li>
-      <li><a href="reference/api/tir/tir.html#tvm.tir.pow">pow() (in module tvm.tir)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/api/tir/tir.html#tvm.tir.pow">pow() (in module tvm.tir)</a>
+</li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.power">power() (in module tvm.relax.op)</a>
 
       <ul>
@@ -3292,6 +3346,8 @@
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.distributed.redistribute">redistribute() (in module tvm.relax.op.distributed)</a>
 </li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.distributed.redistribute_replica_to_shard">redistribute_replica_to_shard() (in module tvm.relax.op.distributed)</a>
+</li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.Reduce">Reduce (class in tvm.tir)</a>
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.nn.reduce">reduce() (in module tvm.topi.nn)</a>
@@ -3313,6 +3369,8 @@
       <li><a href="reference/api/ir.html#tvm.ir.register_intrin_lowering">register_intrin_lowering() (in module tvm.ir)</a>
 </li>
       <li><a href="reference/api/ir.html#tvm.ir.register_op_attr">register_op_attr() (in module tvm.ir)</a>
+</li>
+      <li><a href="reference/api/relax/relax.html#tvm.relax.register_pipeline">register_pipeline() (in module tvm.relax)</a>
 </li>
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.Schedule.reindex">reindex() (tvm.tir.schedule.Schedule method)</a>
 </li>
@@ -3360,6 +3418,10 @@
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.RemoveStoreUndef">RemoveStoreUndef() (in module tvm.tir.transform)</a>
 </li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.RemoveUnusedOutputs">RemoveUnusedOutputs() (in module tvm.relax.transform)</a>
+</li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.RemoveUnusedParameters">RemoveUnusedParameters() (in module tvm.relax.transform)</a>
+</li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.RemoveWeightLayoutRewriteBlock">RemoveWeightLayoutRewriteBlock() (in module tvm.tir.transform)</a>
 </li>
       <li><a href="reference/api/instrument.html#tvm.instrument.PassTimingInstrument.render">render() (tvm.instrument.PassTimingInstrument static method)</a>
@@ -3372,18 +3434,20 @@
 </li>
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.Schedule.reorder_block_iter_var">reorder_block_iter_var() (tvm.tir.schedule.Schedule method)</a>
 </li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.ReorderTakeAfterMatmul">ReorderTakeAfterMatmul() (in module tvm.relax.transform)</a>
+</li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.repeat">repeat() (in module tvm.relax.op)</a>
 
       <ul>
         <li><a href="reference/api/topi.html#tvm.topi.repeat">(in module tvm.topi)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.RepeatAttrs">RepeatAttrs (class in tvm.relax.op.op_attrs)</a>
 </li>
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.ScheduleState.replace">replace() (tvm.tir.schedule.ScheduleState method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/relax/relax.html#tvm.relax.DataflowBlockRewrite.replace_all_uses">replace_all_uses() (tvm.relax.DataflowBlockRewrite method)</a>
 </li>
       <li><a href="reference/api/runtime/runtime.html#tvm.runtime.Report">Report (class in tvm.runtime)</a>
@@ -3550,6 +3614,8 @@
 </li>
       <li><a href="reference/api/topi.html#tvm.topi.scanop">scanop() (in module tvm.topi)</a>
 </li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.ScanopAttrs">ScanopAttrs (class in tvm.relax.op.op_attrs)</a>
+</li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.scatter_elements">scatter_elements() (in module tvm.relax.op)</a>
 
       <ul>
@@ -3605,8 +3671,6 @@
       <li><a href="reference/api/rpc.html#tvm.rpc.Server">Server (class in tvm.rpc)</a>
 </li>
       <li><a href="reference/api/runtime/disco.html#tvm.runtime.disco.Session">Session (class in tvm.runtime.disco)</a>
-</li>
-      <li><a href="reference/api/runtime/disco.html#tvm.runtime.disco.DRef.session">session (tvm.runtime.disco.DRef property)</a>
 </li>
       <li><a href="reference/api/ir.html#tvm.ir.Op.set_attr">set_attr() (tvm.ir.Op method)</a>
 </li>
@@ -3714,8 +3778,6 @@
         <li><a href="reference/api/topi.html#tvm.topi.sin">(in module tvm.topi)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.sinh">sinh() (in module tvm.relax.op)</a>
 
       <ul>
@@ -3726,6 +3788,8 @@
         <li><a href="reference/api/topi.html#tvm.topi.sinh">(in module tvm.topi)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/te.html#tvm.te.size_var">size_var() (in module tvm.te)</a>
 </li>
       <li><a href="reference/api/tir/tir.html#tvm.tir.SizeVar">SizeVar (class in tvm.tir)</a>
@@ -3744,7 +3808,13 @@
 </li>
       <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.SoftmaxAttrs">SoftmaxAttrs (class in tvm.relax.op.op_attrs)</a>
 </li>
-      <li><a href="reference/api/topi.html#tvm.topi.sort">sort() (in module tvm.topi)</a>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.sort">sort() (in module tvm.relax.op)</a>
+
+      <ul>
+        <li><a href="reference/api/topi.html#tvm.topi.sort">(in module tvm.topi)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.SortAttrs">SortAttrs (class in tvm.relax.op.op_attrs)</a>
 </li>
       <li><a href="reference/api/ir.html#tvm.ir.SourceName">SourceName (class in tvm.ir)</a>
 </li>
@@ -4048,7 +4118,15 @@
 </li>
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.ToNonDataflow">ToNonDataflow() (in module tvm.relax.transform)</a>
 </li>
-      <li><a href="reference/api/topi.html#tvm.topi.topk">topk() (in module tvm.topi)</a>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.topk">topk() (in module tvm.relax.op)</a>
+
+      <ul>
+        <li><a href="reference/api/topi.html#tvm.topi.topk">(in module tvm.topi)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/api/relax/op.html#tvm.relax.op.op_attrs.TopKAttrs">TopKAttrs (class in tvm.relax.op.op_attrs)</a>
+</li>
+      <li><a href="reference/api/runtime/runtime.html#tvm.runtime.Device.total_global_memory">total_global_memory (tvm.runtime.Device property)</a>
 </li>
       <li><a href="reference/api/meta_schedule.html#tvm.meta_schedule.TaskScheduler.touch_task">touch_task() (tvm.meta_schedule.TaskScheduler method)</a>
 </li>
@@ -4154,6 +4232,8 @@
         <li><a href="reference/api/ir.html#module-tvm.ir">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     tvm.meta_schedule
 
@@ -4161,8 +4241,6 @@
         <li><a href="reference/api/meta_schedule.html#module-tvm.meta_schedule">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     tvm.relax
 
@@ -4492,10 +4570,10 @@
 </li>
       <li><a href="reference/api/tir/transform.html#tvm.tir.transform.UnrollLoop">UnrollLoop() (in module tvm.tir.transform)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.Schedule.unsafe_hide_buffer_access">unsafe_hide_buffer_access() (tvm.tir.schedule.Schedule method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/tir/schedule.html#tvm.tir.schedule.Schedule.unsafe_set_dtype">unsafe_set_dtype() (tvm.tir.schedule.Schedule method)</a>
 </li>
       <li><a href="reference/api/ir.html#tvm.ir.IRModule.update">update() (tvm.ir.IRModule method)</a>
@@ -4511,6 +4589,8 @@
 </li>
       </ul></li>
       <li><a href="reference/api/ir.html#tvm.ir.IRModule.update_global_info">update_global_info() (tvm.ir.IRModule method)</a>
+</li>
+      <li><a href="reference/api/relax/transform.html#tvm.relax.transform.UpdateParamStructInfo">UpdateParamStructInfo() (in module tvm.relax.transform)</a>
 </li>
       <li><a href="reference/api/relax/transform.html#tvm.relax.transform.UpdateVDevice">UpdateVDevice() (in module tvm.relax.transform)</a>
 </li>

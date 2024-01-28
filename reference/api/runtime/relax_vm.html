@@ -2,22 +2,19 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tvm.runtime.relax_vm &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>tvm.runtime.relax_vm &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -30,8 +27,6 @@
 
   
   
-    <link rel="shortcut icon" href="../../../_static/tvm-logo-square.png"/>
-  
 
   
   
@@ -40,9 +35,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
     
@@ -150,12 +142,9 @@
           
 
           
-            <a href="../../../index.html">
+            <a href="../../../index.html" class="sidetitle" alt="Documentation Home"> Apache TVM Unity
           
 
-          
-            
-            <img src="../../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -163,7 +152,7 @@
             
             
                 <div class="version">
-                  0.14.dev0
+                  0.16.dev0
                 </div>
             
           
@@ -190,6 +179,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/ir_module.html">IRModule</a></li>
@@ -340,11 +330,11 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.relax_vm.</span></span><span class="sig-name descname"><span class="pre">VirtualMachine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rt_mod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Module" title="tvm.runtime.module.Module"><span class="pre">Module</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../relax/relax.html#tvm.relax.Executable" title="tvm.relax.vm_build.Executable"><span class="pre">Executable</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.runtime.relax_vm.</span></span><span class="sig-name descname"><span class="pre">VirtualMachine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rt_mod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtime.html#tvm.runtime.Module" title="tvm.runtime.module.Module"><span class="pre">Module</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../relax/relax.html#tvm.relax.Executable" title="tvm.relax.vm_build.Executable"><span class="pre">Executable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Device" title="tvm._ffi.runtime_ctypes.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relax VM runtime.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.runtime.relax_vm.VirtualMachine.get_outputs">
-<span class="sig-name descname"><span class="pre">get_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.get_outputs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.runtime.relax_vm.VirtualMachine.get_outputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the value output by the function by the given name
 after a call of <cite>invoke_stateful</cite>.</p>
 <p>It is an error to call this function without first calling <cite>invoke_stateful</cite>.</p>

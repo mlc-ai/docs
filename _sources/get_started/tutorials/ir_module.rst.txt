@@ -36,7 +36,7 @@ computational graph, tensor programs, and potential calls to external libraries.
 
 .. GENERATED FROM PYTHON SOURCE LINES 31-36
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -59,7 +59,7 @@ below.
 
 .. GENERATED FROM PYTHON SOURCE LINES 41-46
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import torch
@@ -84,7 +84,7 @@ from PyTorch. For other frameworks, please refer to the 🚧 corresponding tutor
 
 .. GENERATED FROM PYTHON SOURCE LINES 53-82
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -156,7 +156,7 @@ write the IRModule directly. For details, please refer to the 🚧 corresponding
 
 .. GENERATED FROM PYTHON SOURCE LINES 87-110
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from tvm.relax.frontend import nn
@@ -223,7 +223,7 @@ parse the TVMScript to obtain an IRModule.
 
 .. GENERATED FROM PYTHON SOURCE LINES 116-148
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from tvm.script import ir as I
@@ -297,7 +297,7 @@ An IRModule is a collection of functions, indexed by GlobalVars.
 
 .. GENERATED FROM PYTHON SOURCE LINES 152-156
 
-.. code-block:: default
+.. code-block:: Python
 
 
     mod = mod_from_torch
@@ -323,7 +323,7 @@ or their names
 
 .. GENERATED FROM PYTHON SOURCE LINES 159-166
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # index by global var name
@@ -381,7 +381,7 @@ within the same module. Meanwhile, the Relax operators will be converted into ``
 
 .. GENERATED FROM PYTHON SOURCE LINES 182-187
 
-.. code-block:: default
+.. code-block:: Python
 
 
     mod = mod_from_torch
@@ -425,17 +425,17 @@ within the same module. Meanwhile, the Relax operators will be converted into ``
                     T_add[v_ax0, v_ax1] = A[v_ax0, v_ax1] + B[v_ax1]
 
         @T.prim_func(private=True)
-        def matmul(A: T.Buffer((T.int64(1), T.int64(784)), "float32"), B: T.Buffer((T.int64(784), T.int64(256)), "float32"), matmul_1: T.Buffer((T.int64(1), T.int64(256)), "float32")):
+        def matmul(A: T.Buffer((T.int64(1), T.int64(784)), "float32"), B: T.Buffer((T.int64(784), T.int64(256)), "float32"), matmul: T.Buffer((T.int64(1), T.int64(256)), "float32")):
             T.func_attr({"tir.noalias": T.bool(True)})
             # with T.block("root"):
             for i0, i1, k in T.grid(T.int64(1), T.int64(256), T.int64(784)):
                 with T.block("matmul"):
                     v_i0, v_i1, v_k = T.axis.remap("SSR", [i0, i1, k])
                     T.reads(A[v_i0, v_k], B[v_k, v_i1])
-                    T.writes(matmul_1[v_i0, v_i1])
+                    T.writes(matmul[v_i0, v_i1])
                     with T.init():
-                        matmul_1[v_i0, v_i1] = T.float32(0)
-                    matmul_1[v_i0, v_i1] = matmul_1[v_i0, v_i1] + A[v_i0, v_k] * B[v_k, v_i1]
+                        matmul[v_i0, v_i1] = T.float32(0)
+                    matmul[v_i0, v_i1] = matmul[v_i0, v_i1] + A[v_i0, v_k] * B[v_k, v_i1]
 
         @T.prim_func(private=True)
         def matmul1(A: T.Buffer((T.int64(1), T.int64(256)), "float32"), B: T.Buffer((T.int64(256), T.int64(10)), "float32"), matmul: T.Buffer((T.int64(1), T.int64(10)), "float32")):
@@ -510,7 +510,7 @@ the global vars again.
 
 .. GENERATED FROM PYTHON SOURCE LINES 190-193
 
-.. code-block:: default
+.. code-block:: Python
 
 
     print(mod.get_global_vars())
@@ -555,7 +555,7 @@ The default **zero** pipeline contains very fundamental transformations, includi
 
 .. GENERATED FROM PYTHON SOURCE LINES 216-220
 
-.. code-block:: default
+.. code-block:: Python
 
 
     mod = relax.get_pipeline("zero")(mod)
@@ -576,51 +576,51 @@ The default **zero** pipeline contains very fundamental transformations, includi
     @I.ir_module
     class Module:
         @T.prim_func(private=True)
-        def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), "float32"), lv4: T.Buffer((T.int64(256), T.int64(10)), "float32"), fc2_bias: T.Buffer((T.int64(10),), "float32"), var_T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), "float32")):
+        def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), "float32"), lv4: T.Buffer((T.int64(256), T.int64(10)), "float32"), fc2_bias: T.Buffer((T.int64(10),), "float32"), T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), "float32")):
             T.func_attr({"tir.noalias": T.bool(True)})
             # with T.block("root"):
-            var_matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(10)))
+            matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(10)))
             for i0, i1, k in T.grid(T.int64(1), T.int64(10), T.int64(256)):
                 with T.block("matmul"):
                     v_i0, v_i1, v_k = T.axis.remap("SSR", [i0, i1, k])
                     T.reads(lv3[v_i0, v_k], lv4[v_k, v_i1])
-                    T.writes(var_matmul_intermediate[v_i0, v_i1])
+                    T.writes(matmul_intermediate[v_i0, v_i1])
                     with T.init():
-                        var_matmul_intermediate[v_i0, v_i1] = T.float32(0)
-                    var_matmul_intermediate[v_i0, v_i1] = var_matmul_intermediate[v_i0, v_i1] + lv3[v_i0, v_k] * lv4[v_k, v_i1]
+                        matmul_intermediate[v_i0, v_i1] = T.float32(0)
+                    matmul_intermediate[v_i0, v_i1] = matmul_intermediate[v_i0, v_i1] + lv3[v_i0, v_k] * lv4[v_k, v_i1]
             for ax0, ax1 in T.grid(T.int64(1), T.int64(10)):
                 with T.block("T_add"):
                     v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
-                    T.reads(var_matmul_intermediate[v_ax0, v_ax1], fc2_bias[v_ax1])
-                    T.writes(var_T_add_intermediate[v_ax0, v_ax1])
-                    var_T_add_intermediate[v_ax0, v_ax1] = var_matmul_intermediate[v_ax0, v_ax1] + fc2_bias[v_ax1]
+                    T.reads(matmul_intermediate[v_ax0, v_ax1], fc2_bias[v_ax1])
+                    T.writes(T_add_intermediate[v_ax0, v_ax1])
+                    T_add_intermediate[v_ax0, v_ax1] = matmul_intermediate[v_ax0, v_ax1] + fc2_bias[v_ax1]
 
         @T.prim_func(private=True)
-        def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), "float32"), lv: T.Buffer((T.int64(784), T.int64(256)), "float32"), fc1_bias: T.Buffer((T.int64(256),), "float32"), var_compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), "float32")):
+        def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), "float32"), lv: T.Buffer((T.int64(784), T.int64(256)), "float32"), fc1_bias: T.Buffer((T.int64(256),), "float32"), compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), "float32")):
             T.func_attr({"tir.noalias": T.bool(True)})
             # with T.block("root"):
-            var_matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
-            var_T_add_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
+            matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
+            T_add_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
             for i0, i1, k in T.grid(T.int64(1), T.int64(256), T.int64(784)):
                 with T.block("matmul"):
                     v_i0, v_i1, v_k = T.axis.remap("SSR", [i0, i1, k])
                     T.reads(inp_0[v_i0, v_k], lv[v_k, v_i1])
-                    T.writes(var_matmul_intermediate[v_i0, v_i1])
+                    T.writes(matmul_intermediate[v_i0, v_i1])
                     with T.init():
-                        var_matmul_intermediate[v_i0, v_i1] = T.float32(0)
-                    var_matmul_intermediate[v_i0, v_i1] = var_matmul_intermediate[v_i0, v_i1] + inp_0[v_i0, v_k] * lv[v_k, v_i1]
+                        matmul_intermediate[v_i0, v_i1] = T.float32(0)
+                    matmul_intermediate[v_i0, v_i1] = matmul_intermediate[v_i0, v_i1] + inp_0[v_i0, v_k] * lv[v_k, v_i1]
             for ax0, ax1 in T.grid(T.int64(1), T.int64(256)):
                 with T.block("T_add"):
                     v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
-                    T.reads(var_matmul_intermediate[v_ax0, v_ax1], fc1_bias[v_ax1])
-                    T.writes(var_T_add_intermediate[v_ax0, v_ax1])
-                    var_T_add_intermediate[v_ax0, v_ax1] = var_matmul_intermediate[v_ax0, v_ax1] + fc1_bias[v_ax1]
+                    T.reads(matmul_intermediate[v_ax0, v_ax1], fc1_bias[v_ax1])
+                    T.writes(T_add_intermediate[v_ax0, v_ax1])
+                    T_add_intermediate[v_ax0, v_ax1] = matmul_intermediate[v_ax0, v_ax1] + fc1_bias[v_ax1]
             for i0, i1 in T.grid(T.int64(1), T.int64(256)):
                 with T.block("compute"):
                     v_i0, v_i1 = T.axis.remap("SS", [i0, i1])
-                    T.reads(var_T_add_intermediate[v_i0, v_i1])
-                    T.writes(var_compute_intermediate[v_i0, v_i1])
-                    var_compute_intermediate[v_i0, v_i1] = T.max(var_T_add_intermediate[v_i0, v_i1], T.float32(0))
+                    T.reads(T_add_intermediate[v_i0, v_i1])
+                    T.writes(compute_intermediate[v_i0, v_i1])
+                    compute_intermediate[v_i0, v_i1] = T.max(T_add_intermediate[v_i0, v_i1], T.float32(0))
 
         @T.prim_func(private=True)
         def transpose(A: T.Buffer((T.int64(256), T.int64(784)), "float32"), T_transpose: T.Buffer((T.int64(784), T.int64(256)), "float32")):
@@ -652,8 +652,7 @@ The default **zero** pipeline contains very fundamental transformations, includi
                 lv = R.call_tir(cls.transpose, (fc1_weight,), out_sinfo=R.Tensor((784, 256), dtype="float32"))
                 lv_1 = R.call_tir(cls.fused_matmul_add_relu, (inp_0, lv, fc1_bias), out_sinfo=R.Tensor((1, 256), dtype="float32"))
                 lv4 = R.call_tir(cls.transpose1, (fc2_weight,), out_sinfo=R.Tensor((256, 10), dtype="float32"))
-                lv1 = R.call_tir(cls.fused_matmul1_add1, (lv_1, lv4, fc2_bias), out_sinfo=R.Tensor((1, 10), dtype="float32"))
-                gv: R.Tensor((1, 10), dtype="float32") = lv1
+                gv = R.call_tir(cls.fused_matmul1_add1, (lv_1, lv4, fc2_bias), out_sinfo=R.Tensor((1, 10), dtype="float32"))
                 R.output(gv)
             return gv
 
@@ -676,7 +675,7 @@ We can deploy the IRModule on CPU by specifying the target as ``llvm``.
 
 .. GENERATED FROM PYTHON SOURCE LINES 231-241
 
-.. code-block:: default
+.. code-block:: Python
 
 
     exec = relax.build(mod, target="llvm")
@@ -696,8 +695,8 @@ We can deploy the IRModule on CPU by specifying the target as ``llvm``.
 
  .. code-block:: none
 
-    [[ 0.00802883 -0.08132102  0.0258463   0.11876436  0.07522465 -0.10993191
-       0.20047541 -0.2686859   0.17526586 -0.16982672]]
+    [[-0.02063614  0.13640118 -0.01651423 -0.04815891  0.12119335 -0.11605094
+       0.17876694  0.00359787 -0.12607133 -0.00460514]]
 
 
 
@@ -716,7 +715,7 @@ the details of ``DLight``. For more information, please refer to the 🚧 corres
 
 .. GENERATED FROM PYTHON SOURCE LINES 251-260
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from tvm import dlight as dl
@@ -740,7 +739,7 @@ Now we can compile the IRModule on GPU, the similar way as we did on CPU.
 
 .. GENERATED FROM PYTHON SOURCE LINES 262-275
 
-.. code-block:: default
+.. code-block:: Python
 
 
     exec = relax.build(gpu_mod, target="cuda")
@@ -763,8 +762,8 @@ Now we can compile the IRModule on GPU, the similar way as we did on CPU.
 
  .. code-block:: none
 
-    [[ 0.0080288  -0.08132105  0.02584626  0.11876432  0.07522468 -0.10993197
-       0.20047544 -0.26868594  0.17526585 -0.16982669]]
+    [[-0.02063618  0.1364012  -0.01651423 -0.0481589   0.12119331 -0.11605088
+       0.17876688  0.00359782 -0.12607124 -0.00460513]]
 
 
 
@@ -781,7 +780,7 @@ GPU backend.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.801 seconds)
+   **Total running time of the script:** (0 minutes 0.810 seconds)
 
 
 .. _sphx_glr_download_get_started_tutorials_ir_module.py:
@@ -790,13 +789,10 @@ GPU backend.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: ir_module.py <ir_module.py>`
-
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: ir_module.ipynb <ir_module.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download python source code: ir_module.py <ir_module.py>`

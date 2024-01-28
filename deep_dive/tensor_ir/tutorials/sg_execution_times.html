@@ -2,22 +2,19 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Computation times &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>Computation times &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -30,8 +27,6 @@
 
   
   
-    <link rel="shortcut icon" href="../../../_static/tvm-logo-square.png"/>
-  
 
   
   
@@ -40,9 +35,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
     
@@ -148,12 +140,9 @@
           
 
           
-            <a href="../../../index.html">
+            <a href="../../../index.html" class="sidetitle" alt="Documentation Home"> Apache TVM Unity
           
 
-          
-            
-            <img src="../../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -161,7 +150,7 @@
             
             
                 <div class="version">
-                  0.14.dev0
+                  0.16.dev0
                 </div>
             
           
@@ -188,6 +177,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/ir_module.html">IRModule</a></li>
@@ -285,19 +275,38 @@
             
   <section id="computation-times">
 <span id="sphx-glr-deep-dive-tensor-ir-tutorials-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">¶</a></h1>
-<p><strong>00:00.367</strong> total execution time for <strong>deep_dive_tensor_ir_tutorials</strong> files:</p>
-<table class="docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="transformation.html#sphx-glr-deep-dive-tensor-ir-tutorials-transformation-py"><span class="std std-ref">Transformation</span></a> (<code class="docutils literal notranslate"><span class="pre">transformation.py</span></code>)</p></td>
-<td><p>00:00.244</p></td>
-<td><p>0.0 MB</p></td>
+<p><strong>00:00.379</strong> total execution time for 2 files <strong>from deep_dive/tensor_ir/tutorials</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><table class="table table-striped sg-datatable docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="creation.html#sphx-glr-deep-dive-tensor-ir-tutorials-creation-py"><span class="std std-ref">TensorIR Creation</span></a> (<code class="docutils literal notranslate"><span class="pre">creation.py</span></code>)</p></td>
-<td><p>00:00.123</p></td>
-<td><p>0.0 MB</p></td>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="transformation.html#sphx-glr-deep-dive-tensor-ir-tutorials-transformation-py"><span class="std std-ref">Transformation</span></a> (<code class="docutils literal notranslate"><span class="pre">transformation.py</span></code>)</p></td>
+<td><p>00:00.251</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="creation.html#sphx-glr-deep-dive-tensor-ir-tutorials-creation-py"><span class="std std-ref">TensorIR Creation</span></a> (<code class="docutils literal notranslate"><span class="pre">creation.py</span></code>)</p></td>
+<td><p>00:00.128</p></td>
+<td><p>0.0</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 
 

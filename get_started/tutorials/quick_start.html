@@ -2,22 +2,19 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick Start &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>Quick Start &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -30,8 +27,6 @@
 
   
   
-    <link rel="shortcut icon" href="../../_static/tvm-logo-square.png"/>
-  
 
   
   
@@ -40,9 +35,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
     
@@ -150,12 +142,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="sidetitle" alt="Documentation Home"> Apache TVM Unity
           
 
-          
-            
-            <img src="../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -163,7 +152,7 @@
             
             
                 <div class="version">
-                  0.14.dev0
+                  0.16.dev0
                 </div>
             
           
@@ -190,6 +179,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prepare-the-neural-network-model">Prepare the Neural Network Model</a></li>
@@ -311,7 +301,7 @@ to show how to use Apache TVM Unity to compile a simple neural network.</p>
 In this tutorial, to make things simple, we will defined a two-layer MLP networks
 directly in this script. For people who are trying to run real models, please jump
 to the next section.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
 
 
@@ -344,7 +334,7 @@ representation (IR) with symbolic shape support.</p>
 <a class="reference external" href="https://huggingface.co/docs/optimum/torch_fx/overview">HuggingFace self-defined FX</a>
 to trace the model.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tvm</span> <span class="kn">import</span> <span class="n">relax</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tvm</span> <span class="kn">import</span> <span class="n">relax</span>
 <span class="kn">from</span> <span class="nn">tvm.relax.frontend.torch</span> <span class="kn">import</span> <span class="n">from_fx</span>
 <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">fx</span>
 
@@ -359,12 +349,12 @@ Each tuple contains the shape and data type of one input tensor.</p>
 the data type is <code class="docutils literal notranslate"><span class="pre">&quot;float32&quot;</span></code>. We combine the shape and data type in a tuple
 like <code class="docutils literal notranslate"><span class="pre">((1,</span> <span class="pre">784),</span> <span class="pre">&quot;float32&quot;)</span></code>. Then we gather all the input tuples into a list,
 which looks like <code class="docutils literal notranslate"><span class="pre">[((1,</span> <span class="pre">784),</span> <span class="pre">&quot;float32&quot;)]</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">input_info</span> <span class="o">=</span> <span class="p">[((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">),</span> <span class="s2">&quot;float32&quot;</span><span class="p">)]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">input_info</span> <span class="o">=</span> <span class="p">[((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">),</span> <span class="s2">&quot;float32&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
 <p>Use the Apache TVM Unity API to convert the PyTorch FX model into Relax Model.
 And print it out to in the TVMScript Syntax</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
     <span class="n">mod</span> <span class="o">=</span> <span class="n">from_fx</span><span class="p">(</span><span class="n">torch_fx_model</span><span class="p">,</span> <span class="n">input_info</span><span class="p">)</span>
 <span class="n">mod</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -419,7 +409,7 @@ involving constants.</p></li>
 patterns annotated in the previous step (AnnotateTIROpPattern). These passes transform
 both Relax functions and TensorIR functions.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">get_pipeline</span><span class="p">()(</span><span class="n">mod</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">get_pipeline</span><span class="p">()(</span><span class="n">mod</span><span class="p">)</span>
 <span class="n">mod</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -430,59 +420,58 @@ both Relax functions and TensorIR functions.</p></li>
 @I.ir_module
 class Module:
     @T.prim_func(private=True)
-    def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), &quot;float32&quot;), param_0: T.Buffer((T.int64(256), T.int64(10)), &quot;float32&quot;), param_1: T.Buffer((T.int64(10),), &quot;float32&quot;), var_T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), &quot;float32&quot;)):
+    def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), &quot;float32&quot;), param_0: T.Buffer((T.int64(256), T.int64(10)), &quot;float32&quot;), param_1: T.Buffer((T.int64(10),), &quot;float32&quot;), T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), &quot;float32&quot;)):
         T.func_attr({&quot;tir.noalias&quot;: T.bool(True)})
         # with T.block(&quot;root&quot;):
-        var_matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(10)))
+        matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(10)))
         for i0, i1, k in T.grid(T.int64(1), T.int64(10), T.int64(256)):
             with T.block(&quot;matmul&quot;):
                 v_i0, v_i1, v_k = T.axis.remap(&quot;SSR&quot;, [i0, i1, k])
                 T.reads(lv3[v_i0, v_k], param_0[v_k, v_i1])
-                T.writes(var_matmul_intermediate[v_i0, v_i1])
+                T.writes(matmul_intermediate[v_i0, v_i1])
                 with T.init():
-                    var_matmul_intermediate[v_i0, v_i1] = T.float32(0)
-                var_matmul_intermediate[v_i0, v_i1] = var_matmul_intermediate[v_i0, v_i1] + lv3[v_i0, v_k] * param_0[v_k, v_i1]
+                    matmul_intermediate[v_i0, v_i1] = T.float32(0)
+                matmul_intermediate[v_i0, v_i1] = matmul_intermediate[v_i0, v_i1] + lv3[v_i0, v_k] * param_0[v_k, v_i1]
         for ax0, ax1 in T.grid(T.int64(1), T.int64(10)):
             with T.block(&quot;T_add&quot;):
                 v_ax0, v_ax1 = T.axis.remap(&quot;SS&quot;, [ax0, ax1])
-                T.reads(var_matmul_intermediate[v_ax0, v_ax1], param_1[v_ax1])
-                T.writes(var_T_add_intermediate[v_ax0, v_ax1])
-                var_T_add_intermediate[v_ax0, v_ax1] = var_matmul_intermediate[v_ax0, v_ax1] + param_1[v_ax1]
+                T.reads(matmul_intermediate[v_ax0, v_ax1], param_1[v_ax1])
+                T.writes(T_add_intermediate[v_ax0, v_ax1])
+                T_add_intermediate[v_ax0, v_ax1] = matmul_intermediate[v_ax0, v_ax1] + param_1[v_ax1]
 
     @T.prim_func(private=True)
-    def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), &quot;float32&quot;), param_0: T.Buffer((T.int64(784), T.int64(256)), &quot;float32&quot;), param_1: T.Buffer((T.int64(256),), &quot;float32&quot;), var_compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), &quot;float32&quot;)):
+    def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), &quot;float32&quot;), param_0: T.Buffer((T.int64(784), T.int64(256)), &quot;float32&quot;), param_1: T.Buffer((T.int64(256),), &quot;float32&quot;), compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), &quot;float32&quot;)):
         T.func_attr({&quot;tir.noalias&quot;: T.bool(True)})
         # with T.block(&quot;root&quot;):
-        var_matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
-        var_T_add_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
+        matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
+        T_add_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
         for i0, i1, k in T.grid(T.int64(1), T.int64(256), T.int64(784)):
             with T.block(&quot;matmul&quot;):
                 v_i0, v_i1, v_k = T.axis.remap(&quot;SSR&quot;, [i0, i1, k])
                 T.reads(inp_0[v_i0, v_k], param_0[v_k, v_i1])
-                T.writes(var_matmul_intermediate[v_i0, v_i1])
+                T.writes(matmul_intermediate[v_i0, v_i1])
                 with T.init():
-                    var_matmul_intermediate[v_i0, v_i1] = T.float32(0)
-                var_matmul_intermediate[v_i0, v_i1] = var_matmul_intermediate[v_i0, v_i1] + inp_0[v_i0, v_k] * param_0[v_k, v_i1]
+                    matmul_intermediate[v_i0, v_i1] = T.float32(0)
+                matmul_intermediate[v_i0, v_i1] = matmul_intermediate[v_i0, v_i1] + inp_0[v_i0, v_k] * param_0[v_k, v_i1]
         for ax0, ax1 in T.grid(T.int64(1), T.int64(256)):
             with T.block(&quot;T_add&quot;):
                 v_ax0, v_ax1 = T.axis.remap(&quot;SS&quot;, [ax0, ax1])
-                T.reads(var_matmul_intermediate[v_ax0, v_ax1], param_1[v_ax1])
-                T.writes(var_T_add_intermediate[v_ax0, v_ax1])
-                var_T_add_intermediate[v_ax0, v_ax1] = var_matmul_intermediate[v_ax0, v_ax1] + param_1[v_ax1]
+                T.reads(matmul_intermediate[v_ax0, v_ax1], param_1[v_ax1])
+                T.writes(T_add_intermediate[v_ax0, v_ax1])
+                T_add_intermediate[v_ax0, v_ax1] = matmul_intermediate[v_ax0, v_ax1] + param_1[v_ax1]
         for i0, i1 in T.grid(T.int64(1), T.int64(256)):
             with T.block(&quot;compute&quot;):
                 v_i0, v_i1 = T.axis.remap(&quot;SS&quot;, [i0, i1])
-                T.reads(var_T_add_intermediate[v_i0, v_i1])
-                T.writes(var_compute_intermediate[v_i0, v_i1])
-                var_compute_intermediate[v_i0, v_i1] = T.max(var_T_add_intermediate[v_i0, v_i1], T.float32(0))
+                T.reads(T_add_intermediate[v_i0, v_i1])
+                T.writes(compute_intermediate[v_i0, v_i1])
+                compute_intermediate[v_i0, v_i1] = T.max(T_add_intermediate[v_i0, v_i1], T.float32(0))
 
     @R.function
     def main(inp_0: R.Tensor((1, 784), dtype=&quot;float32&quot;)) -&gt; R.Tensor((1, 10), dtype=&quot;float32&quot;):
         cls = Module
         with R.dataflow():
             lv = R.call_tir(cls.fused_matmul_add_relu, (inp_0, metadata[&quot;relax.expr.Constant&quot;][0], metadata[&quot;relax.expr.Constant&quot;][1]), out_sinfo=R.Tensor((1, 256), dtype=&quot;float32&quot;))
-            lv1 = R.call_tir(cls.fused_matmul1_add1, (lv, metadata[&quot;relax.expr.Constant&quot;][2], metadata[&quot;relax.expr.Constant&quot;][3]), out_sinfo=R.Tensor((1, 10), dtype=&quot;float32&quot;))
-            gv: R.Tensor((1, 10), dtype=&quot;float32&quot;) = lv1
+            gv = R.call_tir(cls.fused_matmul1_add1, (lv, metadata[&quot;relax.expr.Constant&quot;][2], metadata[&quot;relax.expr.Constant&quot;][3]), out_sinfo=R.Tensor((1, 10), dtype=&quot;float32&quot;))
             R.output(gv)
         return gv
 
@@ -491,7 +480,7 @@ class Module:
 </div>
 <p>If you are only interested in the changes of the Relax functions and omit the
 TensorIR functions, print the <code class="docutils literal notranslate"><span class="pre">main</span></code> function of the IRModule.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span><span class="p">[</span><span class="s2">&quot;main&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span><span class="p">[</span><span class="s2">&quot;main&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span># from tvm.script import relax as R
@@ -500,8 +489,7 @@ TensorIR functions, print the <code class="docutils literal notranslate"><span c
 def main(inp_0: R.Tensor((1, 784), dtype=&quot;float32&quot;)) -&gt; R.Tensor((1, 10), dtype=&quot;float32&quot;):
     with R.dataflow():
         lv = R.call_tir(fused_matmul_add_relu, (inp_0, metadata[&quot;relax.expr.Constant&quot;][0], metadata[&quot;relax.expr.Constant&quot;][1]), out_sinfo=R.Tensor((1, 256), dtype=&quot;float32&quot;))
-        lv1 = R.call_tir(fused_matmul1_add1, (lv, metadata[&quot;relax.expr.Constant&quot;][2], metadata[&quot;relax.expr.Constant&quot;][3]), out_sinfo=R.Tensor((1, 10), dtype=&quot;float32&quot;))
-        gv: R.Tensor((1, 10), dtype=&quot;float32&quot;) = lv1
+        gv = R.call_tir(fused_matmul1_add1, (lv, metadata[&quot;relax.expr.Constant&quot;][2], metadata[&quot;relax.expr.Constant&quot;][3]), out_sinfo=R.Tensor((1, 10), dtype=&quot;float32&quot;))
         R.output(gv)
     return gv
 
@@ -516,7 +504,7 @@ as graph transformations will changes the TIR functions.
 There are different ways to apply Tensor Function Optimization, we choose <code class="docutils literal notranslate"><span class="pre">DLight</span></code> on
 <code class="docutils literal notranslate"><span class="pre">cuda</span></code> target in this tutorial. Note that <code class="docutils literal notranslate"><span class="pre">DLight</span></code> is not the only way to optimize
 the Tensor Function, for other optimizations, please refer to corresponding tutorials.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tvm</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tvm</span>
 <span class="kn">from</span> <span class="nn">tvm</span> <span class="kn">import</span> <span class="n">dlight</span> <span class="k">as</span> <span class="n">dl</span>
 
 <span class="n">target</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">Target</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
@@ -539,54 +527,51 @@ the Tensor Function, for other optimizations, please refer to corresponding tuto
 @I.ir_module
 class Module:
     @T.prim_func(private=True)
-    def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), &quot;float32&quot;), param_0: T.Buffer((T.int64(256), T.int64(10)), &quot;float32&quot;), param_1: T.Buffer((T.int64(10),), &quot;float32&quot;), var_T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), &quot;float32&quot;)):
+    def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), &quot;float32&quot;), param_0: T.Buffer((T.int64(256), T.int64(10)), &quot;float32&quot;), param_1: T.Buffer((T.int64(10),), &quot;float32&quot;), T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), &quot;float32&quot;)):
         T.func_attr({&quot;tir.is_scheduled&quot;: 1, &quot;tir.noalias&quot;: T.bool(True)})
         # with T.block(&quot;root&quot;):
-        var_matmul_intermediate_local = T.alloc_buffer((T.int64(1), T.int64(10)), scope=&quot;local&quot;)
-        var_matmul_intermediate_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(10)), scope=&quot;local&quot;)
+        matmul_intermediate_local = T.alloc_buffer((T.int64(1), T.int64(10)), scope=&quot;local&quot;)
+        matmul_intermediate_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(10)), scope=&quot;local&quot;)
         for ax0_fused_0 in T.thread_binding(T.int64(1), thread=&quot;blockIdx.x&quot;):
-            for ax0_fused_1 in T.thread_binding(T.int64(16), thread=&quot;threadIdx.x&quot;):
+            for ax0_fused_1 in T.thread_binding(T.int64(10), thread=&quot;threadIdx.x&quot;):
                 for ax1_fused_1 in T.thread_binding(T.int64(16), thread=&quot;threadIdx.y&quot;):
                     with T.block(&quot;matmul_rf_init&quot;):
                         vax1_fused_1 = T.axis.spatial(T.int64(16), ax1_fused_1)
-                        v0 = T.axis.spatial(T.int64(10), ax0_fused_0 * T.int64(16) + ax0_fused_1)
-                        T.where(ax0_fused_0 * T.int64(16) + ax0_fused_1 &lt; T.int64(10))
+                        v0 = T.axis.spatial(T.int64(10), ax0_fused_0 * T.int64(10) + ax0_fused_1)
                         T.reads()
-                        T.writes(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                        var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = T.float32(0)
+                        T.writes(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                        matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = T.float32(0)
                     for ax1_fused_0, u in T.grid(T.int64(16), 1):
                         with T.block(&quot;matmul_rf_update&quot;):
                             vax1_fused_1 = T.axis.spatial(T.int64(16), ax1_fused_1)
-                            v0 = T.axis.spatial(T.int64(10), ax0_fused_0 * T.int64(16) + ax0_fused_1)
+                            v0 = T.axis.spatial(T.int64(10), ax0_fused_0 * T.int64(10) + ax0_fused_1)
                             vax1_fused_0 = T.axis.reduce(T.int64(16), ax1_fused_0)
-                            T.where(ax0_fused_0 * T.int64(16) + ax0_fused_1 &lt; T.int64(10))
-                            T.reads(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0], lv3[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1], param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0])
-                            T.writes(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                            var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] + lv3[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1] * param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0]
+                            T.reads(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0], lv3[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1], param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0])
+                            T.writes(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                            matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] + lv3[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1] * param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0]
             for ax1_fused in T.thread_binding(T.int64(10), thread=&quot;threadIdx.x&quot;):
                 for ax0 in T.thread_binding(T.int64(16), thread=&quot;threadIdx.y&quot;):
                     with T.block(&quot;matmul&quot;):
                         vax1_fused_1, v0 = T.axis.remap(&quot;RS&quot;, [ax0, ax1_fused])
-                        T.reads(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                        T.writes(var_matmul_intermediate_local[T.int64(0), v0])
+                        T.reads(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                        T.writes(matmul_intermediate_local[T.int64(0), v0])
                         with T.init():
-                            var_matmul_intermediate_local[T.int64(0), v0] = T.float32(0)
-                        var_matmul_intermediate_local[T.int64(0), v0] = var_matmul_intermediate_local[T.int64(0), v0] + var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0]
-            for ax0_fused_0_1 in T.thread_binding(T.int64(16), thread=&quot;threadIdx.x&quot;):
+                            matmul_intermediate_local[T.int64(0), v0] = T.float32(0)
+                        matmul_intermediate_local[T.int64(0), v0] = matmul_intermediate_local[T.int64(0), v0] + matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0]
+            for ax0_fused_0_1 in T.thread_binding(T.int64(10), thread=&quot;threadIdx.x&quot;):
                 for ax0_fused_1 in range(T.int64(1)):
                     with T.block(&quot;T_add&quot;):
                         v0 = T.axis.spatial(T.int64(10), ax0_fused_0_1 + ax0_fused_1)
-                        T.where(ax0_fused_0_1 + ax0_fused_1 &lt; T.int64(10))
-                        T.reads(var_matmul_intermediate_local[T.int64(0), v0], param_1[v0])
-                        T.writes(var_T_add_intermediate[T.int64(0), v0])
-                        var_T_add_intermediate[T.int64(0), v0] = var_matmul_intermediate_local[T.int64(0), v0] + param_1[v0]
+                        T.reads(matmul_intermediate_local[T.int64(0), v0], param_1[v0])
+                        T.writes(T_add_intermediate[T.int64(0), v0])
+                        T_add_intermediate[T.int64(0), v0] = matmul_intermediate_local[T.int64(0), v0] + param_1[v0]
 
     @T.prim_func(private=True)
-    def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), &quot;float32&quot;), param_0: T.Buffer((T.int64(784), T.int64(256)), &quot;float32&quot;), param_1: T.Buffer((T.int64(256),), &quot;float32&quot;), var_compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), &quot;float32&quot;)):
+    def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), &quot;float32&quot;), param_0: T.Buffer((T.int64(784), T.int64(256)), &quot;float32&quot;), param_1: T.Buffer((T.int64(256),), &quot;float32&quot;), compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), &quot;float32&quot;)):
         T.func_attr({&quot;tir.is_scheduled&quot;: 1, &quot;tir.noalias&quot;: T.bool(True)})
         # with T.block(&quot;root&quot;):
-        var_matmul_intermediate_local = T.alloc_buffer((T.int64(1), T.int64(256)), scope=&quot;local&quot;)
-        var_matmul_intermediate_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(256)), scope=&quot;local&quot;)
+        matmul_intermediate_local = T.alloc_buffer((T.int64(1), T.int64(256)), scope=&quot;local&quot;)
+        matmul_intermediate_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(256)), scope=&quot;local&quot;)
         for ax0_fused_0 in T.thread_binding(T.int64(16), thread=&quot;blockIdx.x&quot;):
             for ax0_fused_1 in T.thread_binding(T.int64(16), thread=&quot;threadIdx.x&quot;):
                 for ax1_fused_1 in T.thread_binding(T.int64(16), thread=&quot;threadIdx.y&quot;):
@@ -594,41 +579,40 @@ class Module:
                         vax1_fused_1 = T.axis.spatial(T.int64(16), ax1_fused_1)
                         v0 = T.axis.spatial(T.int64(256), ax0_fused_0 * T.int64(16) + ax0_fused_1)
                         T.reads()
-                        T.writes(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                        var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = T.float32(0)
+                        T.writes(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                        matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = T.float32(0)
                     for ax1_fused_0, u in T.grid(T.int64(49), 1):
                         with T.block(&quot;matmul_rf_update&quot;):
                             vax1_fused_1 = T.axis.spatial(T.int64(16), ax1_fused_1)
                             v0 = T.axis.spatial(T.int64(256), ax0_fused_0 * T.int64(16) + ax0_fused_1)
                             vax1_fused_0 = T.axis.reduce(T.int64(49), ax1_fused_0)
-                            T.reads(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0], inp_0[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1], param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0])
-                            T.writes(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                            var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] + inp_0[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1] * param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0]
+                            T.reads(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0], inp_0[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1], param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0])
+                            T.writes(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                            matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] + inp_0[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1] * param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0]
             for ax1_fused in T.thread_binding(T.int64(16), thread=&quot;threadIdx.x&quot;):
                 for ax0 in T.thread_binding(T.int64(16), thread=&quot;threadIdx.y&quot;):
                     with T.block(&quot;matmul&quot;):
                         vax1_fused_1 = T.axis.reduce(T.int64(16), ax0)
                         v0 = T.axis.spatial(T.int64(256), ax0_fused_0 * T.int64(16) + ax1_fused)
-                        T.reads(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                        T.writes(var_matmul_intermediate_local[T.int64(0), v0])
+                        T.reads(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                        T.writes(matmul_intermediate_local[T.int64(0), v0])
                         with T.init():
-                            var_matmul_intermediate_local[T.int64(0), v0] = T.float32(0)
-                        var_matmul_intermediate_local[T.int64(0), v0] = var_matmul_intermediate_local[T.int64(0), v0] + var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0]
+                            matmul_intermediate_local[T.int64(0), v0] = T.float32(0)
+                        matmul_intermediate_local[T.int64(0), v0] = matmul_intermediate_local[T.int64(0), v0] + matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0]
             for ax0_fused_0_1 in T.thread_binding(T.int64(16), thread=&quot;threadIdx.x&quot;):
                 for ax0_fused_1 in range(T.int64(1)):
                     with T.block(&quot;compute&quot;):
                         v0 = T.axis.spatial(T.int64(256), ax0_fused_0 * T.int64(16) + ax0_fused_0_1 + ax0_fused_1)
-                        T.reads(var_matmul_intermediate_local[T.int64(0), v0], param_1[v0])
-                        T.writes(var_compute_intermediate[T.int64(0), v0])
-                        var_compute_intermediate[T.int64(0), v0] = T.max(var_matmul_intermediate_local[T.int64(0), v0] + param_1[v0], T.float32(0))
+                        T.reads(matmul_intermediate_local[T.int64(0), v0], param_1[v0])
+                        T.writes(compute_intermediate[T.int64(0), v0])
+                        compute_intermediate[T.int64(0), v0] = T.max(matmul_intermediate_local[T.int64(0), v0] + param_1[v0], T.float32(0))
 
     @R.function
     def main(inp_0: R.Tensor((1, 784), dtype=&quot;float32&quot;)) -&gt; R.Tensor((1, 10), dtype=&quot;float32&quot;):
         cls = Module
         with R.dataflow():
             lv = R.call_tir(cls.fused_matmul_add_relu, (inp_0, metadata[&quot;relax.expr.Constant&quot;][0], metadata[&quot;relax.expr.Constant&quot;][1]), out_sinfo=R.Tensor((1, 256), dtype=&quot;float32&quot;))
-            lv1 = R.call_tir(cls.fused_matmul1_add1, (lv, metadata[&quot;relax.expr.Constant&quot;][2], metadata[&quot;relax.expr.Constant&quot;][3]), out_sinfo=R.Tensor((1, 10), dtype=&quot;float32&quot;))
-            gv: R.Tensor((1, 10), dtype=&quot;float32&quot;) = lv1
+            gv = R.call_tir(cls.fused_matmul1_add1, (lv, metadata[&quot;relax.expr.Constant&quot;][2], metadata[&quot;relax.expr.Constant&quot;][3]), out_sinfo=R.Tensor((1, 10), dtype=&quot;float32&quot;))
             R.output(gv)
         return gv
 
@@ -648,14 +632,14 @@ We would improve the framework in the future to support more operators and backe
 <p>After the optimization, we can compile the model into a TVM runtime module.
 Apache TVM Unity use Relax Virtual Machine to run the model. The following code
 shows how to compile the model</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
 <span class="n">dev</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">kind</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">vm</span> <span class="o">=</span> <span class="n">relax</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">(</span><span class="n">exec</span><span class="p">,</span> <span class="n">dev</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now we can run the model on the TVM runtime module. We first prepare the input
 data and then invoke the TVM runtime module to get the output.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
 <span class="n">tvm_data</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
@@ -663,7 +647,7 @@ data and then invoke the TVM runtime module to get the output.</p>
 </pre></div>
 </div>
 <p>We can also compare the output with the PyTorch model to verify the correctness.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
     <span class="n">torch_out</span> <span class="o">=</span> <span class="n">torch_model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">tvm_out</span><span class="p">,</span> <span class="n">torch_out</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
@@ -671,22 +655,22 @@ data and then invoke the TVM runtime module to get the output.</p>
 </div>
 <p>Relax VM supports timing evaluation. We can use the following code to get the
 timing result.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">timing_res</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">time_evaluator</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">,</span> <span class="n">dev</span><span class="p">)(</span><span class="n">tvm_data</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">timing_res</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">time_evaluator</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">,</span> <span class="n">dev</span><span class="p">)(</span><span class="n">tvm_data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">timing_res</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time summary:
  mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)
-   0.0076       0.0076       0.0076       0.0076       0.0000
+   0.0085       0.0085       0.0085       0.0085       0.0000
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.594 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.096 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-get-started-tutorials-quick-start-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/baf675793174f2e9b3d5da483e35ef27/quick_start.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">quick_start.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/eceb05a9badb601d2def02240aa869e9/quick_start.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">quick_start.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/baf675793174f2e9b3d5da483e35ef27/quick_start.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">quick_start.py</span></code></a></p>
 </div>
 </div>
 </section>

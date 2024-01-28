@@ -59,7 +59,7 @@ format of the ir_module and in TVMScript:
 
 .. GENERATED FROM PYTHON SOURCE LINES 54-93
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -121,7 +121,7 @@ streamline the code:
 
 .. GENERATED FROM PYTHON SOURCE LINES 103-126
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -159,7 +159,7 @@ We can use the following code to verify that the two modules are equivalent:
 
 .. GENERATED FROM PYTHON SOURCE LINES 128-131
 
-.. code-block:: default
+.. code-block:: Python
 
 
     print(tvm.ir.structural_equal(MyModule, ConciseModule))
@@ -187,7 +187,7 @@ be used to ascertain the shape and data type of a TensorIR.
 
 .. GENERATED FROM PYTHON SOURCE LINES 137-165
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Python variables
@@ -230,7 +230,7 @@ Check the equivalence:
 
 .. GENERATED FROM PYTHON SOURCE LINES 167-171
 
-.. code-block:: default
+.. code-block:: Python
 
 
     print(tvm.ir.structural_equal(ConciseModule, ConciseModuleFromPython))
@@ -259,7 +259,7 @@ be used to ascertain the shape and data type of a TensorIR.
 
 .. GENERATED FROM PYTHON SOURCE LINES 177-203
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -300,7 +300,7 @@ Now let's check the runtime dynamic shape inference:
 
 .. GENERATED FROM PYTHON SOURCE LINES 205-221
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -326,17 +326,17 @@ Now let's check the runtime dynamic shape inference:
 
  .. code-block:: none
 
-    [[0.74369144 1.2857096  0.9312536  1.4938402 ]
-     [0.8457197  1.1344357  1.0167718  1.4015458 ]
-     [0.6215172  0.8697282  0.73780996 1.08859   ]
-     [0.8444467  1.4817338  1.0255342  1.6752933 ]]
-    [[31.81367  29.322643 33.46643  ... 32.066936 31.843338 31.997297]
-     [34.21587  29.761692 33.985676 ... 33.975616 30.549124 32.943256]
-     [36.668354 35.634075 37.476894 ... 36.07737  33.93837  33.803913]
+    [[0.5621404  0.543729   0.61239976 0.3138216 ]
+     [1.2092495  1.08359    1.2053614  0.72090256]
+     [1.2344809  1.139432   1.3031573  0.795681  ]
+     [1.895048   1.5549614  1.5495265  1.25517   ]]
+    [[30.134668 29.863676 32.996834 ... 30.820768 33.188026 28.581135]
+     [31.773392 30.470835 31.417461 ... 30.190342 32.607628 30.425243]
+     [34.150497 33.43621  34.17341  ... 35.03381  36.493015 31.566217]
      ...
-     [36.620438 31.921883 34.284283 ... 34.45535  31.221395 31.307842]
-     [29.393274 27.178171 29.224554 ... 29.862112 27.953592 29.040247]
-     [34.58329  31.312542 30.833471 ... 32.808777 32.16594  32.481743]]
+     [34.130653 33.914062 34.77706  ... 33.488625 33.282394 31.920208]
+     [31.484621 30.208483 30.878523 ... 30.587534 32.167362 30.47426 ]
+     [30.489397 29.572134 32.110092 ... 29.733181 33.30254  28.844995]]
 
 
 
@@ -366,7 +366,7 @@ TE creation method.
 
 .. GENERATED FROM PYTHON SOURCE LINES 242-251
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from tvm import te
@@ -402,7 +402,7 @@ and one output parameter **C**.
 
 .. GENERATED FROM PYTHON SOURCE LINES 265-270
 
-.. code-block:: default
+.. code-block:: Python
 
 
     te_func = te.create_prim_func([A, B, C]).with_attr({"global_symbol": "mm_relu"})
@@ -455,7 +455,7 @@ is that we need to specify the shape of the input tensors as symbolic variables.
 
 .. GENERATED FROM PYTHON SOURCE LINES 275-287
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Declare symbolic variables
@@ -514,7 +514,7 @@ is that we need to specify the shape of the input tensors as symbolic variables.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.123 seconds)
+   **Total running time of the script:** (0 minutes 0.128 seconds)
 
 
 .. _sphx_glr_download_deep_dive_tensor_ir_tutorials_creation.py:
@@ -523,13 +523,10 @@ is that we need to specify the shape of the input tensors as symbolic variables.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: creation.py <creation.py>`
-
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: creation.ipynb <creation.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download python source code: creation.py <creation.py>`

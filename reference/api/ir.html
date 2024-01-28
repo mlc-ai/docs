@@ -2,22 +2,19 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tvm.ir &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>tvm.ir &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -30,8 +27,6 @@
 
   
   
-    <link rel="shortcut icon" href="../../_static/tvm-logo-square.png"/>
-  
 
   
   
@@ -40,9 +35,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
     
@@ -150,12 +142,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="sidetitle" alt="Documentation Home"> Apache TVM Unity
           
 
-          
-            
-            <img src="../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -163,7 +152,7 @@
             
             
                 <div class="version">
-                  0.14.dev0
+                  0.16.dev0
                 </div>
             
           
@@ -190,6 +179,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/tutorials/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/tutorials/ir_module.html">IRModule</a></li>
@@ -247,6 +237,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#tvm.ir.IRModule"><code class="docutils literal notranslate"><span class="pre">IRModule</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.ir.IRModule.astext"><code class="docutils literal notranslate"><span class="pre">IRModule.astext()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.ir.IRModule.from_expr"><code class="docutils literal notranslate"><span class="pre">IRModule.from_expr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tvm.ir.IRModule.functions_items"><code class="docutils literal notranslate"><span class="pre">IRModule.functions_items()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.ir.IRModule.get_attr"><code class="docutils literal notranslate"><span class="pre">IRModule.get_attr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.ir.IRModule.get_constructor"><code class="docutils literal notranslate"><span class="pre">IRModule.get_constructor()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tvm.ir.IRModule.get_global_type_var"><code class="docutils literal notranslate"><span class="pre">IRModule.get_global_type_var()</span></code></a></li>
@@ -581,7 +572,7 @@ Attrs is passed as the first argument to these functions.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.ir.BaseFunc.with_attrs">
-<span class="sig-name descname"><span class="pre">with_attrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.ir.DictAttrs" title="tvm.ir.attrs.DictAttrs"><span class="pre">DictAttrs</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.ir.BaseFunc" title="tvm.ir.function.BaseFunc"><span class="pre">BaseFunc</span></a></span></span><a class="headerlink" href="#tvm.ir.BaseFunc.with_attrs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">with_attrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.DictAttrs" title="tvm.ir.attrs.DictAttrs"><span class="pre">DictAttrs</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.ir.BaseFunc" title="tvm.ir.function.BaseFunc"><span class="pre">BaseFunc</span></a></span></span><a class="headerlink" href="#tvm.ir.BaseFunc.with_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy the IRModule and add the given attribute map to it.
 :param attr_map: The attribute map
 :type attr_map: Union[DictAttrs, Dict[str, Object]]</p>
@@ -763,7 +754,7 @@ is not used for equality.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tvm.ir.GlobalVar">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.ir.</span></span><span class="sig-name descname"><span class="pre">GlobalVar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_hint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_annot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.GlobalVar" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.ir.</span></span><span class="sig-name descname"><span class="pre">GlobalVar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_hint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_annot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.Type" title="tvm.ir.type.Type"><span class="pre">Type</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.GlobalVar" title="Permalink to this definition">¶</a></dt>
 <dd><p>A global variable in the IR.</p>
 <p>GlobalVar is used to refer to the global functions
 stored in the IRModule.</p>
@@ -774,7 +765,7 @@ stored in the IRModule.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.ir.GlobalVar.astext">
-<span class="sig-name descname"><span class="pre">astext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_meta_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.GlobalVar.astext" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">astext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_meta_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#tvm.ir.GlobalVar.astext" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the text format of the expression.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -855,6 +846,20 @@ where expr is set as the entry point
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="runtime/runtime.html#tvm.runtime.Module" title="tvm.runtime.Module">Module</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tvm.ir.IRModule.functions_items">
+<span class="sig-name descname"><span class="pre">functions_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.IRModule.functions_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get items in self.functions.items() in alphabetical order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>items</strong> – The functions items.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="relax/relax.html#tvm.relax.Tuple" title="tvm.relax.Tuple">Tuple</a>[<a class="reference internal" href="#tvm.ir.GlobalVar" title="tvm.ir.GlobalVar">GlobalVar</a>, <a class="reference internal" href="relax/relax.html#tvm.relax.Function" title="tvm.relax.Function">Function</a>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1026,7 +1031,7 @@ module.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.ir.IRModule.with_attrs">
-<span class="sig-name descname"><span class="pre">with_attrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#tvm.ir.DictAttrs" title="tvm.ir.attrs.DictAttrs"><span class="pre">DictAttrs</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.ir.IRModule" title="tvm.ir.IRModule"><span class="pre">IRModule</span></a></span></span><a class="headerlink" href="#tvm.ir.IRModule.with_attrs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">with_attrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.DictAttrs" title="tvm.ir.attrs.DictAttrs"><span class="pre">DictAttrs</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtime/runtime.html#tvm.runtime.Object" title="tvm.runtime.object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.ir.IRModule" title="tvm.ir.IRModule"><span class="pre">IRModule</span></a></span></span><a class="headerlink" href="#tvm.ir.IRModule.with_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy the IRModule and add the given attribute map to it.
 :param attr_map: The attribute map
 :type attr_map: Union[DictAttrs, Dict[str, Object]]</p>
@@ -1336,7 +1341,7 @@ This is a base class for WorkspacePoolInfo and ConstantPoolInfo.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tvm.ir.PoolInfoProperties">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.ir.</span></span><span class="sig-name descname"><span class="pre">PoolInfoProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size_hint_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clock_frequency_hz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_bandwidth_bytes_per_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_bandwidth_bytes_per_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_latency_cycles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_latency_cycles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_burst_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.PoolInfoProperties" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.ir.</span></span><span class="sig-name descname"><span class="pre">PoolInfoProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size_hint_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clock_frequency_hz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_bandwidth_bytes_per_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_bandwidth_bytes_per_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_latency_cycles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_latency_cycles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_burst_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.PoolInfoProperties" title="Permalink to this definition">¶</a></dt>
 <dd><p>PoolInfo object holds information related to memory pools
 where the statically sized allocate nodes will pooled into.</p>
 <dl class="field-list simple">
@@ -1387,7 +1392,7 @@ optimizations and integer analysis.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tvm.ir.Range">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.ir.</span></span><span class="sig-name descname"><span class="pre">Range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">begin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.Range" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tvm.ir.</span></span><span class="sig-name descname"><span class="pre">Range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">begin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.Span" title="tvm.ir.base.Span"><span class="pre">Span</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.Range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represent a range in TVM.</p>
 <p>You do not need to create a Range explicitly.
 Python lists and tuples will be converted automatically to a Range in API functions.</p>
@@ -1397,7 +1402,7 @@ Python lists and tuples will be converted automatically to a Range in API functi
 <li><p><strong>begin</strong> (<a class="reference internal" href="#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a>) – The begin value of the range when end is None.
 Otherwise it is the length of the range.</p></li>
 <li><p><strong>end</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a><em>]</em>) – The end value of the range.</p></li>
-<li><p><strong>span</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#tvm.ir.Span" title="tvm.ir.Span"><em>Span</em></a><em>]</em>) – The location of this itervar in the source code.</p></li>
+<li><p><strong>span</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#tvm.ir.Span" title="tvm.ir.Span"><em>Span</em></a><em>]</em>) – The location of this node in the source code.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1408,7 +1413,7 @@ if the end argument is not None. Otherwise, it creates <cite>[0, begin)</cite>.<
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="tvm.ir.Range.from_min_extent">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_min_extent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tvm.ir.Range.from_min_extent" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_min_extent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#tvm.ir.Span" title="tvm.ir.base.Span"><span class="pre">Span</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tvm.ir.Range" title="tvm.ir.expr.Range"><span class="pre">Range</span></a></span></span><a class="headerlink" href="#tvm.ir.Range.from_min_extent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a Range by min and extent.</p>
 <p>This constructs a range in [min_value, min_value + extent)</p>
 <dl class="field-list simple">
@@ -1416,7 +1421,7 @@ if the end argument is not None. Otherwise, it creates <cite>[0, begin)</cite>.<
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>min_value</strong> (<a class="reference internal" href="#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a>) – The minimum value of the range.</p></li>
 <li><p><strong>extent</strong> (<a class="reference internal" href="#tvm.ir.PrimExpr" title="tvm.ir.PrimExpr"><em>PrimExpr</em></a>) – The extent of the range.</p></li>
-<li><p><strong>span</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#tvm.ir.Span" title="tvm.ir.Span"><em>Span</em></a><em>]</em>) – The location of this itervar in the source code.</p></li>
+<li><p><strong>span</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#tvm.ir.Span" title="tvm.ir.Span"><em>Span</em></a><em>]</em>) – The location of this node in the source code.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1450,7 +1455,7 @@ if the end argument is not None. Otherwise, it creates <cite>[0, begin)</cite>.<
 
 <dl class="py property">
 <dt class="sig sig-object py" id="tvm.ir.RelayExpr.struct_info">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">struct_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="relax/relax.html#tvm.relax.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a></em><a class="headerlink" href="#tvm.ir.RelayExpr.struct_info" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">struct_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="relax/relax.html#tvm.relax.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tvm.ir.RelayExpr.struct_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the struct info field</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>

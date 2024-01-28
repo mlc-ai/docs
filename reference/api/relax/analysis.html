@@ -2,22 +2,19 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tvm.relax.analysis &mdash; Apache TVM Unity 0.14.dev0 documentation</title>
+  <title>tvm.relax.analysis &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -30,8 +27,6 @@
 
   
   
-    <link rel="shortcut icon" href="../../../_static/tvm-logo-square.png"/>
-  
 
   
   
@@ -40,9 +35,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
     
@@ -150,12 +142,9 @@
           
 
           
-            <a href="../../../index.html">
+            <a href="../../../index.html" class="sidetitle" alt="Documentation Home"> Apache TVM Unity
           
 
-          
-            
-            <img src="../../../_static/tvm-logo-small.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -163,7 +152,7 @@
             
             
                 <div class="version">
-                  0.14.dev0
+                  0.16.dev0
                 </div>
             
           
@@ -190,6 +179,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Installing Apache TVM Unity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/tutorials/ir_module.html">IRModule</a></li>
@@ -226,7 +216,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.all_global_vars"><code class="docutils literal notranslate"><span class="pre">all_global_vars()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.all_vars"><code class="docutils literal notranslate"><span class="pre">all_vars()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.bound_vars"><code class="docutils literal notranslate"><span class="pre">bound_vars()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.computable_at_compile_time"><code class="docutils literal notranslate"><span class="pre">computable_at_compile_time()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.contains_impure_call"><code class="docutils literal notranslate"><span class="pre">contains_impure_call()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.definable_tir_vars_in_struct_info"><code class="docutils literal notranslate"><span class="pre">definable_tir_vars_in_struct_info()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.defined_symbolic_vars"><code class="docutils literal notranslate"><span class="pre">defined_symbolic_vars()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.derive_call_ret_struct_info"><code class="docutils literal notranslate"><span class="pre">derive_call_ret_struct_info()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tvm.relax.analysis.detect_recursion"><code class="docutils literal notranslate"><span class="pre">detect_recursion()</span></code></a></li>
@@ -410,8 +402,31 @@ They only have meaning inside that expr, and can only be used in it.
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="tvm.relax.analysis.computable_at_compile_time">
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">computable_at_compile_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="relax.html#tvm.relax.Function" title="tvm.relax.expr.Function"><span class="pre">Function</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.analysis.computable_at_compile_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect variables whose value can be computed at compile-time</p>
+<p>If a function has the <cite>kNumInput</cite> attribute, then the first
+<cite>kNumInput</cite> parameters are provided at run-time, while all
+remaining parameters may be known at compile-time.  This utility
+collects all variable bindings that only depend, directly or
+indirectly, on the parameters known at compile-time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> (<a class="reference internal" href="relax.html#tvm.relax.Function" title="tvm.relax.Function"><em>Function</em></a>) – The <cite>relax.Function</cite> to analyze</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ret</strong> – The set of variables that can be computed at compile-time, in
+order of their occurrence within the function.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.Var">relax.Var</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.analysis.contains_impure_call">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">contains_impure_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">own_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.GlobalVar" title="tvm.ir.expr.GlobalVar"><span class="pre">GlobalVar</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tvm.relax.analysis.contains_impure_call" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">contains_impure_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">own_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.GlobalVar" title="tvm.ir.expr.GlobalVar"><span class="pre">GlobalVar</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#tvm.relax.analysis.contains_impure_call" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if the given expression (likely a function body) contains any impure calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -433,6 +448,24 @@ for checking purity.</p></li>
 <p>Relies on StructInfo annotations, so ensure that the module has been normalized first.
 Also, an impure call in a <em>nested</em> function does <em>not</em> mean that the outer expression contains
 an impure call–it only does if the nested function is <em>later called</em>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tvm.relax.analysis.definable_tir_vars_in_struct_info">
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">definable_tir_vars_in_struct_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sinfo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="relax.html#tvm.relax.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.analysis.definable_tir_vars_in_struct_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the TIR variables that may be defined from input struct info.
+The returned list is deduplicated - each TIR variable will appear at most once.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sinfo</strong> (<a class="reference internal" href="relax.html#tvm.relax.StructInfo" title="tvm.relax.StructInfo"><em>StructInfo</em></a>) – The struct info object to be analyzed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ret</strong> – The list of TIR variables that can be defined from the StructInfo</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.Var">tir.Var</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -510,7 +543,7 @@ with any other, it will be a singleton in this list.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.analysis.erase_to_well_defined">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">erase_to_well_defined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sinfo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="relax.html#tvm.relax.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_var_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="relax.html#tvm.relax.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a></span></span><a class="headerlink" href="#tvm.relax.analysis.erase_to_well_defined" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">erase_to_well_defined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sinfo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="relax.html#tvm.relax.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_var_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.Var" title="tvm.tir.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../ir.html#tvm.ir.PrimExpr" title="tvm.ir.expr.PrimExpr"><span class="pre">PrimExpr</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="relax.html#tvm.relax.Var" title="tvm.relax.expr.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="relax.html#tvm.relax.StructInfo" title="tvm.relax.expr.StructInfo"><span class="pre">StructInfo</span></a></span></span><a class="headerlink" href="#tvm.relax.analysis.erase_to_well_defined" title="Permalink to this definition">¶</a></dt>
 <dd><p>Erase sinfo into a well defined form.</p>
 <p>This function removes the StructInfo’s dependencies on shape and vars that
 are not defined in given maps.</p>
@@ -533,7 +566,7 @@ are not defined in given maps.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.analysis.estimate_memory_usage">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">estimate_memory_usage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../ir.html#tvm.ir.IRModule" title="tvm.ir.module.IRModule"><span class="pre">IRModule</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="relax.html#tvm.relax.Function" title="tvm.relax.expr.Function"><span class="pre">Function</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#tvm.relax.analysis.estimate_memory_usage" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">estimate_memory_usage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../ir.html#tvm.ir.IRModule" title="tvm.ir.module.IRModule"><span class="pre">IRModule</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="relax.html#tvm.relax.Function" title="tvm.relax.expr.Function"><span class="pre">Function</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#tvm.relax.analysis.estimate_memory_usage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Analysis function that estimates the memory usage of Relax functions
 in an IRModule. The estimation includes the total memory size needed to
 be allocated before and after memory planning.</p>
@@ -743,7 +776,7 @@ only once.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tvm.relax.analysis.suggest_layout_transforms">
-<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">suggest_layout_transforms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_buffer_transforms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.Block" title="tvm.tir.stmt.Block"><span class="pre">Block</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.Block" title="tvm.tir.stmt.Block"><span class="pre">Block</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.Buffer" title="tvm.tir.buffer.Buffer"><span class="pre">Buffer</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.analysis.suggest_layout_transforms" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tvm.relax.analysis.</span></span><span class="sig-name descname"><span class="pre">suggest_layout_transforms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../tir/tir.html#tvm.tir.PrimFunc" title="tvm.tir.function.PrimFunc"><span class="pre">PrimFunc</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_buffer_transforms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.Block" title="tvm.tir.stmt.Block"><span class="pre">Block</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../tir/tir.html#tvm.tir.Block" title="tvm.tir.stmt.Block"><span class="pre">Block</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.Buffer" title="tvm.tir.buffer.Buffer"><span class="pre">Buffer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../tir/tir.html#tvm.tir.IndexMap" title="tvm.tir.function.IndexMap"><span class="pre">IndexMap</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tvm.relax.analysis.suggest_layout_transforms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Suggest Layout transformations of blocks and buffers in a PrimFunc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

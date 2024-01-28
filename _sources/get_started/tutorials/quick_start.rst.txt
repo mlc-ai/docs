@@ -42,7 +42,7 @@ to the next section.
 
 .. GENERATED FROM PYTHON SOURCE LINES 36-57
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import torch
@@ -87,7 +87,7 @@ representation (IR) with symbolic shape support.
 
 .. GENERATED FROM PYTHON SOURCE LINES 68-75
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from tvm import relax
@@ -117,7 +117,7 @@ which looks like ``[((1, 784), "float32")]``.
 
 .. GENERATED FROM PYTHON SOURCE LINES 85-88
 
-.. code-block:: default
+.. code-block:: Python
 
 
     input_info = [((1, 784), "float32")]
@@ -136,7 +136,7 @@ And print it out to in the TVMScript Syntax
 
 .. GENERATED FROM PYTHON SOURCE LINES 91-96
 
-.. code-block:: default
+.. code-block:: Python
 
 
     with torch.no_grad():
@@ -210,7 +210,7 @@ the following transformations will be applied in order:
 
 .. GENERATED FROM PYTHON SOURCE LINES 125-129
 
-.. code-block:: default
+.. code-block:: Python
 
 
     mod = relax.get_pipeline()(mod)
@@ -231,59 +231,58 @@ the following transformations will be applied in order:
     @I.ir_module
     class Module:
         @T.prim_func(private=True)
-        def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), "float32"), param_0: T.Buffer((T.int64(256), T.int64(10)), "float32"), param_1: T.Buffer((T.int64(10),), "float32"), var_T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), "float32")):
+        def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), "float32"), param_0: T.Buffer((T.int64(256), T.int64(10)), "float32"), param_1: T.Buffer((T.int64(10),), "float32"), T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), "float32")):
             T.func_attr({"tir.noalias": T.bool(True)})
             # with T.block("root"):
-            var_matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(10)))
+            matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(10)))
             for i0, i1, k in T.grid(T.int64(1), T.int64(10), T.int64(256)):
                 with T.block("matmul"):
                     v_i0, v_i1, v_k = T.axis.remap("SSR", [i0, i1, k])
                     T.reads(lv3[v_i0, v_k], param_0[v_k, v_i1])
-                    T.writes(var_matmul_intermediate[v_i0, v_i1])
+                    T.writes(matmul_intermediate[v_i0, v_i1])
                     with T.init():
-                        var_matmul_intermediate[v_i0, v_i1] = T.float32(0)
-                    var_matmul_intermediate[v_i0, v_i1] = var_matmul_intermediate[v_i0, v_i1] + lv3[v_i0, v_k] * param_0[v_k, v_i1]
+                        matmul_intermediate[v_i0, v_i1] = T.float32(0)
+                    matmul_intermediate[v_i0, v_i1] = matmul_intermediate[v_i0, v_i1] + lv3[v_i0, v_k] * param_0[v_k, v_i1]
             for ax0, ax1 in T.grid(T.int64(1), T.int64(10)):
                 with T.block("T_add"):
                     v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
-                    T.reads(var_matmul_intermediate[v_ax0, v_ax1], param_1[v_ax1])
-                    T.writes(var_T_add_intermediate[v_ax0, v_ax1])
-                    var_T_add_intermediate[v_ax0, v_ax1] = var_matmul_intermediate[v_ax0, v_ax1] + param_1[v_ax1]
+                    T.reads(matmul_intermediate[v_ax0, v_ax1], param_1[v_ax1])
+                    T.writes(T_add_intermediate[v_ax0, v_ax1])
+                    T_add_intermediate[v_ax0, v_ax1] = matmul_intermediate[v_ax0, v_ax1] + param_1[v_ax1]
 
         @T.prim_func(private=True)
-        def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), "float32"), param_0: T.Buffer((T.int64(784), T.int64(256)), "float32"), param_1: T.Buffer((T.int64(256),), "float32"), var_compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), "float32")):
+        def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), "float32"), param_0: T.Buffer((T.int64(784), T.int64(256)), "float32"), param_1: T.Buffer((T.int64(256),), "float32"), compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), "float32")):
             T.func_attr({"tir.noalias": T.bool(True)})
             # with T.block("root"):
-            var_matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
-            var_T_add_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
+            matmul_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
+            T_add_intermediate = T.alloc_buffer((T.int64(1), T.int64(256)))
             for i0, i1, k in T.grid(T.int64(1), T.int64(256), T.int64(784)):
                 with T.block("matmul"):
                     v_i0, v_i1, v_k = T.axis.remap("SSR", [i0, i1, k])
                     T.reads(inp_0[v_i0, v_k], param_0[v_k, v_i1])
-                    T.writes(var_matmul_intermediate[v_i0, v_i1])
+                    T.writes(matmul_intermediate[v_i0, v_i1])
                     with T.init():
-                        var_matmul_intermediate[v_i0, v_i1] = T.float32(0)
-                    var_matmul_intermediate[v_i0, v_i1] = var_matmul_intermediate[v_i0, v_i1] + inp_0[v_i0, v_k] * param_0[v_k, v_i1]
+                        matmul_intermediate[v_i0, v_i1] = T.float32(0)
+                    matmul_intermediate[v_i0, v_i1] = matmul_intermediate[v_i0, v_i1] + inp_0[v_i0, v_k] * param_0[v_k, v_i1]
             for ax0, ax1 in T.grid(T.int64(1), T.int64(256)):
                 with T.block("T_add"):
                     v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
-                    T.reads(var_matmul_intermediate[v_ax0, v_ax1], param_1[v_ax1])
-                    T.writes(var_T_add_intermediate[v_ax0, v_ax1])
-                    var_T_add_intermediate[v_ax0, v_ax1] = var_matmul_intermediate[v_ax0, v_ax1] + param_1[v_ax1]
+                    T.reads(matmul_intermediate[v_ax0, v_ax1], param_1[v_ax1])
+                    T.writes(T_add_intermediate[v_ax0, v_ax1])
+                    T_add_intermediate[v_ax0, v_ax1] = matmul_intermediate[v_ax0, v_ax1] + param_1[v_ax1]
             for i0, i1 in T.grid(T.int64(1), T.int64(256)):
                 with T.block("compute"):
                     v_i0, v_i1 = T.axis.remap("SS", [i0, i1])
-                    T.reads(var_T_add_intermediate[v_i0, v_i1])
-                    T.writes(var_compute_intermediate[v_i0, v_i1])
-                    var_compute_intermediate[v_i0, v_i1] = T.max(var_T_add_intermediate[v_i0, v_i1], T.float32(0))
+                    T.reads(T_add_intermediate[v_i0, v_i1])
+                    T.writes(compute_intermediate[v_i0, v_i1])
+                    compute_intermediate[v_i0, v_i1] = T.max(T_add_intermediate[v_i0, v_i1], T.float32(0))
 
         @R.function
         def main(inp_0: R.Tensor((1, 784), dtype="float32")) -> R.Tensor((1, 10), dtype="float32"):
             cls = Module
             with R.dataflow():
                 lv = R.call_tir(cls.fused_matmul_add_relu, (inp_0, metadata["relax.expr.Constant"][0], metadata["relax.expr.Constant"][1]), out_sinfo=R.Tensor((1, 256), dtype="float32"))
-                lv1 = R.call_tir(cls.fused_matmul1_add1, (lv, metadata["relax.expr.Constant"][2], metadata["relax.expr.Constant"][3]), out_sinfo=R.Tensor((1, 10), dtype="float32"))
-                gv: R.Tensor((1, 10), dtype="float32") = lv1
+                gv = R.call_tir(cls.fused_matmul1_add1, (lv, metadata["relax.expr.Constant"][2], metadata["relax.expr.Constant"][3]), out_sinfo=R.Tensor((1, 10), dtype="float32"))
                 R.output(gv)
             return gv
 
@@ -300,7 +299,7 @@ TensorIR functions, print the ``main`` function of the IRModule.
 
 .. GENERATED FROM PYTHON SOURCE LINES 132-135
 
-.. code-block:: default
+.. code-block:: Python
 
 
     mod["main"].show()
@@ -319,8 +318,7 @@ TensorIR functions, print the ``main`` function of the IRModule.
     def main(inp_0: R.Tensor((1, 784), dtype="float32")) -> R.Tensor((1, 10), dtype="float32"):
         with R.dataflow():
             lv = R.call_tir(fused_matmul_add_relu, (inp_0, metadata["relax.expr.Constant"][0], metadata["relax.expr.Constant"][1]), out_sinfo=R.Tensor((1, 256), dtype="float32"))
-            lv1 = R.call_tir(fused_matmul1_add1, (lv, metadata["relax.expr.Constant"][2], metadata["relax.expr.Constant"][3]), out_sinfo=R.Tensor((1, 10), dtype="float32"))
-            gv: R.Tensor((1, 10), dtype="float32") = lv1
+            gv = R.call_tir(fused_matmul1_add1, (lv, metadata["relax.expr.Constant"][2], metadata["relax.expr.Constant"][3]), out_sinfo=R.Tensor((1, 10), dtype="float32"))
             R.output(gv)
         return gv
 
@@ -343,7 +341,7 @@ the Tensor Function, for other optimizations, please refer to corresponding tuto
 
 .. GENERATED FROM PYTHON SOURCE LINES 144-160
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import tvm
@@ -376,54 +374,51 @@ the Tensor Function, for other optimizations, please refer to corresponding tuto
     @I.ir_module
     class Module:
         @T.prim_func(private=True)
-        def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), "float32"), param_0: T.Buffer((T.int64(256), T.int64(10)), "float32"), param_1: T.Buffer((T.int64(10),), "float32"), var_T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), "float32")):
+        def fused_matmul1_add1(lv3: T.Buffer((T.int64(1), T.int64(256)), "float32"), param_0: T.Buffer((T.int64(256), T.int64(10)), "float32"), param_1: T.Buffer((T.int64(10),), "float32"), T_add_intermediate: T.Buffer((T.int64(1), T.int64(10)), "float32")):
             T.func_attr({"tir.is_scheduled": 1, "tir.noalias": T.bool(True)})
             # with T.block("root"):
-            var_matmul_intermediate_local = T.alloc_buffer((T.int64(1), T.int64(10)), scope="local")
-            var_matmul_intermediate_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(10)), scope="local")
+            matmul_intermediate_local = T.alloc_buffer((T.int64(1), T.int64(10)), scope="local")
+            matmul_intermediate_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(10)), scope="local")
             for ax0_fused_0 in T.thread_binding(T.int64(1), thread="blockIdx.x"):
-                for ax0_fused_1 in T.thread_binding(T.int64(16), thread="threadIdx.x"):
+                for ax0_fused_1 in T.thread_binding(T.int64(10), thread="threadIdx.x"):
                     for ax1_fused_1 in T.thread_binding(T.int64(16), thread="threadIdx.y"):
                         with T.block("matmul_rf_init"):
                             vax1_fused_1 = T.axis.spatial(T.int64(16), ax1_fused_1)
-                            v0 = T.axis.spatial(T.int64(10), ax0_fused_0 * T.int64(16) + ax0_fused_1)
-                            T.where(ax0_fused_0 * T.int64(16) + ax0_fused_1 < T.int64(10))
+                            v0 = T.axis.spatial(T.int64(10), ax0_fused_0 * T.int64(10) + ax0_fused_1)
                             T.reads()
-                            T.writes(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                            var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = T.float32(0)
+                            T.writes(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                            matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = T.float32(0)
                         for ax1_fused_0, u in T.grid(T.int64(16), 1):
                             with T.block("matmul_rf_update"):
                                 vax1_fused_1 = T.axis.spatial(T.int64(16), ax1_fused_1)
-                                v0 = T.axis.spatial(T.int64(10), ax0_fused_0 * T.int64(16) + ax0_fused_1)
+                                v0 = T.axis.spatial(T.int64(10), ax0_fused_0 * T.int64(10) + ax0_fused_1)
                                 vax1_fused_0 = T.axis.reduce(T.int64(16), ax1_fused_0)
-                                T.where(ax0_fused_0 * T.int64(16) + ax0_fused_1 < T.int64(10))
-                                T.reads(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0], lv3[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1], param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0])
-                                T.writes(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                                var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] + lv3[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1] * param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0]
+                                T.reads(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0], lv3[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1], param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0])
+                                T.writes(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                                matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] + lv3[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1] * param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0]
                 for ax1_fused in T.thread_binding(T.int64(10), thread="threadIdx.x"):
                     for ax0 in T.thread_binding(T.int64(16), thread="threadIdx.y"):
                         with T.block("matmul"):
                             vax1_fused_1, v0 = T.axis.remap("RS", [ax0, ax1_fused])
-                            T.reads(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                            T.writes(var_matmul_intermediate_local[T.int64(0), v0])
+                            T.reads(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                            T.writes(matmul_intermediate_local[T.int64(0), v0])
                             with T.init():
-                                var_matmul_intermediate_local[T.int64(0), v0] = T.float32(0)
-                            var_matmul_intermediate_local[T.int64(0), v0] = var_matmul_intermediate_local[T.int64(0), v0] + var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0]
-                for ax0_fused_0_1 in T.thread_binding(T.int64(16), thread="threadIdx.x"):
+                                matmul_intermediate_local[T.int64(0), v0] = T.float32(0)
+                            matmul_intermediate_local[T.int64(0), v0] = matmul_intermediate_local[T.int64(0), v0] + matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0]
+                for ax0_fused_0_1 in T.thread_binding(T.int64(10), thread="threadIdx.x"):
                     for ax0_fused_1 in range(T.int64(1)):
                         with T.block("T_add"):
                             v0 = T.axis.spatial(T.int64(10), ax0_fused_0_1 + ax0_fused_1)
-                            T.where(ax0_fused_0_1 + ax0_fused_1 < T.int64(10))
-                            T.reads(var_matmul_intermediate_local[T.int64(0), v0], param_1[v0])
-                            T.writes(var_T_add_intermediate[T.int64(0), v0])
-                            var_T_add_intermediate[T.int64(0), v0] = var_matmul_intermediate_local[T.int64(0), v0] + param_1[v0]
+                            T.reads(matmul_intermediate_local[T.int64(0), v0], param_1[v0])
+                            T.writes(T_add_intermediate[T.int64(0), v0])
+                            T_add_intermediate[T.int64(0), v0] = matmul_intermediate_local[T.int64(0), v0] + param_1[v0]
 
         @T.prim_func(private=True)
-        def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), "float32"), param_0: T.Buffer((T.int64(784), T.int64(256)), "float32"), param_1: T.Buffer((T.int64(256),), "float32"), var_compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), "float32")):
+        def fused_matmul_add_relu(inp_0: T.Buffer((T.int64(1), T.int64(784)), "float32"), param_0: T.Buffer((T.int64(784), T.int64(256)), "float32"), param_1: T.Buffer((T.int64(256),), "float32"), compute_intermediate: T.Buffer((T.int64(1), T.int64(256)), "float32")):
             T.func_attr({"tir.is_scheduled": 1, "tir.noalias": T.bool(True)})
             # with T.block("root"):
-            var_matmul_intermediate_local = T.alloc_buffer((T.int64(1), T.int64(256)), scope="local")
-            var_matmul_intermediate_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(256)), scope="local")
+            matmul_intermediate_local = T.alloc_buffer((T.int64(1), T.int64(256)), scope="local")
+            matmul_intermediate_rf_local = T.alloc_buffer((T.int64(16), T.int64(1), T.int64(256)), scope="local")
             for ax0_fused_0 in T.thread_binding(T.int64(16), thread="blockIdx.x"):
                 for ax0_fused_1 in T.thread_binding(T.int64(16), thread="threadIdx.x"):
                     for ax1_fused_1 in T.thread_binding(T.int64(16), thread="threadIdx.y"):
@@ -431,41 +426,40 @@ the Tensor Function, for other optimizations, please refer to corresponding tuto
                             vax1_fused_1 = T.axis.spatial(T.int64(16), ax1_fused_1)
                             v0 = T.axis.spatial(T.int64(256), ax0_fused_0 * T.int64(16) + ax0_fused_1)
                             T.reads()
-                            T.writes(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                            var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = T.float32(0)
+                            T.writes(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                            matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = T.float32(0)
                         for ax1_fused_0, u in T.grid(T.int64(49), 1):
                             with T.block("matmul_rf_update"):
                                 vax1_fused_1 = T.axis.spatial(T.int64(16), ax1_fused_1)
                                 v0 = T.axis.spatial(T.int64(256), ax0_fused_0 * T.int64(16) + ax0_fused_1)
                                 vax1_fused_0 = T.axis.reduce(T.int64(49), ax1_fused_0)
-                                T.reads(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0], inp_0[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1], param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0])
-                                T.writes(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                                var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] + inp_0[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1] * param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0]
+                                T.reads(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0], inp_0[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1], param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0])
+                                T.writes(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                                matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] = matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0] + inp_0[T.int64(0), vax1_fused_0 * T.int64(16) + vax1_fused_1] * param_0[vax1_fused_0 * T.int64(16) + vax1_fused_1, v0]
                 for ax1_fused in T.thread_binding(T.int64(16), thread="threadIdx.x"):
                     for ax0 in T.thread_binding(T.int64(16), thread="threadIdx.y"):
                         with T.block("matmul"):
                             vax1_fused_1 = T.axis.reduce(T.int64(16), ax0)
                             v0 = T.axis.spatial(T.int64(256), ax0_fused_0 * T.int64(16) + ax1_fused)
-                            T.reads(var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
-                            T.writes(var_matmul_intermediate_local[T.int64(0), v0])
+                            T.reads(matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0])
+                            T.writes(matmul_intermediate_local[T.int64(0), v0])
                             with T.init():
-                                var_matmul_intermediate_local[T.int64(0), v0] = T.float32(0)
-                            var_matmul_intermediate_local[T.int64(0), v0] = var_matmul_intermediate_local[T.int64(0), v0] + var_matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0]
+                                matmul_intermediate_local[T.int64(0), v0] = T.float32(0)
+                            matmul_intermediate_local[T.int64(0), v0] = matmul_intermediate_local[T.int64(0), v0] + matmul_intermediate_rf_local[vax1_fused_1, T.int64(0), v0]
                 for ax0_fused_0_1 in T.thread_binding(T.int64(16), thread="threadIdx.x"):
                     for ax0_fused_1 in range(T.int64(1)):
                         with T.block("compute"):
                             v0 = T.axis.spatial(T.int64(256), ax0_fused_0 * T.int64(16) + ax0_fused_0_1 + ax0_fused_1)
-                            T.reads(var_matmul_intermediate_local[T.int64(0), v0], param_1[v0])
-                            T.writes(var_compute_intermediate[T.int64(0), v0])
-                            var_compute_intermediate[T.int64(0), v0] = T.max(var_matmul_intermediate_local[T.int64(0), v0] + param_1[v0], T.float32(0))
+                            T.reads(matmul_intermediate_local[T.int64(0), v0], param_1[v0])
+                            T.writes(compute_intermediate[T.int64(0), v0])
+                            compute_intermediate[T.int64(0), v0] = T.max(matmul_intermediate_local[T.int64(0), v0] + param_1[v0], T.float32(0))
 
         @R.function
         def main(inp_0: R.Tensor((1, 784), dtype="float32")) -> R.Tensor((1, 10), dtype="float32"):
             cls = Module
             with R.dataflow():
                 lv = R.call_tir(cls.fused_matmul_add_relu, (inp_0, metadata["relax.expr.Constant"][0], metadata["relax.expr.Constant"][1]), out_sinfo=R.Tensor((1, 256), dtype="float32"))
-                lv1 = R.call_tir(cls.fused_matmul1_add1, (lv, metadata["relax.expr.Constant"][2], metadata["relax.expr.Constant"][3]), out_sinfo=R.Tensor((1, 10), dtype="float32"))
-                gv: R.Tensor((1, 10), dtype="float32") = lv1
+                gv = R.call_tir(cls.fused_matmul1_add1, (lv, metadata["relax.expr.Constant"][2], metadata["relax.expr.Constant"][3]), out_sinfo=R.Tensor((1, 10), dtype="float32"))
                 R.output(gv)
             return gv
 
@@ -493,7 +487,7 @@ shows how to compile the model
 
 .. GENERATED FROM PYTHON SOURCE LINES 173-178
 
-.. code-block:: default
+.. code-block:: Python
 
 
     exec = relax.build(mod, target=target)
@@ -514,7 +508,7 @@ data and then invoke the TVM runtime module to get the output.
 
 .. GENERATED FROM PYTHON SOURCE LINES 181-188
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -536,7 +530,7 @@ We can also compare the output with the PyTorch model to verify the correctness.
 
 .. GENERATED FROM PYTHON SOURCE LINES 190-196
 
-.. code-block:: default
+.. code-block:: Python
 
 
     with torch.no_grad():
@@ -558,7 +552,7 @@ timing result.
 
 .. GENERATED FROM PYTHON SOURCE LINES 199-202
 
-.. code-block:: default
+.. code-block:: Python
 
 
     timing_res = vm.time_evaluator("main", dev)(tvm_data)
@@ -573,7 +567,7 @@ timing result.
 
     Execution time summary:
      mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)  
-       0.0076       0.0076       0.0076       0.0076       0.0000                  
+       0.0085       0.0085       0.0085       0.0085       0.0000                  
 
 
 
@@ -581,7 +575,7 @@ timing result.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.594 seconds)
+   **Total running time of the script:** (0 minutes 3.096 seconds)
 
 
 .. _sphx_glr_download_get_started_tutorials_quick_start.py:
@@ -590,13 +584,10 @@ timing result.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: quick_start.py <quick_start.py>`
-
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: quick_start.ipynb <quick_start.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download python source code: quick_start.py <quick_start.py>`

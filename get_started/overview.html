@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Publications &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
+  <title>Overview &mdash; Apache TVM Unity 0.16.dev0 documentation</title>
   
 
   
@@ -44,7 +44,8 @@
     <script type="text/javascript" src="../_static/js/tlcpack_theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="tvm.rpc" href="api/rpc.html" /> 
+    <link rel="next" title="Installing Apache TVM Unity" href="install.html" />
+    <link rel="prev" title="🚧 Apache TVM Unity Documentation" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -177,20 +178,25 @@
             
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Installing Apache TVM Unity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/tutorials/quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/tutorials/ir_module.html">IRModule</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#key-principle">Key Principle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-goals">Key Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-flow">Key Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing Apache TVM Unity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/ir_module.html">IRModule</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deep Dive</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../deep_dive/tensor_ir/index.html">TensorIR</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">References</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Publications</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/api/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/publications.html">Publications</a></li>
 </ul>
 
             
@@ -247,7 +253,7 @@
     
       <li><a href="../index.html">Docs</a> <span class="br-arrow">></span></li>
         
-      <li>Publications</li>
+      <li>Overview</li>
     
     
       
@@ -260,7 +266,7 @@
         
             
             
-              <a href="https://github.com/mlc-ai/docs/edit/main/docs/reference/publications.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/mlc-ai/docs/edit/main/docs/get_started/overview.md" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -274,52 +280,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="publications">
-<span id="id1"></span><h1>Publications<a class="headerlink" href="#publications" title="Permalink to this heading">¶</a></h1>
-<p>The underlying compiler techniques employed by Apache TVM are outlined in the following papers:</p>
-<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">tensorir</span><span class="p">,</span>
-<span class="w">    </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Feng, Siyuan and Hou, Bohan and Jin, Hongyi and Lin, Wuwei and Shao, Junru and Lai, Ruihang and Ye, Zihao and Zheng, Lianmin and Yu, Cody Hao and Yu, Yong and Chen, Tianqi}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{TensorIR: An Abstraction for Automatic Tensorized Program Optimization}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2023}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">isbn</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{9781450399166}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Association for Computing Machinery}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">address</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{New York, NY, USA}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://doi.org/10.1145/3575693.3576933}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{10.1145/3575693.3576933}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">booktitle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">pages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{804--817}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">numpages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{14}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">keywords</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Tensor Computation, Machine Learning Compiler, Deep Neural Network}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">location</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Vancouver, BC, Canada}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">series</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{ASPLOS 2023}</span>
-<span class="p">}</span>
-
-<span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">metaschedule</span><span class="p">,</span>
-<span class="w">    </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Shao, Junru and Zhou, Xiyou and Feng, Siyuan and Hou, Bohan and Lai, Ruihang and Jin, Hongyi and Lin, Wuwei and Masuda, Masahiro and Yu, Cody Hao and Chen, Tianqi}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">booktitle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Advances in Neural Information Processing Systems}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">editor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{S. Koyejo and S. Mohamed and A. Agarwal and D. Belgrave and K. Cho and A. Oh}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">pages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{35783--35796}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Curran Associates, Inc.}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Tensor Program Optimization with Probabilistic Programs}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://proceedings.neurips.cc/paper_files/paper/2022/file/e894eafae43e68b4c8dfdacf742bcbf3-Paper-Conference.pdf}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">volume</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{35}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2022}</span>
-<span class="p">}</span>
-
-<span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">tvm</span><span class="p">,</span>
-<span class="w">    </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Tianqi Chen and Thierry Moreau and Ziheng Jiang and Lianmin Zheng and Eddie Yan and Haichen Shen and Meghan Cowan and Leyuan Wang and Yuwei Hu and Luis Ceze and Carlos Guestrin and Arvind Krishnamurthy}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{TVM}: An Automated {End-to-End} Optimizing Compiler for Deep Learning}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">booktitle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2018}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">isbn</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{978-1-939133-08-3}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">address</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Carlsbad, CA}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">pages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{578--594}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://www.usenix.org/conference/osdi18/presentation/chen}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{USENIX Association}</span><span class="p">,</span>
-<span class="w">    </span><span class="na">month</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nv">oct</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
+  <!--- Licensed to the Apache Software Foundation (ASF) under one -->
+<!--- or more contributor license agreements.  See the NOTICE file -->
+<!--- distributed with this work for additional information -->
+<!--- regarding copyright ownership.  The ASF licenses this file -->
+<!--- to you under the Apache License, Version 2.0 (the -->
+<!--- "License"); you may not use this file except in compliance -->
+<!--- with the License.  You may obtain a copy of the License at -->
+<!---   http://www.apache.org/licenses/LICENSE-2.0 -->
+<!--- Unless required by applicable law or agreed to in writing, -->
+<!--- software distributed under the License is distributed on an -->
+<!--- "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY -->
+<!--- KIND, either express or implied.  See the License for the -->
+<!--- specific language governing permissions and limitations -->
+<!--- under the License. -->
+<section class="tex2jax_ignore mathjax_ignore" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<p>Apache TVM is a machine learning compilation framework, following the principle of <strong>Python-first development</strong>
+and <strong>universal deployment</strong>. It takes in pre-trained machine learning models,
+compiles and generates deployable modules that can be embedded and run everywhere. Apache TVM also enables customizing optimization processes to introduce new optimizations, libraries, codegen
+and more.</p>
+<section id="key-principle">
+<h2>Key Principle<a class="headerlink" href="#key-principle" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Python-first</strong>: the optimization process is fully customizable in Python.
+It is easy to customize the optimization pipeline without recompiling the TVM stack.</p></li>
+<li><p><strong>Composable</strong>: the optimization process is composable. It is easy to compose
+new optimization passes, libraries and codegen to the existing pipeline.</p></li>
+</ul>
+</section>
+<section id="key-goals">
+<h2>Key Goals<a class="headerlink" href="#key-goals" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Optimize</strong> performance of ML workloads, composing libraries and codegen.</p></li>
+<li><p><strong>Deploy</strong> ML workloads to a diverse set of new environments, including new runtime and new hardware.</p></li>
+<li><p><strong>Continuously improve and customize</strong> ML deployment pipeline in Python by quickly customizing library dispatching,
+bringing in customized operators and code generation.</p></li>
+</ul>
+</section>
+<section id="key-flow">
+<h2>Key Flow<a class="headerlink" href="#key-flow" title="Permalink to this heading">¶</a></h2>
+<p>Here is a typical flow of using TVM to deploy a machine learning model. For a runnable example, please refer to
+<a class="reference internal" href="tutorials/quick_start.html#quick-start"><span class="std std-ref">Quick Start</span></a></p>
+<ol class="arabic">
+<li><p><strong>Import/construct an ML model</strong></p>
+<p>TVM supports importing models from various frameworks, such as PyTorch, TensorFlow for generic ML models. Meanwhile, we can create models directly using Relax frontend for scenarios of large language models.</p>
+</li>
+<li><p><strong>Perform composable optimization</strong> transformations via <code class="docutils literal notranslate"><span class="pre">pipelines</span></code></p>
+<p>The pipeline encapsulates a collection of transformations to achieve two goals:</p>
+<ul class="simple">
+<li><p><strong>Graph Optimizations</strong>: such as operator fusion, and layout rewrites.</p></li>
+<li><p><strong>Tensor Program Optimization</strong>: Map the operators to low-level implementations (both library or codegen)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The twos are goals but not the stages of the pipeline. The two optimizations are performed
+<strong>at the same level</strong>, or separately in two stages.</p>
 </div>
+</li>
+<li><p><strong>Build and universal deploy</strong></p>
+<p>Apache TVM aims to provide a universal deployment solution to bring machine learning everywhere with every language with minimum runtime support. TVM runtime can work in non-Python environments, so it works on mobile, edge devices or even bare metal devices. Additionally, TVM runtime comes with native data structures, and can also have zero copy exchange with the existing ecosystem (PyTorch, TensorFlow, TensorRT, etc.) using DLPack support.</p>
+</li>
+</ol>
+</section>
 </section>
 
 
@@ -332,8 +355,10 @@
 
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="install.html" class="btn btn-neutral float-right" title="Installing Apache TVM Unity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="api/rpc.html" class="btn btn-neutral float-left" title="tvm.rpc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="🚧 Apache TVM Unity Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
 
