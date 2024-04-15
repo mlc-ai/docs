@@ -21,21 +21,66 @@
 Quick Start
 ===========
 
-This tutorial is for people who are new to Apache TVM Unity. Taking an simple example
-to show how to use Apache TVM Unity to compile a simple neural network.
+This tutorial is for people who are new to Apache TVM. Taking an simple example
+to show how to use Apache TVM to compile a simple neural network.
+
+.. contents:: Table of Contents
+    :local:
+    :depth: 2
+
 """
 
 ################################################################################
-# Prepare the Neural Network Model
-# --------------------------------
-# Before we get started, let's prepare a neural network model first.
+# Overview
+# --------
+# Apache TVM is a machine learning compilation framework, following the principle of
+# **Python-first development** and **universal deployment**. It takes in pre-trained
+# machine learning models, compiles and generates deployable modules that can be embedded
+# and run everywhere.
+# Apache TVM also enables customizing optimization processes to introduce new optimizations,
+# libraries, codegen and more.
+#
+# Apache TVM can help to:
+#
+# - **Optimize** performance of ML workloads, composing libraries and codegen.
+# - **Deploy** ML workloads to a diverse set of new environments, including new runtime and new
+#   hardware.
+# - **Continuously improve and customize** ML deployment pipeline in Python by quickly customizing
+#   library dispatching, bringing in customized operators and code generation.
+
+################################################################################
+# Overall Flow
+# ------------
+# Then we will show the overall flow of using Apache TVM to compile a neural network model,
+# showing how to optimize, deploy and run the model.
+# The overall flow is illustrated as the figure:
+#
+# .. figure:: ../../_static/img/overview.svg
+#    :align: center
+#    :width: 80%
+#
+# The overall flow consists of the following steps:
+#
+# - **Construct or Import a Model**: Construct a neural network model or import a pre-trained
+#   model from other frameworks (e.g. PyTorch, ONNX), and create the TVM IRModule, which contains
+#   all the information needed for compilation, including high-level Relax functions for
+#   computational graph, and low-level TensorIR functions for tensor program.
+# - **Perform Composable Optimizations**: Perform a series of optimization transformations,
+#   such as graph optimizations, tensor program optimizations, and library dispatching.
+# - **Build and Universal Deployment**: Build the optimized model to a deployable module to the
+#   universal runtime, and execute it on different devices, such as CPU, GPU, or other accelerators.
+
+################################################################################
+# Construct or Import a Model
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Before we get started, let's construct a neural network model first.
 # In this tutorial, to make things simple, we will defined a two-layer MLP networks
-# directly in this script. For people who are trying to run real models, please jump
-# to the next section.
+# directly in this script with TVM Relax frontend, which is a similar API to PyTorch.
 #
 
-import torch
-from torch import nn
+import tvm
+from tvm import relax
+from tvm.relax.frontend import nn
 
 
 class MLPModel(nn.Module):
@@ -52,150 +97,100 @@ class MLPModel(nn.Module):
         return x
 
 
-torch_model = MLPModel()
+################################################################################
+# Then we can export the model to TVM IRModule, which is the central intermediate representation
+# in TVM.
+
+mod, param_spec = MLPModel().export_tvm(
+    spec={"forward": {"x": nn.spec.Tensor((1, 784), "float32")}}
+)
+mod.show()
 
 ################################################################################
-# Import Model into Apache TVM Unity
-# ------------------------------------------
-# We choose `PyTorch FX <https://pytorch.org/docs/stable/fx.html>`_ as our frontend.
-# PyTorch FX is a toolkit for tracing PyTorch programs into a intermediate
-# representation (IR) with symbolic shape support.
+# Perform Optimization Transformations
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Apache TVM leverage ``pipeline`` to transform and optimize program.
+# The pipeline encapsulates a collection of transformation that gets two goals (at the same level):
+#
+# - **Model optimizations**: such as operator fusion, layout rewrites.
+# - **Tensor program optimization**: Map the operators to low-level implementations
+#   (both library or codegen)
 #
 # .. note::
-#     Original PyTorch FX may not be compatible with HuggingFace Model. Please use
-#     `HuggingFace self-defined FX <https://huggingface.co/docs/optimum/torch_fx/overview>`_
-#     to trace the model.
-
-from tvm import relax
-from tvm.relax.frontend.torch import from_fx
-from torch import fx
-
-torch_fx_model = fx.symbolic_trace(torch_model)
-
-################################################################################
-# As the PyTorch model does not contain input information like in ONNX, we need
-# to provide the input information ourselves. This includes the shape and data
-# type of the input tensors, which are represented as a list of tuples.
-# Each tuple contains the shape and data type of one input tensor.
+#   The twos are goals but not the stages of the pipeline. The two optimizations are performed
+#   **at the same level**, or separately in two stages.
 #
-# In this particular example, the shape of the input tensor is ``(1, 784)`` and
-# the data type is ``"float32"``. We combine the shape and data type in a tuple
-# like ``((1, 784), "float32")``. Then we gather all the input tuples into a list,
-# which looks like ``[((1, 784), "float32")]``.
-
-input_info = [((1, 784), "float32")]
-
-################################################################################
-# Use the Apache TVM Unity API to convert the PyTorch FX model into Relax Model.
-# And print it out to in the TVMScript Syntax
-
-with torch.no_grad():
-    mod = from_fx(torch_fx_model, input_info)
-mod.show()
-
-################################################################################
-# Up to this point, we have successfully transformed the PyTorch FX model into a
-# TVM IRModule. It is important to mention that the IRModule is the central
-# abstraction of Apache TVM Unity, and it is utilized for subsequent transformations
-# and optimization processes. The IRModule has the ability to hold both high-level
-# graph IR (Relax) and low-level tensor IR (TensorIR). Currently, the IRModule
-# solely consists of Relax functions, which are marked with the `@R.function`
-# decorator.
-
-################################################################################
-# Transform The Model
-# -------------------
-# Apply Optimization Transforms
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# We can apply a variety of optimization transforms to the IRModule. We have predefined
-# a set of optimization transforms to simplify their usage. By using the `get_pipeline`
-# function, we can apply the default optimization flow. By following the default path,
-# the following transformations will be applied in order:
-#
-# - **LegalizeOps**: This transform converts the Relax operators into `call_tir` functions
-#   with the corresponding TensorIR Functions. After this transform, the IRModule will
-#   contain both Relax functions and TensorIR functions.
-# - **AnnotateTIROpPattern**: This transform annotates the pattern of the TensorIR functions,
-#   preparing them for subsequent operator fusion.
-# - **FoldConstant**: This pass performs constant folding, optimizing operations
-#   involving constants.
-# - **FuseOps and FuseTIR**: These two passes work together to fuse operators based on the
-#   patterns annotated in the previous step (AnnotateTIROpPattern). These passes transform
-#   both Relax functions and TensorIR functions.
-
-mod = relax.get_pipeline()(mod)
-mod.show()
-
-################################################################################
-# If you are only interested in the changes of the Relax functions and omit the
-# TensorIR functions, print the ``main`` function of the IRModule.
-
-mod["main"].show()
-
-################################################################################
-# Tensor Function Optimization
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Usually we apply Tensor Function Optimization after the Relax Function Optimization,
-# as graph transformations will changes the TIR functions.
-# There are different ways to apply Tensor Function Optimization, we choose ``DLight`` on
-# ``cuda`` target in this tutorial. Note that ``DLight`` is not the only way to optimize
-# the Tensor Function, for other optimizations, please refer to corresponding tutorials.
-#
-
-import tvm
-from tvm import dlight as dl
-
-target = tvm.target.Target("cuda")
-
-with target:
-    mod = dl.ApplyDefaultSchedule(
-        dl.gpu.Matmul(),
-        dl.gpu.GEMV(),
-        dl.gpu.Reduction(),
-        dl.gpu.GeneralReduction(),
-        dl.gpu.Fallback(),
-    )(mod)
-mod.show()
-
-################################################################################
 # .. note::
-#     The ``DLight`` framework is still under development, and currently only supports
-#     GPU backends with limited operators, to be specific, common operators used in LLMs.
-#     We would improve the framework in the future to support more operators and backends.
-#
+#   In this tutorial we only demonstrate the overall flow, by leverage ``zero`` optimization
+#   pipeline, instead of optimizing for any specific target.
+
+mod = relax.get_pipeline("zero")(mod)
+
 
 ################################################################################
-# Compile and Run
-# ---------------
-# After the optimization, we can compile the model into a TVM runtime module.
-# Apache TVM Unity use Relax Virtual Machine to run the model. The following code
-# shows how to compile the model
+# Build and Universal Deployment
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# After the optimization, we can build the model to a deployable module and run it on
+# different devices.
 
-exec = relax.build(mod, target=target)
-dev = tvm.device(str(target.kind), 0)
-vm = relax.VirtualMachine(exec, dev)
-
-################################################################################
-# Now we can run the model on the TVM runtime module. We first prepare the input
-# data and then invoke the TVM runtime module to get the output.
 
 import numpy as np
 
+target = tvm.target.Target("llvm")
+ex = relax.build(mod, target)
+device = tvm.cpu()
+vm = relax.VirtualMachine(ex, device)
 data = np.random.rand(1, 784).astype("float32")
-tvm_data = tvm.nd.array(data, device=dev)
-tvm_out = vm["main"](tvm_data).numpy()
+tvm_data = tvm.nd.array(data, device=device)
+params = [np.random.rand(*param.shape).astype("float32") for _, param in param_spec]
+params = [tvm.nd.array(param, device=device) for param in params]
+print(vm["forward"](tvm_data, *params).numpy())
 
 ################################################################################
-# We can also compare the output with the PyTorch model to verify the correctness.
-
-with torch.no_grad():
-    torch_out = torch_model(torch.Tensor(data)).numpy()
-
-np.testing.assert_allclose(tvm_out, torch_out, rtol=1e-5, atol=1e-5)
+# Our goal is to bring machine learning to the application with any language of interest,
+# with the minimum runtime support.
+#
+# - Each function in IRModule becomes a runnable function in the runtime. For example in LLM
+#   cases, we can call ``prefill`` and ``decode`` functions directly.
+#
+#   .. code-block:: Python
+#
+#       prefill_logits = vm["prefill"](inputs, weight, kv_cache)
+#       decoded_logits = vm["decode"](inputs, weight, kv_cache)
+#
+# - TVM runtime comes with native data structures, such as NDArray, can also have zero
+#   copy exchange with existing ecosystem (DLPack exchange with PyTorch)
+#
+#   .. code-block:: Python
+#
+#       # Convert PyTorch tensor to TVM NDArray
+#       x_tvm = tvm.nd.from_dlpack(x_torch.to_dlpack())
+#       # Convert TVM NDArray to PyTorch tensor
+#       x_torch = torch.from_dlpack(x_tvm.to_dlpack())
+#
+# - TVM runtime works in non-python environments, so it works on settings such as mobile
+#
+#   .. code-block:: C++
+#
+#       // C++ snippet
+#       runtime::Module vm = ex.GetFunction("load_executable")();
+#       vm.GetFunction("init")(...);
+#       NDArray out = vm.GetFunction("prefill")(data, weight, kv_cache);
+#
+#   .. code-block:: Java
+#
+#       // Java snippet
+#       Module vm = ex.getFunction("load_executable").invoke();
+#       vm.getFunction("init").pushArg(...).invoke;
+#       NDArray out = vm.getFunction("prefill").pushArg(data).pushArg(weight).pushArg(kv_cache).invoke();
+#
 
 ################################################################################
-# Relax VM supports timing evaluation. We can use the following code to get the
-# timing result.
-
-timing_res = vm.time_evaluator("main", dev)(tvm_data)
-print(timing_res)
+# Read next
+# ---------
+# This tutorial demonstrates the overall flow of using Apache TVM to compile a neural network model.
+# For more advanced or specific topics, please refer to the following tutorials:
+#
+# - If you want to convert a PyTorch model to TVM, please refer to TODOLINK
+# - If you want to optimize LLM models with TVM, please refer to TODOLINK
+#

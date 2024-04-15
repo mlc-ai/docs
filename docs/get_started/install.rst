@@ -17,28 +17,28 @@
 
 .. _install:
 
-Installing Apache TVM Unity
-===========================
+Installing Apache TVM
+=====================
 
 .. contents:: Table of Contents
     :local:
     :depth: 2
 
 Option 1. Prebuilt Package
----------------------------------------
-To help our community to use Apache TVM Unity, a nightly prebuilt developer package is provided by
+--------------------------
+To help our community to use Apache TVM, a nightly prebuilt developer package is provided by
 `MLC community <https://github.com/mlc-ai>`_
 
 Please visit the installation page for installation instructions: https://mlc.ai/package/.
 
 Option 2. Build from Source
 ---------------------------
-While it is generally recommended to always use the prebuilt TVM Unity, if you require more customization,
+While it is generally recommended to always use the prebuilt TVM, if you require more customization,
 you may need to build it from source.
 
 Step 1. Install Dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-TVM Unity requires the following dependencies:
+TVM requires the following dependencies:
 
 - CMake (>= 3.24.0)
 - LLVM (recommended >= 15)
@@ -59,17 +59,17 @@ For Ubuntu/Debian users, the following APT Repository may help:
 
 Step 2. Get Source from Github
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-First, You can also choose to clone the source repo from Github. The code of Apache TVM Unity is hosted
+First, You can also choose to clone the source repo from Github. The code of Apache TVM is hosted
 under the `Apache TVM <https://github.com/apache/tvm>`_
 
 .. code:: bash
 
-    git clone https://github.com/apache/tvm tvm-unity --recursive
+    git clone https://github.com/apache/tvm --recursive
 
 .. note::
-    It's important to use the ``--recursive`` flag when cloning the TVM Unity repository, which will
+    It's important to use the ``--recursive`` flag when cloning the TVM repository, which will
     automatically clone the submodules. If you forget to use this flag, you can manually clone the submodules
-    by running ``git submodule update --init --recursive`` in the root directory of the TVM Unity repository.
+    by running ``git submodule update --init --recursive`` in the root directory of the TVM repository.
 
 
 Step 3. Configure and Build
@@ -78,7 +78,7 @@ Create a build directory and run CMake to configure the build. The following exa
 
 .. code:: bash
 
-    cd tvm-unity
+    cd tvm
     rm -rf build && mkdir build && cd build
     # Specify the build configuration via CMake options
     cp ../cmake/config.cmake .
@@ -128,7 +128,7 @@ A success build should produce ``libtvm`` and ``libtvm_runtime`` under ``build/`
 
     .. code-tab :: bash Install via pip local project
 
-        cd /path-to-tvm-unity/python
+        cd /path-to-tvm/python
         pip install -e .
 
 Step 4. Validate Installation
@@ -141,7 +141,7 @@ Please the following code to validate the TVM installation:
 
 If the installation is successful, you should see the path to the TVM Python package printed out.
 
-Also, please verify you installed the Unity versions
+Also, please verify you installed the versions
 
 .. code:: bash
 
