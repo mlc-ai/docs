@@ -10,4 +10,4 @@ myst-parser==2.0.0
 matplotlib
 --pre
 --find-links https://mlc.ai/wheels
-mlc-ai-nightly-cu118
+mlc-ai-nightly-cu121
