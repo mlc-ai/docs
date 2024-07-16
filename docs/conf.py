@@ -312,11 +312,13 @@ html_static_path += [tlcpack_sphinx_addon.get_static_path()]
 # Sphinx-Gallery Settings
 examples_dirs = [
     f"{home_path}/get_started/tutorials",
+    f"{home_path}/how_to/tutorials/",
     f"{home_path}/deep_dive/tensor_ir/tutorials/",
 ]
 
 gallery_dirs = [
     "get_started/tutorials/",
+    "how_to/tutorials/",
     "deep_dive/tensor_ir/tutorials/",
 ]
 
